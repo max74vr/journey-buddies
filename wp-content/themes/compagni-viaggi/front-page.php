@@ -11,8 +11,8 @@ get_header();
     <section class="hero-section">
         <div class="container">
             <div class="hero-content">
-                <h1><?php echo esc_html(get_theme_mod('cdv_hero_title', 'Trova i Tuoi Compagni di Viaggio')); ?></h1>
-                <p><?php echo esc_html(get_theme_mod('cdv_hero_subtitle', 'Connettiti con viaggiatori che condividono le tue passioni. Organizza avventure indimenticabili insieme.')); ?></p>
+                <h1><?php echo esc_html(get_theme_mod('cdv_hero_title', 'Find Your Travel Buddies')); ?></h1>
+                <p><?php echo esc_html(get_theme_mod('cdv_hero_subtitle', 'Connect with travelers who share your passions. Organize unforgettable adventures together.')); ?></p>
 
                 <!-- Search Box -->
                 <div class="search-box">
@@ -20,14 +20,14 @@ get_header();
                         <input type="hidden" name="post_type" value="viaggio">
 
                         <div class="form-group">
-                            <label for="destination">Destinazione</label>
-                            <input type="text" id="destination" name="s" placeholder="Dove vuoi andare?">
+                            <label for="destination">Destination</label>
+                            <input type="text" id="destination" name="s" placeholder="Where do you want to go?">
                         </div>
 
                         <div class="form-group">
-                            <label for="travel_type">Tipo di Viaggio</label>
+                            <label for="travel_type">Journey Type</label>
                             <select id="travel_type" name="tipo_viaggio">
-                                <option value="">Tutti i tipi</option>
+                                <option value="">All types</option>
                                 <?php
                                 $types = get_terms(array(
                                     'taxonomy' => 'tipo_viaggio',
@@ -40,13 +40,13 @@ get_header();
                             </select>
                         </div>
 
-                        <button type="submit" class="btn-search">Cerca Viaggi</button>
+                        <button type="submit" class="btn-search">Search Journeys</button>
                     </form>
 
                     <!-- CTA Button -->
                     <div class="hero-cta" style="text-align: center; margin-top: calc(var(--spacing-unit) * 4);">
                         <a href="<?php echo esc_url(get_theme_mod('cdv_hero_button_url', '/crea-viaggio')); ?>" class="btn-primary btn-large" style="font-size: 1.1rem; padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 4); display: inline-flex; align-items: center; gap: calc(var(--spacing-unit) * 1); box-shadow: 0 4px 20px rgba(0,0,0,0.2);">
-                            <?php echo esc_html(get_theme_mod('cdv_hero_button_text', 'Inserisci il Tuo Annuncio')); ?>
+                            <?php echo esc_html(get_theme_mod('cdv_hero_button_text', 'Post Your Listing')); ?>
                         </a>
                     </div>
                 </div>
@@ -58,8 +58,8 @@ get_header();
     <section class="section">
         <div class="container">
             <div class="section-title">
-                <h2><?php echo esc_html(get_theme_mod('cdv_travels_title', 'Proposte di Viaggi')); ?></h2>
-                <p><?php echo esc_html(get_theme_mod('cdv_travels_subtitle', 'Scopri le prossime avventure e unisciti ai viaggiatori')); ?></p>
+                <h2><?php echo esc_html(get_theme_mod('cdv_travels_title', 'Journey Proposals')); ?></h2>
+                <p><?php echo esc_html(get_theme_mod('cdv_travels_subtitle', 'Discover upcoming adventures and join travelers')); ?></p>
             </div>
 
             <div class="grid">
@@ -90,7 +90,7 @@ get_header();
                 else :
                     ?>
                     <div class="no-travels">
-                        <p>Nessun viaggio disponibile al momento. <?php if (is_user_logged_in()) : ?><a href="<?php echo esc_url(home_url('/crea-viaggio')); ?>">Crea il primo annuncio!</a><?php endif; ?></p>
+                        <p>No journeys available at the moment. <?php if (is_user_logged_in()) : ?><a href="<?php echo esc_url(home_url('/crea-viaggio')); ?>">Create the first listing!</a><?php endif; ?></p>
                     </div>
                     <?php
                 endif;
@@ -99,7 +99,7 @@ get_header();
 
             <div class="text-center mt-3">
                 <a href="<?php echo esc_url(get_post_type_archive_link('viaggio')); ?>" class="btn-primary">
-                    <?php echo esc_html(get_theme_mod('cdv_travels_button_text', 'Vedi Tutti i Viaggi')); ?> →
+                    <?php echo esc_html(get_theme_mod('cdv_travels_button_text', 'View All Journeys')); ?> →
                 </a>
             </div>
         </div>
@@ -109,27 +109,27 @@ get_header();
     <section class="section how-it-works-section">
         <div class="container">
             <div class="section-title">
-                <h2><?php echo esc_html(get_theme_mod('cdv_how_title', 'Come Funziona')); ?></h2>
-                <p class="subtitle"><?php echo esc_html(get_theme_mod('cdv_how_subtitle', 'In pochi semplici passi puoi trovare i tuoi compagni di viaggio')); ?></p>
+                <h2><?php echo esc_html(get_theme_mod('cdv_how_title', 'How It Works')); ?></h2>
+                <p class="subtitle"><?php echo esc_html(get_theme_mod('cdv_how_subtitle', 'In a few simple steps you can find your travel buddies')); ?></p>
             </div>
 
             <div class="grid">
                 <div class="step-card">
                     <div class="step-number">1</div>
-                    <h3><?php echo esc_html(get_theme_mod('cdv_step1_title', '1. Crea il Tuo Profilo')); ?></h3>
-                    <p><?php echo esc_html(get_theme_mod('cdv_step1_text', 'Registrati e completa il tuo profilo con interessi, lingue parlate e stili di viaggio preferiti.')); ?></p>
+                    <h3><?php echo esc_html(get_theme_mod('cdv_step1_title', '1. Create Your Profile')); ?></h3>
+                    <p><?php echo esc_html(get_theme_mod('cdv_step1_text', 'Sign up and complete your profile with interests, languages spoken and preferred travel styles.')); ?></p>
                 </div>
 
                 <div class="step-card">
                     <div class="step-number">2</div>
-                    <h3><?php echo esc_html(get_theme_mod('cdv_step2_title', '2. Cerca o Crea un Viaggio')); ?></h3>
-                    <p><?php echo esc_html(get_theme_mod('cdv_step2_text', 'Cerca tra i viaggi disponibili o crea il tuo e aspetta che altri viaggiatori si uniscano.')); ?></p>
+                    <h3><?php echo esc_html(get_theme_mod('cdv_step2_title', '2. Search or Create a Journey')); ?></h3>
+                    <p><?php echo esc_html(get_theme_mod('cdv_step2_text', 'Search among available journeys or create your own and wait for other travelers to join.')); ?></p>
                 </div>
 
                 <div class="step-card">
                     <div class="step-number">3</div>
-                    <h3><?php echo esc_html(get_theme_mod('cdv_step3_title', '3. Connettiti e Organizza')); ?></h3>
-                    <p><?php echo esc_html(get_theme_mod('cdv_step3_text', 'Usa la chat di gruppo per conoscere i compagni di viaggio e organizzare i dettagli insieme.')); ?></p>
+                    <h3><?php echo esc_html(get_theme_mod('cdv_step3_title', '3. Connect and Organize')); ?></h3>
+                    <p><?php echo esc_html(get_theme_mod('cdv_step3_text', 'Use the group chat to get to know travel buddies and organize details together.')); ?></p>
                 </div>
             </div>
 
@@ -165,8 +165,8 @@ get_header();
     <section class="section" style="background-color: white;">
         <div class="container">
             <div class="section-title">
-                <h2>📖 <?php echo esc_html(get_theme_mod('cdv_stories_title', 'Racconti di Viaggio')); ?></h2>
-                <p><?php echo esc_html(get_theme_mod('cdv_stories_subtitle', 'Lasciati ispirare dalle esperienze dei nostri viaggiatori')); ?></p>
+                <h2>📖 <?php echo esc_html(get_theme_mod('cdv_stories_title', 'Travel Stories')); ?></h2>
+                <p><?php echo esc_html(get_theme_mod('cdv_stories_subtitle', 'Get inspired by our travelers' experiences')); ?></p>
             </div>
 
             <div class="stories-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: calc(var(--spacing-unit) * 4);">
@@ -187,7 +187,7 @@ get_header();
                 else :
                     ?>
                     <div class="no-stories" style="grid-column: 1 / -1; text-align: center; padding: calc(var(--spacing-unit) * 4) 0;">
-                        <p style="color: var(--text-medium);">Nessun racconto disponibile al momento.</p>
+                        <p style="color: var(--text-medium);">No stories available at the moment.</p>
                     </div>
                     <?php
                 endif;
@@ -197,7 +197,7 @@ get_header();
             <?php if ($recent_stories->found_posts > 0) : ?>
                 <div class="text-center mt-3">
                     <a href="<?php echo esc_url(home_url('/racconti')); ?>" class="btn-primary">
-                        <?php echo esc_html(get_theme_mod('cdv_stories_button_text', 'Vedi Tutti i Racconti')); ?> →
+                        <?php echo esc_html(get_theme_mod('cdv_stories_button_text', 'View All Stories')); ?> →
                     </a>
                 </div>
             <?php endif; ?>
@@ -217,22 +217,22 @@ get_header();
 
                 <div class="stat-item">
                     <div class="stat-number"><?php echo $total_travels; ?></div>
-                    <div class="stat-label">Viaggi Pubblicati</div>
+                    <div class="stat-label">Published Journeys</div>
                 </div>
 
                 <div class="stat-item">
                     <div class="stat-number"><?php echo $total_users; ?></div>
-                    <div class="stat-label">Viaggiatori</div>
+                    <div class="stat-label">Travelers</div>
                 </div>
 
                 <div class="stat-item">
                     <div class="stat-number"><?php echo $total_participants; ?></div>
-                    <div class="stat-label">Partecipazioni</div>
+                    <div class="stat-label">Participations</div>
                 </div>
 
                 <div class="stat-item">
                     <div class="stat-number">4.8</div>
-                    <div class="stat-label">Rating Medio</div>
+                    <div class="stat-label">Average Rating</div>
                 </div>
             </div>
 
@@ -260,17 +260,17 @@ get_header();
     <!-- CTA Section -->
     <section class="section cta-section" style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: white;">
         <div class="container text-center">
-            <h2 style="color: white;">Pronto per la Tua Prossima Avventura?</h2>
+            <h2 style="color: white;">Ready for Your Next Adventure?</h2>
             <p style="font-size: 1.2rem; margin-bottom: calc(var(--spacing-unit) * 4); opacity: 0.95;">
-                Unisciti a migliaia di viaggiatori che hanno già trovato i loro compagni di viaggio perfetti.
+                Join thousands of travelers who have already found their perfect travel buddies.
             </p>
             <?php if (is_user_logged_in()) : ?>
                 <a href="<?php echo esc_url(home_url('/crea-viaggio')); ?>" class="btn-primary">
-                    Crea il Tuo Annuncio
+                    Create Your Listing
                 </a>
             <?php else : ?>
                 <a href="<?php echo esc_url(home_url('/registrazione')); ?>" class="btn-primary">
-                    Registrati Gratis
+                    Sign Up Free
                 </a>
             <?php endif; ?>
         </div>

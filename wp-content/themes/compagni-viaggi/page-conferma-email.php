@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Conferma Email
+ * Template Name: Email Confirmation
  * Pagina per confermare l'indirizzo email
  */
 
@@ -26,31 +26,31 @@ if ($success) {
                 <!-- Successo -->
                 <div class="verification-success">
                     <div class="success-icon">✓</div>
-                    <h1>Email Confermata con Successo!</h1>
-                    <p>Il tuo indirizzo email è stato verificato correttamente.</p>
+                    <h1>Email Confirmed Successfully!</h1>
+                    <p>Your email address has been successfully verified.</p>
 
                     <div class="next-steps">
-                        <h3>🎉 Benvenuto su Compagni di Viaggi!</h3>
+                        <h3>🎉 Welcome to Journey Buddies!</h3>
                         <p><strong>Il tuo account è ora attivo e pronto all'uso.</strong></p>
-                        <p>Puoi iniziare subito a:</p>
+                        <p>You can now start:</p>
                         <ul style="text-align: left; display: inline-block;">
-                            <li>Cercare compagni di viaggio</li>
-                            <li>Creare i tuoi annunci di viaggio</li>
-                            <li>Partecipare ai viaggi di altri</li>
-                            <li>Condividere le tue esperienze</li>
+                            <li>Search for travel buddies</li>
+                            <li>Create your journey listings</li>
+                            <li>Join others journeys</li>
+                            <li>Share your experiences</li>
                         </ul>
                         <div class="action-buttons">
                             <?php if(is_user_logged_in()): ?>
                                 <a href="<?php echo home_url('/dashboard/'); ?>" class="btn btn-primary">
-                                    Vai alla Dashboard
+                                    Go to Dashboard
                                 </a>
                             <?php else: ?>
                                 <a href="<?php echo wp_login_url(); ?>" class="btn btn-primary">
-                                    Accedi Ora
+                                    Log In Now
                                 </a>
                             <?php endif; ?>
                             <a href="<?php echo get_post_type_archive_link('viaggio'); ?>" class="btn btn-secondary">
-                                Scopri i Viaggi
+                                Discover Journeys
                             </a>
                         </div>
                     </div>
@@ -60,24 +60,24 @@ if ($success) {
                 <!-- Errore -->
                 <div class="verification-error">
                     <div class="error-icon">✕</div>
-                    <h1>Errore di Verifica</h1>
+                    <h1>Verification Error</h1>
                     <p class="error-message"><?php echo esc_html($error); ?></p>
 
                     <div class="error-help">
-                        <h3>Cosa puoi fare:</h3>
+                        <h3>What you can do:</h3>
                         <ul>
                             <li>Controlla di aver cliccato sul link corretto dall'email</li>
-                            <li>Verifica che il link non sia scaduto (valido 24 ore)</li>
-                            <li>Richiedi una nuova email di verifica</li>
+                            <li>Verify that the link has not expired (valid 24 hours)</li>
+                            <li>Request a new verification email</li>
                         </ul>
 
                         <?php if (is_user_logged_in()) : ?>
                             <button class="btn btn-primary" id="resend-verification">
-                                Invia Nuova Email di Verifica
+                                Send New Verification Email
                             </button>
                         <?php else : ?>
                             <a href="<?php echo wp_login_url(); ?>" class="btn btn-secondary">
-                                Accedi per Richiedere Nuova Email
+                                Log In to Request New Email
                             </a>
                         <?php endif; ?>
                     </div>
@@ -87,13 +87,13 @@ if ($success) {
                 <!-- Nessun token -->
                 <div class="verification-waiting">
                     <div class="waiting-icon">📧</div>
-                    <h1>Conferma il tuo Indirizzo Email</h1>
-                    <p>Per completare la registrazione, clicca sul link che ti abbiamo inviato via email.</p>
+                    <h1>Confirm Your Email Address</h1>
+                    <p>To complete registration, click the link we sent you via email.</p>
 
                     <div class="help-section">
                         <h3>Non hai ricevuto l'email?</h3>
                         <ul>
-                            <li>Controlla la cartella spam o posta indesiderata</li>
+                            <li>Check your spam or junk folder</li>
                             <li>Verifica che l'indirizzo email sia corretto</li>
                             <li>Attendi qualche minuto, l'email potrebbe essere in ritardo</li>
                         </ul>
@@ -105,14 +105,14 @@ if ($success) {
                             ?>
 
                             <?php if (!$is_verified) : ?>
-                                <p><strong>Email registrata:</strong> <?php echo esc_html($current_user->user_email); ?></p>
+                                <p><strong>Registered email:</strong> <?php echo esc_html($current_user->user_email); ?></p>
                                 <button class="btn btn-primary" id="resend-verification">
-                                    Invia Nuova Email di Verifica
+                                    Send New Verification Email
                                 </button>
                             <?php else : ?>
-                                <p class="success-text">✓ La tua email è già stata verificata!</p>
+                                <p class="success-text">✓ Your email has already been verified!</p>
                                 <a href="<?php echo home_url('/dashboard/'); ?>" class="btn btn-primary">
-                                    Vai alla Dashboard
+                                    Go to Dashboard
                                 </a>
                             <?php endif; ?>
                         <?php else : ?>
@@ -263,7 +263,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (resendBtn) {
         resendBtn.addEventListener('click', function() {
             this.disabled = true;
-            this.textContent = 'Invio in corso...';
+            this.textContent = 'Sending...';
 
             jQuery.ajax({
                 url: cdvAjax.ajaxurl,
@@ -274,18 +274,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 success: function(response) {
                     if (response.success) {
-                        alert('Email di verifica inviata! Controlla la tua casella di posta.');
-                        resendBtn.textContent = 'Email Inviata ✓';
+                        alert('Verification email sent! Check your inbox.');
+                        resendBtn.textContent = 'Email Sent ✓';
                     } else {
                         alert('Errore: ' + (response.data || 'Impossibile inviare l\'email'));
                         resendBtn.disabled = false;
-                        resendBtn.textContent = 'Invia Nuova Email di Verifica';
+                        resendBtn.textContent = 'Send New Verification Email';
                     }
                 },
                 error: function() {
                     alert('Errore di connessione. Riprova più tardi.');
                     resendBtn.disabled = false;
-                    resendBtn.textContent = 'Invia Nuova Email di Verifica';
+                    resendBtn.textContent = 'Send New Verification Email';
                 }
             });
         });

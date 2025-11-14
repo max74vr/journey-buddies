@@ -1,7 +1,7 @@
 <?php
 /**
- * Template Name: Calendario Viaggi
- * Template per visualizzare i viaggi in formato calendario
+ * Template Name: Journey Calendar
+ * Template to display journeys in calendar format
  */
 
 get_header();
@@ -68,8 +68,8 @@ $today_url = remove_query_arg(array('month', 'year'));
 <main class="site-main calendar-page">
     <div class="page-header">
         <div class="container">
-            <h1>📅 Calendario Viaggi</h1>
-            <p>Esplora i viaggi disponibili per data</p>
+            <h1>📅 Journey Calendar</h1>
+            <p>Explore available journeys by date</p>
         </div>
     </div>
 
@@ -86,20 +86,20 @@ $today_url = remove_query_arg(array('month', 'year'));
         </div>
 
         <div class="calendar-actions">
-            <a href="<?php echo esc_url($today_url); ?>" class="btn btn-primary">Oggi</a>
-            <a href="<?php echo get_post_type_archive_link('viaggio'); ?>" class="btn btn-secondary">Vista Lista</a>
+            <a href="<?php echo esc_url($today_url); ?>" class="btn btn-primary">Today</a>
+            <a href="<?php echo get_post_type_archive_link('viaggio'); ?>" class="btn btn-secondary">List View</a>
         </div>
 
         <!-- Calendar Grid -->
         <div class="calendar-grid">
             <!-- Day headers -->
-            <div class="calendar-day-header">Lun</div>
-            <div class="calendar-day-header">Mar</div>
-            <div class="calendar-day-header">Mer</div>
-            <div class="calendar-day-header">Gio</div>
-            <div class="calendar-day-header">Ven</div>
-            <div class="calendar-day-header">Sab</div>
-            <div class="calendar-day-header">Dom</div>
+            <div class="calendar-day-header">Mon</div>
+            <div class="calendar-day-header">Tue</div>
+            <div class="calendar-day-header">Wed</div>
+            <div class="calendar-day-header">Thu</div>
+            <div class="calendar-day-header">Fri</div>
+            <div class="calendar-day-header">Sat</div>
+            <div class="calendar-day-header">Sun</div>
 
             <?php
             // Empty cells before first day
@@ -153,19 +153,19 @@ $today_url = remove_query_arg(array('month', 'year'));
 
         <!-- Legend -->
         <div class="calendar-legend">
-            <h3>Legenda</h3>
+            <h3>Legend</h3>
             <div class="legend-items">
                 <div class="legend-item">
-                    <span class="legend-color today-color"></span> Oggi
+                    <span class="legend-color today-color"></span> Today
                 </div>
                 <div class="legend-item">
-                    <span class="legend-color has-travels-color"></span> Giorni con viaggi
+                    <span class="legend-color has-travels-color"></span> Thurni con viaggi
                 </div>
                 <div class="legend-item">
-                    <span class="legend-color status-open"></span> Aperto
+                    <span class="legend-color status-open"></span> Open
                 </div>
                 <div class="legend-item">
-                    <span class="legend-color status-full"></span> Completo
+                    <span class="legend-color status-full"></span> Full
                 </div>
             </div>
         </div>

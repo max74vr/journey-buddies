@@ -11,8 +11,8 @@ get_header();
 <main class="site-main contact-page">
     <div class="page-header">
         <div class="container">
-            <h1>📧 Contattaci</h1>
-            <p>Siamo qui per aiutarti! Scrivici per qualsiasi domanda o suggerimento</p>
+            <h1>📧 Contact Us</h1>
+            <p>We are here to help! Write to us for any questions or suggestions</p>
         </div>
     </div>
 
@@ -22,8 +22,8 @@ get_header();
             <!-- Contact Form Section -->
             <div class="contact-form-section">
                 <div class="section-card">
-                    <h2>Invia un Messaggio</h2>
-                    <p>Compila il form qui sotto e ti risponderemo il prima possibile</p>
+                    <h2>Send a Message</h2>
+                    <p>Fill out the form below and we will respond as soon as possible</p>
 
                     <?php
                     // Display page content (where admin can add CF7 shortcode)
@@ -35,7 +35,7 @@ get_header();
                         // Fallback if no CF7 shortcode is added
                         ?>
                         <div class="no-form-message">
-                            <p><strong>📝 Nessun form di contatto configurato</strong></p>
+                            <p><strong>📝 No contact form configured</strong></p>
                             <p>L'amministratore può aggiungere un form Contact Form 7 modificando questa pagina e inserendo lo shortcode del form nel contenuto.</p>
                             <p>Esempio: <code>[contact-form-7 id="123" title="Contact form 1"]</code></p>
                         </div>
@@ -48,7 +48,7 @@ get_header();
 
                 <!-- Contact Info Card -->
                 <div class="sidebar-card">
-                    <h3>📍 Informazioni di Contatto</h3>
+                    <h3>📍 Contact Information</h3>
 
                     <div class="contact-info-list">
                         <div class="contact-info-item">
@@ -62,7 +62,7 @@ get_header();
                         <div class="contact-info-item">
                             <span class="info-icon">🌐</span>
                             <div class="info-content">
-                                <strong>Sito Web</strong>
+                                <strong>Website</strong>
                                 <a href="<?php echo esc_url(home_url('/')); ?>" target="_blank">
                                     <?php echo esc_html(parse_url(home_url('/'), PHP_URL_HOST)); ?>
                                 </a>
@@ -72,8 +72,8 @@ get_header();
                         <div class="contact-info-item">
                             <span class="info-icon">🕐</span>
                             <div class="info-content">
-                                <strong>Orari Risposta</strong>
-                                <p>Lun-Ven: 9:00 - 18:00<br>Sab-Dom: Chiuso</p>
+                                <strong>Response Hours</strong>
+                                <p>Mon-Fri: 9:00 AM - 6:00 PM<br>Sat-Sun: Closed</p>
                             </div>
                         </div>
                     </div>
@@ -81,27 +81,27 @@ get_header();
 
                 <!-- FAQ Card -->
                 <div class="sidebar-card">
-                    <h3>❓ Domande Frequenti</h3>
+                    <h3>❓ Frequently Asked Questions</h3>
 
                     <div class="faq-list">
                         <details class="faq-item">
-                            <summary>Come funziona la piattaforma?</summary>
-                            <p>Compagni di Viaggi è una piattaforma che mette in contatto persone che vogliono viaggiare insieme. Gli organizzatori pubblicano i loro viaggi e i viaggiatori interessati possono richiedere di partecipare.</p>
+                            <summary>How does the platform work?</summary>
+                            <p>Journey Buddies is a platform that connects people who want to travel together. Organizers post their journeys and interested travelers can request to join.</p>
                         </details>
 
                         <details class="faq-item">
-                            <summary>È sicuro viaggiare con sconosciuti?</summary>
+                            <summary>Is it safe to travel with strangers?</summary>
                             <p>La piattaforma facilita l'incontro ma la responsabilità di organizzare e partecipare ai viaggi è degli utenti. Ti consigliamo di verificare sempre l'identità e l'affidabilità delle persone prima di impegnarti.</p>
                         </details>
 
                         <details class="faq-item">
-                            <summary>Quanto costa usare la piattaforma?</summary>
-                            <p>La registrazione e l'utilizzo base della piattaforma sono completamente gratuiti. Gli eventuali costi sono relativi ai viaggi stessi (trasporti, alloggi, etc).</p>
+                            <summary>How much does it cost to use the platform?</summary>
+                            <p>La registrazione e l'utilizzo base della piattaforma sono completamente gratuiti. Any costs are related to the journeys themselves (transport, accommodation, etc).</p>
                         </details>
 
                         <details class="faq-item">
-                            <summary>Come posso segnalare un problema?</summary>
-                            <p>Puoi usare questo form di contatto oppure segnalare contenuti inappropriati direttamente dalla pagina del viaggio usando i pulsanti di moderazione.</p>
+                            <summary>How can I report a problem?</summary>
+                            <p>You can use this contact form or report inappropriate content directly from the journey page usando i pulsanti di moderazione.</p>
                         </details>
                     </div>
                 </div>

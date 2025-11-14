@@ -33,11 +33,11 @@ get_header();
         <?php else : ?>
             <section class="no-results not-found">
                 <header class="page-header">
-                    <h1 class="page-title"><?php esc_html_e('Nessun risultato trovato', 'compagni-viaggi'); ?></h1>
+                    <h1 class="page-title"><?php esc_html_e('No Results Found', 'compagni-viaggi'); ?></h1>
                 </header>
 
                 <div class="page-content">
-                    <p><?php esc_html_e('Non è stato trovato nulla. Prova con una ricerca diversa.', 'compagni-viaggi'); ?></p>
+                    <p><?php esc_html_e('Nothing was found. Try a different search.', 'compagni-viaggi'); ?></p>
                     <?php get_search_form(); ?>
                 </div>
             </section>

@@ -24,7 +24,7 @@
             <?php if (is_user_logged_in()) : ?>
                 <button class="wishlist-btn-inline <?php echo CDV_Wishlist::is_in_wishlist(get_current_user_id(), get_the_ID()) ? 'active' : ''; ?>"
                         data-travel-id="<?php the_ID(); ?>"
-                        title="<?php echo CDV_Wishlist::is_in_wishlist(get_current_user_id(), get_the_ID()) ? 'Rimuovi dalla wishlist' : 'Aggiungi alla wishlist'; ?>">
+                        title="<?php echo CDV_Wishlist::is_in_wishlist(get_current_user_id(), get_the_ID()) ? 'Remove from wishlist' : 'Add to wishlist'; ?>">
                     <span class="wishlist-icon"><?php echo CDV_Wishlist::is_in_wishlist(get_current_user_id(), get_the_ID()) ? '❤️' : '🤍'; ?></span>
                 </button>
             <?php endif; ?>
@@ -44,7 +44,7 @@
             <?php cdv_organizer_info(get_the_author_meta('ID')); ?>
 
             <a href="<?php the_permalink(); ?>" class="travel-details-link">
-                Vedi Dettagli →
+                View Details →
             </a>
         </div>
     </div>
@@ -255,22 +255,22 @@ jQuery(document).ready(function($) {
                     if (isActive) {
                         $btn.removeClass('active');
                         $btn.find('.wishlist-icon').text('🤍');
-                        $btn.attr('title', 'Aggiungi alla wishlist');
+                        $btn.attr('title', 'Add to wishlist');
                     } else {
                         $btn.addClass('active');
                         $btn.find('.wishlist-icon').text('❤️');
-                        $btn.attr('title', 'Rimuovi dalla wishlist');
+                        $btn.attr('title', 'Remove from wishlist');
                     }
 
                     // Show brief feedback
-                    const message = isActive ? 'Rimosso dalla wishlist' : 'Aggiunto alla wishlist';
+                    const message = isActive ? 'Removed from wishlist' : 'Added to wishlist';
                     if (typeof cdv_show_notification === 'function') {
                         cdv_show_notification(message, 'success');
                     }
                 }
             },
             error: function() {
-                alert('Errore durante l\'operazione. Riprova.');
+                alert('Error during operation. Please try again.');
             },
             complete: function() {
                 $btn.prop('disabled', false);

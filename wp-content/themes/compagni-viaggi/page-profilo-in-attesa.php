@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Profilo in Attesa
+ * Template Name: Pending Profile
  *
  * Page shown to users awaiting approval
  */
@@ -32,25 +32,25 @@ get_header();
                 <span class="hourglass">⏳</span>
             </div>
 
-            <h1>Il tuo profilo è in attesa di approvazione</h1>
+            <h1>Your profile is pending approval</h1>
 
-            <p class="subtitle">Grazie per esserti registrato su Compagni di Viaggi!</p>
+            <p class="subtitle">Thank you for registering on Journey Buddies!</p>
 
             <div class="status-box">
                 <div class="status-header">
-                    <strong>Stato Registrazione:</strong>
-                    <span class="status-badge pending">In Attesa</span>
+                    <strong>Registration Status:</strong>
+                    <span class="status-badge pending">Pending</span>
                 </div>
 
                 <div class="status-content">
-                    <p>Il nostro team sta verificando il tuo profilo per garantire la sicurezza della community.</p>
-                    <p>Riceverai un'email non appena il tuo account verrà approvato, di solito entro 24 ore.</p>
+                    <p>Our team is verifying your profile to ensure community safety.</p>
+                    <p>You will receive an email as soon as your account is approved, usually within 24 hours.</p>
                 </div>
 
                 <!-- Profile Completion -->
                 <div class="profile-completion-box">
                     <div class="completion-header">
-                        <strong>Completamento Profilo</strong>
+                        <strong>Profile Completion</strong>
                         <span><?php echo $profile_completion; ?>%</span>
                     </div>
 
@@ -60,7 +60,7 @@ get_header();
 
                     <?php if ($profile_completion < 100) : ?>
                         <p class="help-text">
-                            <small>Un profilo completo ha più probabilità di essere approvato rapidamente!</small>
+                            <small>A complete profile is more likely to be approved quickly!</small>
                         </p>
                     <?php endif; ?>
                 </div>
@@ -69,48 +69,48 @@ get_header();
             <div class="info-grid">
                 <div class="info-card">
                     <div class="icon">✓</div>
-                    <h3>Account Creato</h3>
-                    <p>Il tuo account è stato creato con successo</p>
+                    <h3>Account Created</h3>
+                    <p>Your account has been successfully created</p>
                 </div>
 
                 <div class="info-card">
                     <div class="icon">👤</div>
-                    <h3>Profilo Compilato</h3>
-                    <p>Hai completato il <?php echo $profile_completion; ?>% del profilo</p>
+                    <h3>Profile Filled</h3>
+                    <p>You have completed <?php echo $profile_completion; ?>% of your profile</p>
                 </div>
 
                 <div class="info-card">
                     <div class="icon">📧</div>
-                    <h3>Email di Conferma</h3>
-                    <p>Riceverai una email alla approvazione</p>
+                    <h3>Confirmation Email</h3>
+                    <p>You will receive an email upon approval</p>
                 </div>
             </div>
 
             <div class="what-next">
-                <h2>Cosa succede ora?</h2>
+                <h2>What happens now?</h2>
 
                 <div class="steps-list">
                     <div class="step-item">
                         <div class="step-number">1</div>
                         <div class="step-content">
-                            <h4>Verificheremo il tuo profilo</h4>
-                            <p>Il nostro team controllerà che tutte le informazioni siano complete e conformi alle nostre linee guida.</p>
+                            <h4>We will verify your profile</h4>
+                            <p>Our team will check that all information is complete and complies with our guidelines.</p>
                         </div>
                     </div>
 
                     <div class="step-item">
                         <div class="step-number">2</div>
                         <div class="step-content">
-                            <h4>Riceverai una conferma</h4>
-                            <p>Ti invieremo un'email a <strong><?php echo wp_get_current_user()->user_email; ?></strong> appena il tuo account sarà approvato.</p>
+                            <h4>You will receive a confirmation</h4>
+                            <p>We will send you an email to <strong><?php echo wp_get_current_user()->user_email; ?></strong> as soon as your account is approved.</p>
                         </div>
                     </div>
 
                     <div class="step-item">
                         <div class="step-number">3</div>
                         <div class="step-content">
-                            <h4>Potrai iniziare a viaggiare!</h4>
-                            <p>Dopo l'approvazione potrai cercare viaggi, creare annunci, unirti a gruppi e molto altro!</p>
+                            <h4>You can start traveling!</h4>
+                            <p>After approval you can search for journeys, create listings, join groups and much more!</p>
                         </div>
                     </div>
                 </div>
@@ -118,14 +118,14 @@ get_header();
 
             <div class="actions-box">
                 <?php if ($profile_completion < 100) : ?>
-                    <a href="<?php echo get_edit_user_link(); ?>" class="btn-primary">Completa il Profilo</a>
+                    <a href="<?php echo get_edit_user_link(); ?>" class="btn-primary">Complete Profile</a>
                 <?php endif; ?>
 
-                <a href="<?php echo wp_logout_url(home_url()); ?>" class="btn-secondary">Esci</a>
+                <a href="<?php echo wp_logout_url(home_url()); ?>" class="btn-secondary">Log Out</a>
             </div>
 
             <div class="help-box">
-                <p><strong>Domande?</strong> Contattaci a <a href="mailto:<?php echo get_option('admin_email'); ?>"><?php echo get_option('admin_email'); ?></a></p>
+                <p><strong>Questions?</strong> Contact us at <a href="mailto:<?php echo get_option('admin_email'); ?>"><?php echo get_option('admin_email'); ?></a></p>
             </div>
         </div>
     </div>

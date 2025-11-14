@@ -48,13 +48,13 @@ $categories = get_the_terms(get_the_ID(), 'categoria_racconto');
 
                 <div class="story-stats">
                     <?php if ($stats['views'] > 0) : ?>
-                        <span class="stat" title="Visualizzazioni">
+                        <span class="stat" title="Views">
                             <span class="icon">👁</span>
                             <?php echo number_format_i18n($stats['views']); ?>
                         </span>
                     <?php endif; ?>
                     <?php if ($stats['comments'] > 0) : ?>
-                        <span class="stat" title="Commenti">
+                        <span class="stat" title="Comments">
                             <span class="icon">💬</span>
                             <?php echo number_format_i18n($stats['comments']); ?>
                         </span>

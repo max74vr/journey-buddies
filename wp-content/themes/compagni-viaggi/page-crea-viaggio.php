@@ -1,7 +1,7 @@
 <?php
 /**
- * Template Name: Crea Viaggio
- * Description: Form per creare un nuovo viaggio
+ * Template Name: Create Journey
+ * Description: Form to create a new journey
  */
 
 // Check if user is logged in
@@ -25,38 +25,38 @@ get_header();
         <div class="container">
             <div class="create-travel-wrapper">
                 <div class="page-header">
-                    <h1>Crea un Nuovo Viaggio</h1>
-                    <p>Compila il form per proporre il tuo viaggio e trovare compagni di avventura!</p>
+                    <h1>Create a New Journey</h1>
+                    <p>Fill out the form to propose your journey and find adventure companions!</p>
                 </div>
 
                 <form id="create-travel-form" class="travel-form">
                     <div class="form-section">
-                        <h3>Informazioni Generali</h3>
+                        <h3>General Information</h3>
 
                         <div class="form-group">
-                            <label for="travel_title">Titolo del Viaggio <span class="required">*</span></label>
-                            <input type="text" id="travel_title" name="travel_title" required placeholder="Es: Weekend a Venezia, Road Trip in Toscana">
+                            <label for="travel_title">Journey Title <span class="required">*</span></label>
+                            <input type="text" id="travel_title" name="travel_title" required placeholder="e.g., Weekend in Venice, Road Trip in Tuscany">
                         </div>
 
                         <div class="form-group">
-                            <label for="travel_description">Descrizione <span class="required">*</span></label>
-                            <textarea id="travel_description" name="travel_description" rows="6" required placeholder="Descrivi il tuo viaggio: destinazioni, attività previste, cosa rende speciale questa esperienza..."></textarea>
+                            <label for="travel_description">Description <span class="required">*</span></label>
+                            <textarea id="travel_description" name="travel_description" rows="6" required placeholder="Describe your journey: destinations, planned activities, what makes this experience special..."></textarea>
                         </div>
                     </div>
 
                     <div class="form-section">
-                        <h3>Destinazione</h3>
+                        <h3>Destination</h3>
 
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="travel_destination">Destinazione <span class="required">*</span></label>
-                                <input type="text" id="travel_destination" name="travel_destination" required placeholder="Es: Venezia, Toscana">
+                                <label for="travel_destination">Destination <span class="required">*</span></label>
+                                <input type="text" id="travel_destination" name="travel_destination" required placeholder="e.g., Venice, Tuscany">
                             </div>
 
                             <div class="form-group">
-                                <label for="travel_country_select">Paese <span class="required">*</span></label>
+                                <label for="travel_country_select">Country <span class="required">*</span></label>
                                 <select id="travel_country_select" name="travel_country_select" required>
-                                    <option value="">Seleziona un paese</option>
+                                    <option value="">Select a country</option>
 
                                     <optgroup label="🇪🇺 Europa">
                                         <option value="Italia">Italia</option>
@@ -165,11 +165,11 @@ get_header();
                                         <option value="Fiji">Fiji</option>
                                     </optgroup>
 
-                                    <option value="altro">📝 Altro (specifica)</option>
+                                    <option value="altro">📝 Other (specify)</option>
                                 </select>
 
-                                <!-- Campo "Altro" che appare quando selezionato -->
-                                <input type="text" id="travel_country_other" name="travel_country_other" style="display: none; margin-top: 10px;" placeholder="Specifica il paese">
+                                <!-- "Other" field that appears when selected -->
+                                <input type="text" id="travel_country_other" name="travel_country_other" style="display: none; margin-top: 10px;" placeholder="Specify country">
 
                                 <!-- Hidden field che conterrà il valore finale -->
                                 <input type="hidden" id="travel_country" name="travel_country">
@@ -178,18 +178,18 @@ get_header();
                     </div>
 
                     <div class="form-section">
-                        <h3>Quando Partire</h3>
+                        <h3>When to Depart</h3>
 
                         <div class="form-group">
-                            <label>Tipo di Data <span class="required">*</span></label>
+                            <label>Date Type <span class="required">*</span></label>
                             <div class="radio-group" style="display: flex; gap: calc(var(--spacing-unit) * 3); margin-bottom: calc(var(--spacing-unit) * 2);">
                                 <label style="display: flex; align-items: center; gap: calc(var(--spacing-unit) * 1); cursor: pointer;">
                                     <input type="radio" name="date_type" value="precise" checked>
-                                    <span>Date precise</span>
+                                    <span>Precise dates</span>
                                 </label>
                                 <label style="display: flex; align-items: center; gap: calc(var(--spacing-unit) * 1); cursor: pointer;">
                                     <input type="radio" name="date_type" value="month">
-                                    <span>Solo mese (date flessibili)</span>
+                                    <span>Month only (flexible dates)</span>
                                 </label>
                             </div>
                         </div>
@@ -197,12 +197,12 @@ get_header();
                         <div id="precise-dates-container">
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="travel_start_date">Data Inizio <span class="required">*</span></label>
+                                    <label for="travel_start_date">Start Date <span class="required">*</span></label>
                                     <input type="date" id="travel_start_date" name="travel_start_date" min="<?php echo date('Y-m-d'); ?>">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="travel_end_date">Data Fine <span class="required">*</span></label>
+                                    <label for="travel_end_date">End Date <span class="required">*</span></label>
                                     <input type="date" id="travel_end_date" name="travel_end_date" min="<?php echo date('Y-m-d'); ?>">
                                 </div>
                             </div>
@@ -210,15 +210,15 @@ get_header();
 
                         <div id="month-container" style="display: none;">
                             <div class="form-group">
-                                <label for="travel_month">Mese di Partenza <span class="required">*</span></label>
+                                <label for="travel_month">Departure Month <span class="required">*</span></label>
                                 <select id="travel_month" name="travel_month">
-                                    <option value="">Seleziona il mese</option>
+                                    <option value="">Select month</option>
                                     <?php
                                     $months = array(
-                                        '01' => 'Gennaio', '02' => 'Febbraio', '03' => 'Marzo',
-                                        '04' => 'Aprile', '05' => 'Maggio', '06' => 'Giugno',
-                                        '07' => 'Luglio', '08' => 'Agosto', '09' => 'Settembre',
-                                        '10' => 'Ottobre', '11' => 'Novembre', '12' => 'Dicembre'
+                                        '01' => 'January', '02' => 'February', '03' => 'March',
+                                        '04' => 'April', '05' => 'May', '06' => 'June',
+                                        '07' => 'July', '08' => 'August', '09' => 'September',
+                                        '10' => 'October', '11' => 'November', '12' => 'December'
                                     );
                                     $current_month = (int)date('n');
                                     $current_year = (int)date('Y');
@@ -237,7 +237,7 @@ get_header();
                                     ?>
                                 </select>
                                 <small style="display: block; margin-top: calc(var(--spacing-unit) * 0.5); color: #666;">
-                                    Il viaggio sarà disponibile per tutto il mese selezionato (date flessibili)
+                                    The journey will be available for the entire selected month (flexible dates)
                                 </small>
                             </div>
                         </div>
@@ -246,19 +246,19 @@ get_header();
 
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="travel_budget">Budget per Persona (€) <span class="required">*</span></label>
+                                <label for="travel_budget">Budget per Person (€) <span class="required">*</span></label>
                                 <input type="number" id="travel_budget" name="travel_budget" min="0" required placeholder="500">
                             </div>
 
                             <div class="form-group">
-                                <label for="travel_max_participants">Max Partecipanti <span class="required">*</span></label>
+                                <label for="travel_max_participants">Max Participants <span class="required">*</span></label>
                                 <input type="number" id="travel_max_participants" name="travel_max_participants" min="2" max="50" value="5" required>
                             </div>
                         </div>
                     </div>
 
                     <div class="form-section">
-                        <h3>Tipo di Viaggio</h3>
+                        <h3>Journey Type</h3>
                         <div class="checkbox-group">
                             <?php
                             $travel_types = get_terms(array(
@@ -280,20 +280,20 @@ get_header();
                     </div>
 
                     <div class="form-section">
-                        <h3>Dettagli Aggiuntivi <span style="font-weight: normal; font-size: 0.9rem; color: var(--text-medium);">(Facoltativi)</span></h3>
-                        <p style="color: var(--text-medium); margin-bottom: calc(var(--spacing-unit) * 3);">Questi dettagli aiutano i viaggiatori a capire meglio il viaggio</p>
+                        <h3>Additional Details <span style="font-weight: normal; font-size: 0.9rem; color: var(--text-medium);">(Optional)</span></h3>
+                        <p style="color: var(--text-medium); margin-bottom: calc(var(--spacing-unit) * 3);">These details help travelers better understand the journey</p>
 
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="travel_transport">🚗 Mezzi di Trasporto</label>
+                                <label for="travel_transport">🚗 Transportation</label>
                                 <div class="checkbox-group" style="grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));">
                                     <label>
                                         <input type="checkbox" name="travel_transport[]" value="aereo">
-                                        ✈️ Aereo
+                                        ✈️ Plane
                                     </label>
                                     <label>
                                         <input type="checkbox" name="travel_transport[]" value="treno">
-                                        🚂 Treno
+                                        🚂 Train
                                     </label>
                                     <label>
                                         <input type="checkbox" name="travel_transport[]" value="bus">
@@ -301,15 +301,15 @@ get_header();
                                     </label>
                                     <label>
                                         <input type="checkbox" name="travel_transport[]" value="auto_propria">
-                                        🚗 Auto propria
+                                        🚗 Own car
                                     </label>
                                     <label>
                                         <input type="checkbox" name="travel_transport[]" value="auto_noleggio">
-                                        🚙 Auto a noleggio
+                                        🚙 Rental car
                                     </label>
                                     <label>
                                         <input type="checkbox" name="travel_transport[]" value="nave">
-                                        🚢 Nave/Traghetto
+                                        🚢 Boat/Ferry
                                     </label>
                                 </div>
                             </div>
@@ -317,86 +317,86 @@ get_header();
 
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="travel_accommodation">🏨 Tipologia Alloggio</label>
+                                <label for="travel_accommodation">🏨 Accommodation Type</label>
                                 <select id="travel_accommodation" name="travel_accommodation">
-                                    <option value="">Non specificato</option>
+                                    <option value="">Not specified</option>
                                     <option value="hotel">Hotel</option>
-                                    <option value="ostello">Ostello</option>
+                                    <option value="ostello">Hostel</option>
                                     <option value="bb">B&B</option>
-                                    <option value="airbnb">Airbnb/Casa vacanze</option>
-                                    <option value="camping">Camping/Tenda</option>
-                                    <option value="rifugio">Rifugio</option>
-                                    <option value="misto">Misto</option>
-                                    <option value="altro">Altro</option>
+                                    <option value="airbnb">Airbnb/Vacation home</option>
+                                    <option value="camping">Camping/Tent</option>
+                                    <option value="rifugio">Mountain hut</option>
+                                    <option value="misto">Mixed</option>
+                                    <option value="altro">Other</option>
                                 </select>
                             </div>
 
                             <div class="form-group">
-                                <label for="travel_difficulty">📈 Livello di Difficoltà</label>
+                                <label for="travel_difficulty">📈 Difficulty Level</label>
                                 <select id="travel_difficulty" name="travel_difficulty">
-                                    <option value="">Non specificato</option>
-                                    <option value="facile">Facile - Per tutti</option>
-                                    <option value="moderato">Moderato - Serve minima preparazione</option>
-                                    <option value="impegnativo">Impegnativo - Richiede buona forma fisica</option>
-                                    <option value="molto_impegnativo">Molto impegnativo - Solo esperti</option>
+                                    <option value="">Not specified</option>
+                                    <option value="facile">Easy - For everyone</option>
+                                    <option value="moderato">Moderate - Minimal preparation needed</option>
+                                    <option value="impegnativo">Challenging - Requires good physical fitness</option>
+                                    <option value="molto_impegnativo">Very challenging - Experts only</option>
                                 </select>
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="travel_meals">🍽️ Pasti</label>
+                                <label for="travel_meals">🍽️ Meals</label>
                                 <select id="travel_meals" name="travel_meals">
-                                    <option value="">Non specificato</option>
-                                    <option value="non_inclusi">Non inclusi</option>
-                                    <option value="colazione">Solo colazione inclusa</option>
-                                    <option value="mezza_pensione">Mezza pensione</option>
-                                    <option value="pensione_completa">Pensione completa</option>
+                                    <option value="">Not specified</option>
+                                    <option value="non_inclusi">Not included</option>
+                                    <option value="colazione">Breakfast only included</option>
+                                    <option value="mezza_pensione">Half board</option>
+                                    <option value="pensione_completa">Full board</option>
                                 </select>
                             </div>
 
                             <div class="form-group">
-                                <label for="travel_guide_type">👥 Organizzazione</label>
+                                <label for="travel_guide_type">👥 Organization</label>
                                 <select id="travel_guide_type" name="travel_guide_type">
-                                    <option value="">Non specificato</option>
-                                    <option value="autonomo">Viaggio autonomo</option>
-                                    <option value="guida_locale">Con guida locale</option>
-                                    <option value="tour_organizzato">Tour organizzato</option>
+                                    <option value="">Not specified</option>
+                                    <option value="autonomo">Independent journey</option>
+                                    <option value="guida_locale">With local guide</option>
+                                    <option value="tour_organizzato">Organized tour</option>
                                 </select>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="travel_requirements">📝 Requisiti e Note Particolari</label>
-                            <textarea id="travel_requirements" name="travel_requirements" rows="4" placeholder="Es: Documenti necessari (visto, passaporto), vaccinazioni richieste, equipaggiamento speciale, requisiti fisici specifici..."></textarea>
-                            <small style="display: block; margin-top: 8px; color: #666;">Inserisci qui eventuali requisiti particolari, documenti necessari o informazioni importanti per i partecipanti</small>
+                            <label for="travel_requirements">📝 Requirements and Special Notes</label>
+                            <textarea id="travel_requirements" name="travel_requirements" rows="4" placeholder="e.g., Required documents (visa, passport), required vaccinations, special equipment, specific physical requirements..."></textarea>
+                            <small style="display: block; margin-top: 8px; color: #666;">Enter any special requirements, necessary documents or important information for participants</small>
                         </div>
                     </div>
 
                     <div class="form-section">
                         <div class="disclaimer-box" style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 20px; border-radius: 8px; margin-bottom: 30px;">
-                            <h4 style="margin-top: 0; color: #856404;">⚠️ Informativa Importante</h4>
-                            <p style="margin-bottom: 15px;">Pubblicando questo viaggio, dichiari di comprendere e accettare che:</p>
+                            <h4 style="margin-top: 0; color: #856404;">⚠️ Important Notice</h4>
+                            <p style="margin-bottom: 15px;">By publishing this journey, you declare that you understand and accept that:</p>
                             <ul style="margin: 0; padding-left: 20px;">
-                                <li style="margin-bottom: 8px;">La piattaforma <strong>facilita l'incontro tra viaggiatori</strong> ma non organizza materialmente i viaggi</li>
-                                <li style="margin-bottom: 8px;">Sei <strong>l'unico responsabile</strong> per l'organizzazione, la sicurezza e la gestione del viaggio</li>
-                                <li style="margin-bottom: 8px;">Devi verificare <strong>personalmente</strong> l'identità e l'affidabilità dei partecipanti</li>
-                                <li style="margin-bottom: 8px;">La piattaforma <strong>non è responsabile</strong> per comportamenti, danni, cancellazioni o disservizi</li>
-                                <li style="margin-bottom: 8px;">Tutte le <strong>questioni economiche e logistiche</strong> sono gestite direttamente tra te e i partecipanti</li>
-                                <li style="margin-bottom: 8px;">Devi rispettare tutte le <strong>leggi locali e internazionali</strong> applicabili al viaggio</li>
+                                <li style="margin-bottom: 8px;">The platform <strong>facilitates meetings between travelers</strong> but does not materially organize journeys</li>
+                                <li style="margin-bottom: 8px;">You are <strong>solely responsible</strong> for the organization, safety and management of the journey</li>
+                                <li style="margin-bottom: 8px;">You must <strong>personally</strong> verify the identity and reliability of participants</li>
+                                <li style="margin-bottom: 8px;">The platform <strong>is not responsible</strong> for behavior, damages, cancellations or issues</li>
+                                <li style="margin-bottom: 8px;">All <strong>financial and logistical matters</strong> are handled directly between you and the participants</li>
+                                <li style="margin-bottom: 8px;">You must respect all applicable <strong>local and international laws</strong> related to the journey</li>
                             </ul>
                             <div style="margin-top: 15px;">
                                 <label style="display: flex; align-items: start; gap: 10px; cursor: pointer;">
                                     <input type="checkbox" id="accept_travel_disclaimer" name="accept_travel_disclaimer" required style="margin-top: 4px;">
-                                    <span>Ho letto e accetto l'informativa. Comprendo che sono l'unico responsabile per questo viaggio e sollevo la piattaforma da ogni responsabilità.</span>
+                                    <span>I have read and accept the notice. I understand that I am solely responsible for this journey and release the platform from all liability.</span>
                                 </label>
                             </div>
                         </div>
                     </div>
 
                     <div class="form-actions">
-                        <a href="<?php echo esc_url(home_url('/dashboard')); ?>" class="btn-secondary">Annulla</a>
-                        <button type="submit" class="btn-primary btn-large">Crea Annuncio 🚀</button>
+                        <a href="<?php echo esc_url(home_url('/dashboard')); ?>" class="btn-secondary">Cancel</a>
+                        <button type="submit" class="btn-primary btn-large">Create Post 🚀</button>
                     </div>
 
                     <div id="form-messages" style="margin-top: 20px;"></div>
@@ -632,12 +632,12 @@ jQuery(document).ready(function($) {
             const endDate = $('#travel_end_date').val();
 
             if (!startDate || !endDate) {
-                $messages.html('<div class="error-message">Inserisci sia la data di inizio che di fine.</div>');
+                $messages.html('<div class="error-message">Enter both start and end dates.</div>');
                 return;
             }
 
             if (new Date(endDate) <= new Date(startDate)) {
-                $messages.html('<div class="error-message">La data di fine deve essere successiva alla data di inizio.</div>');
+                $messages.html('<div class="error-message">End date must be after start date.</div>');
                 return;
             }
 
@@ -648,7 +648,7 @@ jQuery(document).ready(function($) {
             const monthValue = $('#travel_month').val();
 
             if (!monthValue) {
-                $messages.html('<div class="error-message">Seleziona il mese di partenza.</div>');
+                $messages.html('<div class="error-message">Select departure month.</div>');
                 return;
             }
 
@@ -657,8 +657,8 @@ jQuery(document).ready(function($) {
         }
 
         // Disable submit button and show validation message
-        $submitBtn.prop('disabled', true).text('Validazione indirizzo...');
-        $messages.html('<div class="info-message">🔍 Verifica che l\'indirizzo esista...</div>');
+        $submitBtn.prop('disabled', true).text('Validating address...');
+        $messages.html('<div class="info-message">🔍 Verifying that the address exists...</div>');
 
         // First, validate the address with geocoding
         $.ajax({
@@ -673,8 +673,8 @@ jQuery(document).ready(function($) {
             success: function(validationResponse) {
                 if (validationResponse.success) {
                     // Address is valid, proceed with travel creation
-                    $submitBtn.text('Creazione in corso...');
-                    $messages.html('<div class="success-message">✅ Indirizzo valido! Creazione viaggio in corso...</div>');
+                    $submitBtn.text('Creating...');
+                    $messages.html('<div class="success-message">✅ Valid address! Creating journey...</div>');
 
                     $.ajax({
                         url: cdvAjax.ajaxurl,
@@ -690,25 +690,25 @@ jQuery(document).ready(function($) {
                                 }, 1500);
                             } else {
                                 $messages.html('<div class="error-message">' + response.data.message + '</div>');
-                                $submitBtn.prop('disabled', false).text('Crea Annuncio 🚀');
+                                $submitBtn.prop('disabled', false).text('Create Post 🚀');
                             }
                         },
                         error: function() {
-                            $messages.html('<div class="error-message">Si è verificato un errore. Riprova più tardi.</div>');
-                            $submitBtn.prop('disabled', false).text('Crea Annuncio 🚀');
+                            $messages.html('<div class="error-message">An error occurred. Please try again later.</div>');
+                            $submitBtn.prop('disabled', false).text('Create Post 🚀');
                         }
                     });
                 } else {
                     // Address validation failed
                     $messages.html('<div class="error-message">❌ ' + validationResponse.data.message + '</div>');
-                    $submitBtn.prop('disabled', false).text('Crea Annuncio 🚀');
+                    $submitBtn.prop('disabled', false).text('Create Post 🚀');
                 }
             },
             error: function() {
                 // Validation request failed, but allow creation anyway (fallback)
                 console.warn('Address validation failed, proceeding anyway');
-                $submitBtn.text('Creazione in corso...');
-                $messages.html('<div class="warning-message">⚠️ Impossibile validare l\'indirizzo, ma procedo comunque...</div>');
+                $submitBtn.text('Creating...');
+                $messages.html('<div class="warning-message">⚠️ Unable to validate address, but proceeding anyway...</div>');
 
                 $.ajax({
                     url: cdvAjax.ajaxurl,
@@ -724,12 +724,12 @@ jQuery(document).ready(function($) {
                             }, 1500);
                         } else {
                             $messages.html('<div class="error-message">' + response.data.message + '</div>');
-                            $submitBtn.prop('disabled', false).text('Crea Annuncio 🚀');
+                            $submitBtn.prop('disabled', false).text('Create Post 🚀');
                         }
                     },
                     error: function() {
-                        $messages.html('<div class="error-message">Si è verificato un errore. Riprova più tardi.</div>');
-                        $submitBtn.prop('disabled', false).text('Crea Annuncio 🚀');
+                        $messages.html('<div class="error-message">An error occurred. Please try again later.</div>');
+                        $submitBtn.prop('disabled', false).text('Create Post 🚀');
                     }
                 });
             }

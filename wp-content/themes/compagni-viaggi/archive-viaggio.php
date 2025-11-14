@@ -10,11 +10,11 @@ get_header();
     <div class="page-header">
         <div class="container">
             <?php if (is_search() && get_search_query()) : ?>
-                <h1>Risultati per: "<?php echo esc_html(get_search_query()); ?>"</h1>
-                <p>Trovati <strong><?php echo $wp_query->found_posts; ?></strong> viaggi<?php if ($wp_query->found_posts != 1) : ?><?php endif; ?></p>
+                <h1>Results for: "<?php echo esc_html(get_search_query()); ?>"</h1>
+                <p>Found <strong><?php echo $wp_query->found_posts; ?></strong> journey<?php if ($wp_query->found_posts != 1) : ?>s<?php endif; ?></p>
             <?php else : ?>
-                <h1>Tutti i Viaggi</h1>
-                <p>Esplora tutti i viaggi disponibili e trova la tua prossima avventura</p>
+                <h1>All Journeys</h1>
+                <p>Explore all available journeys and find your next adventure</p>
             <?php endif; ?>
         </div>
     </div>
@@ -23,22 +23,22 @@ get_header();
         <div class="archive-layout">
             <!-- Filters Sidebar -->
             <aside class="filters-sidebar">
-                <h3>Filtra Viaggi</h3>
+                <h3>Filter Journeys</h3>
 
                 <form method="get" action="<?php echo esc_url(home_url('/')); ?>" class="filters-form">
-                    <!-- Mantieni il post_type viaggio durante la ricerca -->
+                    <!-- Keep post_type during search -->
                     <input type="hidden" name="post_type" value="viaggio">
 
                     <div class="filters-form-scroll">
                         <div class="filter-group">
-                            <label for="search">Cerca</label>
-                            <input type="text" id="search" name="s" value="<?php echo get_search_query(); ?>" placeholder="Destinazione...">
+                            <label for="search">Search</label>
+                            <input type="text" id="search" name="s" value="<?php echo get_search_query(); ?>" placeholder="Destination...">
                         </div>
 
                     <div class="filter-group">
-                        <label for="tipo_viaggio">Tipo di Viaggio</label>
+                        <label for="tipo_viaggio">Journey Type</label>
                         <select id="tipo_viaggio" name="tipo_viaggio">
-                            <option value="">Tutti</option>
+                            <option value="">All</option>
                             <?php
                             $types = get_terms(array(
                                 'taxonomy' => 'tipo_viaggio',
@@ -53,43 +53,43 @@ get_header();
                     </div>
 
                     <div class="filter-group">
-                        <label for="date_from">A partire da</label>
-                        <input type="month" id="date_from" name="date_from" value="<?php echo isset($_GET['date_from']) ? esc_attr($_GET['date_from']) : ''; ?>" placeholder="Seleziona mese">
+                        <label for="date_from">Starting from</label>
+                        <input type="month" id="date_from" name="date_from" value="<?php echo isset($_GET['date_from']) ? esc_attr($_GET['date_from']) : ''; ?>" placeholder="Select month">
                     </div>
 
                     <div class="filter-group">
-                        <label for="travel_status">Stato Viaggio</label>
+                        <label for="travel_status">Journey Status</label>
                         <select id="travel_status" name="travel_status">
-                            <option value="">Tutti</option>
-                            <option value="open" <?php selected(isset($_GET['travel_status']) && $_GET['travel_status'] === 'open'); ?>>Aperto</option>
-                            <option value="full" <?php selected(isset($_GET['travel_status']) && $_GET['travel_status'] === 'full'); ?>>Completo</option>
-                            <option value="closed" <?php selected(isset($_GET['travel_status']) && $_GET['travel_status'] === 'closed'); ?>>Chiuso</option>
+                            <option value="">All</option>
+                            <option value="open" <?php selected(isset($_GET['travel_status']) && $_GET['travel_status'] === 'open'); ?>>Open</option>
+                            <option value="full" <?php selected(isset($_GET['travel_status']) && $_GET['travel_status'] === 'full'); ?>>Full</option>
+                            <option value="closed" <?php selected(isset($_GET['travel_status']) && $_GET['travel_status'] === 'closed'); ?>>Closed</option>
                         </select>
                     </div>
 
                     <!-- Advanced Filters Section -->
                     <div class="filter-group">
                         <button type="button" class="filter-toggle-btn" id="toggle-advanced-filters">
-                            <span>🔧 Filtri Avanzati</span>
+                            <span>🔧 Advanced Filters</span>
                             <span class="toggle-icon">▼</span>
                         </button>
                     </div>
 
                     <div class="advanced-filters" id="advanced-filters-section" style="display: none;">
                         <div class="filter-group">
-                            <label>Mezzi di Trasporto</label>
+                            <label>Transportation</label>
                             <div class="checkbox-group">
                                 <label class="checkbox-label">
                                     <input type="checkbox" name="transport[]" value="aereo" <?php checked(isset($_GET['transport']) && in_array('aereo', (array)$_GET['transport'])); ?>>
-                                    ✈️ Aereo
+                                    ✈️ Plane
                                 </label>
                                 <label class="checkbox-label">
                                     <input type="checkbox" name="transport[]" value="treno" <?php checked(isset($_GET['transport']) && in_array('treno', (array)$_GET['transport'])); ?>>
-                                    🚂 Treno
+                                    🚂 Train
                                 </label>
                                 <label class="checkbox-label">
                                     <input type="checkbox" name="transport[]" value="auto" <?php checked(isset($_GET['transport']) && in_array('auto', (array)$_GET['transport'])); ?>>
-                                    🚗 Auto
+                                    🚗 Car
                                 </label>
                                 <label class="checkbox-label">
                                     <input type="checkbox" name="transport[]" value="bus" <?php checked(isset($_GET['transport']) && in_array('bus', (array)$_GET['transport'])); ?>>
@@ -97,58 +97,58 @@ get_header();
                                 </label>
                                 <label class="checkbox-label">
                                     <input type="checkbox" name="transport[]" value="nave" <?php checked(isset($_GET['transport']) && in_array('nave', (array)$_GET['transport'])); ?>>
-                                    🚢 Nave
+                                    🚢 Ship
                                 </label>
                             </div>
                         </div>
 
                         <div class="filter-group">
-                            <label for="accommodation">Alloggio</label>
+                            <label for="accommodation">Accommodation</label>
                             <select id="accommodation" name="accommodation">
-                                <option value="">Tutti</option>
+                                <option value="">All</option>
                                 <option value="hotel" <?php selected(isset($_GET['accommodation']) && $_GET['accommodation'] === 'hotel'); ?>>🏨 Hotel</option>
                                 <option value="hostel" <?php selected(isset($_GET['accommodation']) && $_GET['accommodation'] === 'hostel'); ?>>🏠 Hostel</option>
-                                <option value="appartamento" <?php selected(isset($_GET['accommodation']) && $_GET['accommodation'] === 'appartamento'); ?>>🏢 Appartamento</option>
-                                <option value="campeggio" <?php selected(isset($_GET['accommodation']) && $_GET['accommodation'] === 'campeggio'); ?>>⛺ Campeggio</option>
-                                <option value="altro" <?php selected(isset($_GET['accommodation']) && $_GET['accommodation'] === 'altro'); ?>>Altro</option>
+                                <option value="appartamento" <?php selected(isset($_GET['accommodation']) && $_GET['accommodation'] === 'appartamento'); ?>>🏢 Apartment</option>
+                                <option value="campeggio" <?php selected(isset($_GET['accommodation']) && $_GET['accommodation'] === 'campeggio'); ?>>⛺ Camping</option>
+                                <option value="altro" <?php selected(isset($_GET['accommodation']) && $_GET['accommodation'] === 'altro'); ?>>Other</option>
                             </select>
                         </div>
 
                         <div class="filter-group">
-                            <label for="difficulty">Difficoltà</label>
+                            <label for="difficulty">Difficulty</label>
                             <select id="difficulty" name="difficulty">
-                                <option value="">Tutte</option>
-                                <option value="facile" <?php selected(isset($_GET['difficulty']) && $_GET['difficulty'] === 'facile'); ?>>😊 Facile</option>
-                                <option value="media" <?php selected(isset($_GET['difficulty']) && $_GET['difficulty'] === 'media'); ?>>😐 Media</option>
-                                <option value="difficile" <?php selected(isset($_GET['difficulty']) && $_GET['difficulty'] === 'difficile'); ?>>😓 Difficile</option>
+                                <option value="">All</option>
+                                <option value="facile" <?php selected(isset($_GET['difficulty']) && $_GET['difficulty'] === 'facile'); ?>>😊 Easy</option>
+                                <option value="media" <?php selected(isset($_GET['difficulty']) && $_GET['difficulty'] === 'media'); ?>>😐 Medium</option>
+                                <option value="difficile" <?php selected(isset($_GET['difficulty']) && $_GET['difficulty'] === 'difficile'); ?>>😓 Hard</option>
                             </select>
                         </div>
 
                         <div class="filter-group">
-                            <label for="meals">Pasti Inclusi</label>
+                            <label for="meals">Meals Included</label>
                             <select id="meals" name="meals">
-                                <option value="">Tutti</option>
-                                <option value="nessuno" <?php selected(isset($_GET['meals']) && $_GET['meals'] === 'nessuno'); ?>>Nessuno</option>
-                                <option value="colazione" <?php selected(isset($_GET['meals']) && $_GET['meals'] === 'colazione'); ?>>Solo Colazione</option>
-                                <option value="mezza_pensione" <?php selected(isset($_GET['meals']) && $_GET['meals'] === 'mezza_pensione'); ?>>Mezza Pensione</option>
-                                <option value="pensione_completa" <?php selected(isset($_GET['meals']) && $_GET['meals'] === 'pensione_completa'); ?>>Pensione Completa</option>
+                                <option value="">All</option>
+                                <option value="nessuno" <?php selected(isset($_GET['meals']) && $_GET['meals'] === 'nessuno'); ?>>None</option>
+                                <option value="colazione" <?php selected(isset($_GET['meals']) && $_GET['meals'] === 'colazione'); ?>>Breakfast Only</option>
+                                <option value="mezza_pensione" <?php selected(isset($_GET['meals']) && $_GET['meals'] === 'mezza_pensione'); ?>>Half Board</option>
+                                <option value="pensione_completa" <?php selected(isset($_GET['meals']) && $_GET['meals'] === 'pensione_completa'); ?>>Full Board</option>
                                 <option value="all_inclusive" <?php selected(isset($_GET['meals']) && $_GET['meals'] === 'all_inclusive'); ?>>All Inclusive</option>
                             </select>
                         </div>
 
                         <div class="filter-group">
-                            <label for="guide">Tipo Guida</label>
+                            <label for="guide">Guide Type</label>
                             <select id="guide" name="guide">
-                                <option value="">Tutti</option>
-                                <option value="nessuna" <?php selected(isset($_GET['guide']) && $_GET['guide'] === 'nessuna'); ?>>Nessuna Guida</option>
-                                <option value="locale" <?php selected(isset($_GET['guide']) && $_GET['guide'] === 'locale'); ?>>Guida Locale</option>
-                                <option value="italiana" <?php selected(isset($_GET['guide']) && $_GET['guide'] === 'italiana'); ?>>Guida Italiana</option>
-                                <option value="organizzatore" <?php selected(isset($_GET['guide']) && $_GET['guide'] === 'organizzatore'); ?>>Organizzatore</option>
+                                <option value="">All</option>
+                                <option value="nessuna" <?php selected(isset($_GET['guide']) && $_GET['guide'] === 'nessuna'); ?>>No Guide</option>
+                                <option value="locale" <?php selected(isset($_GET['guide']) && $_GET['guide'] === 'locale'); ?>>Local Guide</option>
+                                <option value="italiana" <?php selected(isset($_GET['guide']) && $_GET['guide'] === 'italiana'); ?>>Italian Guide</option>
+                                <option value="organizzatore" <?php selected(isset($_GET['guide']) && $_GET['guide'] === 'organizzatore'); ?>>Organizer</option>
                             </select>
                         </div>
 
                         <div class="filter-group">
-                            <label>Budget per Persona (€)</label>
+                            <label>Budget per Person (€)</label>
                             <div style="display: flex; flex-direction: column; gap: 8px;">
                                 <input type="number" name="budget_min" value="<?php echo isset($_GET['budget_min']) ? esc_attr($_GET['budget_min']) : ''; ?>" placeholder="Min €" min="0" style="width: 100%;">
                                 <input type="number" name="budget_max" value="<?php echo isset($_GET['budget_max']) ? esc_attr($_GET['budget_max']) : ''; ?>" placeholder="Max €" min="0" style="width: 100%;">
@@ -156,61 +156,61 @@ get_header();
                         </div>
 
                         <div class="filter-group">
-                            <label for="max_participants">Numero Partecipanti</label>
+                            <label for="max_participants">Number of Participants</label>
                             <select id="max_participants" name="max_participants">
-                                <option value="">Tutti</option>
-                                <option value="2-5" <?php selected(isset($_GET['max_participants']) && $_GET['max_participants'] === '2-5'); ?>>2-5 persone</option>
-                                <option value="6-10" <?php selected(isset($_GET['max_participants']) && $_GET['max_participants'] === '6-10'); ?>>6-10 persone</option>
-                                <option value="11-20" <?php selected(isset($_GET['max_participants']) && $_GET['max_participants'] === '11-20'); ?>>11-20 persone</option>
-                                <option value="20+" <?php selected(isset($_GET['max_participants']) && $_GET['max_participants'] === '20+'); ?>>Più di 20</option>
+                                <option value="">All</option>
+                                <option value="2-5" <?php selected(isset($_GET['max_participants']) && $_GET['max_participants'] === '2-5'); ?>>2-5 people</option>
+                                <option value="6-10" <?php selected(isset($_GET['max_participants']) && $_GET['max_participants'] === '6-10'); ?>>6-10 people</option>
+                                <option value="11-20" <?php selected(isset($_GET['max_participants']) && $_GET['max_participants'] === '11-20'); ?>>11-20 people</option>
+                                <option value="20+" <?php selected(isset($_GET['max_participants']) && $_GET['max_participants'] === '20+'); ?>>More than 20</option>
                             </select>
                         </div>
 
                         <div class="filter-group">
-                            <label>Valutazione Organizzatore</label>
+                            <label>Organizer Rating</label>
                             <select name="min_rating">
-                                <option value="">Tutte</option>
-                                <option value="4.5" <?php selected(isset($_GET['min_rating']) && $_GET['min_rating'] === '4.5'); ?>>⭐ 4.5+ stelle</option>
-                                <option value="4.0" <?php selected(isset($_GET['min_rating']) && $_GET['min_rating'] === '4.0'); ?>>⭐ 4+ stelle</option>
-                                <option value="3.5" <?php selected(isset($_GET['min_rating']) && $_GET['min_rating'] === '3.5'); ?>>⭐ 3.5+ stelle</option>
-                                <option value="3.0" <?php selected(isset($_GET['min_rating']) && $_GET['min_rating'] === '3.0'); ?>>⭐ 3+ stelle</option>
+                                <option value="">All</option>
+                                <option value="4.5" <?php selected(isset($_GET['min_rating']) && $_GET['min_rating'] === '4.5'); ?>>⭐ 4.5+ stars</option>
+                                <option value="4.0" <?php selected(isset($_GET['min_rating']) && $_GET['min_rating'] === '4.0'); ?>>⭐ 4+ stars</option>
+                                <option value="3.5" <?php selected(isset($_GET['min_rating']) && $_GET['min_rating'] === '3.5'); ?>>⭐ 3.5+ stars</option>
+                                <option value="3.0" <?php selected(isset($_GET['min_rating']) && $_GET['min_rating'] === '3.0'); ?>>⭐ 3+ stars</option>
                             </select>
                         </div>
 
                         <div class="filter-group">
-                            <label>Durata Viaggio</label>
+                            <label>Journey Duration</label>
                             <select name="duration">
-                                <option value="">Tutte</option>
-                                <option value="1-3" <?php selected(isset($_GET['duration']) && $_GET['duration'] === '1-3'); ?>>1-3 giorni</option>
-                                <option value="4-7" <?php selected(isset($_GET['duration']) && $_GET['duration'] === '4-7'); ?>>4-7 giorni</option>
-                                <option value="8-14" <?php selected(isset($_GET['duration']) && $_GET['duration'] === '8-14'); ?>>1-2 settimane</option>
-                                <option value="15+" <?php selected(isset($_GET['duration']) && $_GET['duration'] === '15+'); ?>>Più di 2 settimane</option>
+                                <option value="">All</option>
+                                <option value="1-3" <?php selected(isset($_GET['duration']) && $_GET['duration'] === '1-3'); ?>>1-3 days</option>
+                                <option value="4-7" <?php selected(isset($_GET['duration']) && $_GET['duration'] === '4-7'); ?>>4-7 days</option>
+                                <option value="8-14" <?php selected(isset($_GET['duration']) && $_GET['duration'] === '8-14'); ?>>1-2 weeks</option>
+                                <option value="15+" <?php selected(isset($_GET['duration']) && $_GET['duration'] === '15+'); ?>>More than 2 weeks</option>
                             </select>
                         </div>
 
                         <div class="filter-group">
                             <label class="checkbox-label">
                                 <input type="checkbox" name="solo_posti_disponibili" value="1" <?php checked(isset($_GET['solo_posti_disponibili'])); ?>>
-                                Solo viaggi con posti disponibili
+                                Only journeys with available spots
                             </label>
                         </div>
                     </div>
 
                     <div class="filter-group">
-                        <label for="orderby">Ordina per</label>
+                        <label for="orderby">Sort by</label>
                         <select id="orderby" name="orderby">
-                            <option value="date" <?php selected(isset($_GET['orderby']) && $_GET['orderby'] === 'date'); ?>>Più Recenti</option>
-                            <option value="start_date" <?php selected(isset($_GET['orderby']) && $_GET['orderby'] === 'start_date'); ?>>Data Partenza</option>
-                            <option value="budget_asc" <?php selected(isset($_GET['orderby']) && $_GET['orderby'] === 'budget_asc'); ?>>Budget: Basso → Alto</option>
-                            <option value="budget_desc" <?php selected(isset($_GET['orderby']) && $_GET['orderby'] === 'budget_desc'); ?>>Budget: Alto → Basso</option>
-                            <option value="participants" <?php selected(isset($_GET['orderby']) && $_GET['orderby'] === 'participants'); ?>>Posti Disponibili</option>
-                            <option value="rating" <?php selected(isset($_GET['orderby']) && $_GET['orderby'] === 'rating'); ?>>Valutazione Organizzatore</option>
+                            <option value="date" <?php selected(isset($_GET['orderby']) && $_GET['orderby'] === 'date'); ?>>Most Recent</option>
+                            <option value="start_date" <?php selected(isset($_GET['orderby']) && $_GET['orderby'] === 'start_date'); ?>>Departure Date</option>
+                            <option value="budget_asc" <?php selected(isset($_GET['orderby']) && $_GET['orderby'] === 'budget_asc'); ?>>Budget: Low → High</option>
+                            <option value="budget_desc" <?php selected(isset($_GET['orderby']) && $_GET['orderby'] === 'budget_desc'); ?>>Budget: High → Low</option>
+                            <option value="participants" <?php selected(isset($_GET['orderby']) && $_GET['orderby'] === 'participants'); ?>>Available Spots</option>
+                            <option value="rating" <?php selected(isset($_GET['orderby']) && $_GET['orderby'] === 'rating'); ?>>Organizer Rating</option>
                         </select>
                     </div>
                     </div>
 
                     <div class="filters-form-actions">
-                        <button type="submit" class="btn-primary" style="width: 100%;">Applica Filtri</button>
+                        <button type="submit" class="btn-primary" style="width: 100%;">Apply Filters</button>
 
                         <?php if (!empty($_GET['s']) || !empty($_GET['tipo_viaggio']) || !empty($_GET['date_from']) ||
                                   !empty($_GET['budget_min']) || !empty($_GET['budget_max']) || !empty($_GET['max_participants']) ||
@@ -219,7 +219,7 @@ get_header();
                                   !empty($_GET['min_rating']) || !empty($_GET['duration']) || !empty($_GET['solo_posti_disponibili']) ||
                                   (isset($_GET['orderby']) && $_GET['orderby'] !== 'date')) : ?>
                             <a href="<?php echo esc_url(get_post_type_archive_link('viaggio')); ?>" class="btn-secondary" style="width: 100%; text-align: center;">
-                                Reset Filtri
+                                Reset Filters
                             </a>
                         <?php endif; ?>
                     </div>
@@ -251,7 +251,7 @@ get_header();
                     ?>
                     <div class="results-header">
                         <p>
-                            <?php echo $total_travels . ' ' . ($total_travels === 1 ? 'viaggio trovato' : 'viaggi trovati'); ?>
+                            <?php echo $total_travels . ' ' . ($total_travels === 1 ? 'journey found' : 'journeys found'); ?>
                         </p>
                     </div>
 
@@ -278,11 +278,11 @@ get_header();
 
                 <?php else : ?>
                     <div class="no-results">
-                        <h2>Nessun viaggio trovato</h2>
-                        <p>Prova a modificare i filtri di ricerca o <a href="<?php echo esc_url(get_post_type_archive_link('viaggio')); ?>">visualizza tutti i viaggi</a>.</p>
+                        <h2>No journeys found</h2>
+                        <p>Try adjusting the search filters or <a href="<?php echo esc_url(get_post_type_archive_link('viaggio')); ?>">view all journeys</a>.</p>
                         <?php if (is_user_logged_in()) : ?>
                             <a href="<?php echo esc_url(admin_url('post-new.php?post_type=viaggio')); ?>" class="btn-primary">
-                                Crea il Primo Viaggio
+                                Create the First Journey
                             </a>
                         <?php endif; ?>
                     </div>

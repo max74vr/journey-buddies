@@ -12,12 +12,12 @@ $search_query = get_search_query();
     <div class="container">
         <header class="search-header">
             <h1 class="search-title">
-                Risultati per: "<span class="search-query"><?php echo esc_html($search_query); ?></span>"
+                Results for: "<span class="search-query"><?php echo esc_html($search_query); ?></span>"
             </h1>
 
             <?php if (have_posts()) : ?>
                 <p class="search-count">
-                    Trovati <strong><?php echo $wp_query->found_posts; ?></strong> risultat<?php echo $wp_query->found_posts != 1 ? 'i' : 'o'; ?>
+                    Found <strong><?php echo $wp_query->found_posts; ?></strong> result<?php echo $wp_query->found_posts != 1 ? 's' : ''; ?>
                 </p>
             <?php endif; ?>
         </header>
@@ -26,11 +26,11 @@ $search_query = get_search_query();
 
             <!-- Filters -->
             <div class="search-filters">
-                <span class="filter-label">Filtra per tipo:</span>
-                <button class="filter-btn active" data-type="all">Tutti</button>
-                <button class="filter-btn" data-type="post">Articoli</button>
-                <button class="filter-btn" data-type="viaggio">Viaggi</button>
-                <button class="filter-btn" data-type="page">Pagine</button>
+                <span class="filter-label">Filter by type:</span>
+                <button class="filter-btn active" data-type="all">All</button>
+                <button class="filter-btn" data-type="post">Posts</button>
+                <button class="filter-btn" data-type="viaggio">Journeys</button>
+                <button class="filter-btn" data-type="page">Pages</button>
             </div>
 
             <div class="search-results-list">
@@ -73,9 +73,9 @@ $search_query = get_search_query();
                                         <?php
                                         $post_type = get_post_type();
                                         $type_labels = array(
-                                            'post' => '📝 Articolo',
-                                            'viaggio' => '✈️ Viaggio',
-                                            'page' => '📄 Pagina',
+                                            'post' => '📝 Post',
+                                            'viaggio' => '✈️ Journey',
+                                            'page' => '📄 Page',
                                         );
                                         echo isset($type_labels[$post_type]) ? $type_labels[$post_type] : '📌 ' . ucfirst($post_type);
                                         ?>
@@ -144,7 +144,7 @@ $search_query = get_search_query();
                                 </div>
 
                                 <a href="<?php the_permalink(); ?>" class="result-link">
-                                    <?php echo get_post_type() === 'viaggio' ? 'Vedi il viaggio' : 'Leggi di più'; ?> →
+                                    <?php echo get_post_type() === 'viaggio' ? 'View journey' : 'Read more'; ?> →
                                 </a>
                             </div>
                         </div>
@@ -156,8 +156,8 @@ $search_query = get_search_query();
             // Pagination
             the_posts_pagination(array(
                 'mid_size' => 2,
-                'prev_text' => '← Precedente',
-                'next_text' => 'Successivo →',
+                'prev_text' => '← Previous',
+                'next_text' => 'Next →',
                 'class' => 'search-pagination',
             ));
             ?>
@@ -165,38 +165,38 @@ $search_query = get_search_query();
         <?php else : ?>
             <div class="no-results">
                 <div class="no-results-icon">🤔</div>
-                <h2>Nessun risultato trovato</h2>
-                <p>La ricerca per "<strong><?php echo esc_html($search_query); ?></strong>" non ha prodotto risultati.</p>
+                <h2>No Results Found</h2>
+                <p>The search for "<strong><?php echo esc_html($search_query); ?></strong>" produced no results.</p>
 
                 <div class="search-suggestions">
-                    <h3>Suggerimenti:</h3>
+                    <h3>Suggestions:</h3>
                     <ul>
-                        <li>Verifica di aver scritto correttamente i termini di ricerca</li>
-                        <li>Prova con parole chiave diverse o più generiche</li>
-                        <li>Usa meno parole nella ricerca</li>
-                        <li>Cerca per destinazioni o tipologie di viaggio</li>
+                        <li>Check that you've spelled the search terms correctly</li>
+                        <li>Try different or more general keywords</li>
+                        <li>Use fewer words in your search</li>
+                        <li>Search for destinations or journey types</li>
                     </ul>
                 </div>
 
                 <div class="search-alternatives">
-                    <h3>Oppure esplora:</h3>
+                    <h3>Or explore:</h3>
                     <div class="alternatives-grid">
                         <a href="<?php echo get_post_type_archive_link('viaggio'); ?>" class="alternative-card">
                             <span class="alternative-icon">✈️</span>
-                            <h4>Tutti i Viaggi</h4>
-                            <p>Scopri tutte le destinazioni disponibili</p>
+                            <h4>All Journeys</h4>
+                            <p>Discover all available destinations</p>
                         </a>
 
                         <a href="<?php echo home_url('/blog/'); ?>" class="alternative-card">
                             <span class="alternative-icon">📝</span>
                             <h4>Blog</h4>
-                            <p>Leggi articoli e consigli di viaggio</p>
+                            <p>Read articles and travel tips</p>
                         </a>
 
                         <a href="<?php echo home_url(); ?>" class="alternative-card">
                             <span class="alternative-icon">🏠</span>
                             <h4>Homepage</h4>
-                            <p>Torna alla pagina principale</p>
+                            <p>Go back to the main page</p>
                         </a>
                     </div>
                 </div>

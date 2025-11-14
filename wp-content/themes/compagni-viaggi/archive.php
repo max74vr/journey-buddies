@@ -15,7 +15,7 @@ get_header();
             if (is_category()) :
                 $category = get_queried_object();
                 echo '<div class="archive-icon">📁</div>';
-                echo '<h1 class="archive-title">Categoria: ' . esc_html($category->name) . '</h1>';
+                echo '<h1 class="archive-title">Category: ' . esc_html($category->name) . '</h1>';
                 if ($category->description) :
                     echo '<p class="archive-description">' . esc_html($category->description) . '</p>';
                 endif;
@@ -31,7 +31,7 @@ get_header();
                 echo '<div class="author-archive-header">';
                 echo get_avatar($author->ID, 120);
                 echo '<div class="author-info">';
-                echo '<h1 class="archive-title">Articoli di ' . esc_html($author->user_login) . '</h1>';
+                echo '<h1 class="archive-title">Articles by ' . esc_html($author->user_login) . '</h1>';
                 if ($author->description) :
                     echo '<p class="archive-description">' . esc_html($author->description) . '</p>';
                 endif;
@@ -40,11 +40,11 @@ get_header();
             elseif (is_date()) :
                 echo '<div class="archive-icon">📅</div>';
                 if (is_day()) :
-                    echo '<h1 class="archive-title">Archivio: ' . get_the_date('d F Y') . '</h1>';
+                    echo '<h1 class="archive-title">Archive: ' . get_the_date('d F Y') . '</h1>';
                 elseif (is_month()) :
-                    echo '<h1 class="archive-title">Archivio: ' . get_the_date('F Y') . '</h1>';
+                    echo '<h1 class="archive-title">Archive: ' . get_the_date('F Y') . '</h1>';
                 elseif (is_year()) :
-                    echo '<h1 class="archive-title">Archivio: ' . get_the_date('Y') . '</h1>';
+                    echo '<h1 class="archive-title">Archive: ' . get_the_date('Y') . '</h1>';
                 endif;
             else :
                 echo '<h1 class="archive-title">' . post_type_archive_title('', false) . '</h1>';
@@ -54,7 +54,7 @@ get_header();
             <div class="archive-meta">
                 <?php
                 $total_posts = $wp_query->found_posts;
-                echo '<span class="post-count">' . $total_posts . ' articol' . ($total_posts != 1 ? 'i' : 'o') . '</span>';
+                echo '<span class="post-count">' . $total_posts . ' article' . ($total_posts != 1 ? 'i' : 'o') . '</span>';
                 ?>
             </div>
         </header>
@@ -107,7 +107,7 @@ get_header();
                             </div>
 
                             <a href="<?php the_permalink(); ?>" class="read-more">
-                                Leggi l'articolo →
+                                Leggi l'articleo →
                             </a>
                         </div>
                     </article>
@@ -118,8 +118,8 @@ get_header();
             // Pagination
             the_posts_pagination(array(
                 'mid_size' => 2,
-                'prev_text' => '← Precedente',
-                'next_text' => 'Successivo →',
+                'prev_text' => '← Previous',
+                'next_text' => 'Next →',
                 'class' => 'blog-pagination',
             ));
             ?>
@@ -127,10 +127,10 @@ get_header();
         <?php else : ?>
             <div class="no-posts">
                 <div class="no-posts-icon">📝</div>
-                <h2>Nessun articolo trovato</h2>
-                <p>Non ci sono ancora articoli in questo archivio.</p>
+                <h2>No articles found</h2>
+                <p>There are no articles in this archive yet.</p>
                 <a href="<?php echo home_url(); ?>" class="btn btn-primary">
-                    Torna alla Home
+                    Back to Home
                 </a>
             </div>
         <?php endif; ?>

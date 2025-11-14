@@ -31,7 +31,7 @@ get_header();
 
                     <?php
                     wp_link_pages(array(
-                        'before' => '<div class="page-links">' . __('Pagine:', 'compagni-di-viaggi'),
+                        'before' => '<div class="page-links">' . __('Pages:', 'compagni-di-viaggi'),
                         'after'  => '</div>',
                     ));
                     ?>

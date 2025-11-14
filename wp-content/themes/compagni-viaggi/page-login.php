@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Name: Login
- * Login frontend per utenti
+ * Frontend login for users
  */
 
 // Redirect if already logged in
@@ -17,9 +17,9 @@ get_header();
     <div class="container" style="max-width: 500px; padding: calc(var(--spacing-unit) * 8) calc(var(--spacing-unit) * 3);">
         <div class="login-container">
             <div class="login-header" style="text-align: center; margin-bottom: calc(var(--spacing-unit) * 5);">
-                <h1 style="margin-bottom: calc(var(--spacing-unit) * 2);">Bentornato!</h1>
+                <h1 style="margin-bottom: calc(var(--spacing-unit) * 2);">Welcome Back!</h1>
                 <p style="color: var(--text-medium); font-size: 1.1rem;">
-                    Accedi al tuo account per gestire i tuoi viaggi
+                    Login to your account to manage your journeys
                 </p>
             </div>
 
@@ -30,13 +30,13 @@ get_header();
                     <div id="login-message" style="display: none; margin-bottom: calc(var(--spacing-unit) * 3);"></div>
 
                     <div class="form-group">
-                        <label for="login_username">Username o Email</label>
+                        <label for="login_username">Username or Email</label>
                         <input
                             type="text"
                             id="login_username"
                             name="username"
                             class="form-control"
-                            placeholder="Il tuo username o email"
+                            placeholder="Your username or email"
                             required
                             autocomplete="username"
                         >
@@ -49,7 +49,7 @@ get_header();
                             id="login_password"
                             name="password"
                             class="form-control"
-                            placeholder="La tua password"
+                            placeholder="Your password"
                             required
                             autocomplete="current-password"
                         >
@@ -64,22 +64,22 @@ get_header();
                             style="width: auto; margin: 0;"
                         >
                         <label for="remember_me" style="margin: 0; font-weight: normal; cursor: pointer;">
-                            Ricordami
+                            Remember me
                         </label>
                     </div>
 
                     <button type="submit" id="login-btn" class="btn-primary" style="width: 100%; margin-top: calc(var(--spacing-unit) * 3);">
-                        Accedi
+                        Login
                     </button>
 
                     <div class="login-links" style="margin-top: calc(var(--spacing-unit) * 3); text-align: center; display: flex; flex-direction: column; gap: calc(var(--spacing-unit) * 2);">
                         <a href="<?php echo esc_url(wp_lostpassword_url()); ?>" style="color: var(--primary-color); text-decoration: none;">
-                            Password dimenticata?
+                            Forgot password?
                         </a>
                         <div style="color: var(--text-medium);">
-                            Non hai un account?
+                            Don't have an account?
                             <a href="<?php echo esc_url(home_url('/registrazione')); ?>" style="color: var(--primary-color); font-weight: 600; text-decoration: none;">
-                                Registrati
+                                Sign Up
                             </a>
                         </div>
                     </div>

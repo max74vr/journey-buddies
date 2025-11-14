@@ -1,7 +1,7 @@
 <?php
 /**
- * Template Profilo Utente Pubblico
- * Mostra il profilo pubblico di un viaggiatore
+ * Public User Profile Template
+ * Displays a traveler's public profile
  */
 
 get_header();
@@ -45,17 +45,17 @@ $is_own_profile = is_user_logged_in() && get_current_user_id() == $user->ID;
                 <?php if (!empty($profile['age'])) : ?>
                     <p class="profile-age">
                         <i class="icon-user"></i>
-                        <?php echo esc_html($profile['age']); ?> anni
+                        <?php echo esc_html($profile['age']); ?> years old
                     </p>
                 <?php endif; ?>
 
                 <p class="profile-member-since">
-                    Membro da <?php echo date_i18n('F Y', strtotime($profile['member_since'])); ?>
+                    Member since <?php echo date_i18n('F Y', strtotime($profile['member_since'])); ?>
                 </p>
 
                 <?php if ($is_own_profile) : ?>
                     <a href="<?php echo home_url('/dashboard/'); ?>" class="btn btn-secondary">
-                        <i class="icon-settings"></i> Gestisci Profilo
+                        <i class="icon-settings"></i> Manage Profile
                     </a>
                 <?php endif; ?>
             </div>
@@ -64,11 +64,11 @@ $is_own_profile = is_user_logged_in() && get_current_user_id() == $user->ID;
             <div class="profile-stats">
                 <div class="stat-item">
                     <span class="stat-number"><?php echo $stats['organized']; ?></span>
-                    <span class="stat-label">Viaggi Organizzati</span>
+                    <span class="stat-label">Organized Journeys</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number"><?php echo $stats['participated']; ?></span>
-                    <span class="stat-label">Partecipazioni</span>
+                    <span class="stat-label">Participations</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">
@@ -79,7 +79,7 @@ $is_own_profile = is_user_logged_in() && get_current_user_id() == $user->ID;
                         <?php endif; ?>
                     </span>
                     <span class="stat-label">
-                        <?php echo $stats['reviews_count']; ?> Recensioni
+                        <?php echo $stats['reviews_count']; ?> Reviews
                     </span>
                 </div>
             </div>
@@ -87,13 +87,13 @@ $is_own_profile = is_user_logged_in() && get_current_user_id() == $user->ID;
 
         <!-- Tab Navigation -->
         <div class="profile-tabs">
-            <button class="tab-button active" data-tab="about">Chi Sono</button>
-            <button class="tab-button" data-tab="travels">Viaggi</button>
-            <button class="tab-button" data-tab="badges">Badge</button>
-            <button class="tab-button" data-tab="reviews">Recensioni</button>
+            <button class="tab-button active" data-tab="about">About Me</button>
+            <button class="tab-button" data-tab="travels">Journeys</button>
+            <button class="tab-button" data-tab="badges">Badges</button>
+            <button class="tab-button" data-tab="reviews">Reviews</button>
         </div>
 
-        <!-- Tab: Chi Sono -->
+        <!-- Tab: About Me -->
         <div class="tab-content active" id="tab-about">
             <div class="profile-section">
                 <?php if (!empty($profile['bio'])) : ?>
@@ -106,14 +106,14 @@ $is_own_profile = is_user_logged_in() && get_current_user_id() == $user->ID;
                 <div class="profile-details-grid">
                     <?php if (!empty($profile['languages'])) : ?>
                         <div class="detail-item">
-                            <h4><i class="icon-language"></i> Lingue Parlate</h4>
+                            <h4><i class="icon-language"></i> Languages Spoken</h4>
                             <p><?php echo esc_html($profile['languages']); ?></p>
                         </div>
                     <?php endif; ?>
 
                     <?php if (!empty($profile['travel_styles'])) : ?>
                         <div class="detail-item">
-                            <h4><i class="icon-compass"></i> Stile di Viaggio</h4>
+                            <h4><i class="icon-compass"></i> Travel Style</h4>
                             <div class="tags">
                                 <?php
                                 $styles = is_array($profile['travel_styles']) ? $profile['travel_styles'] : array($profile['travel_styles']);
@@ -127,7 +127,7 @@ $is_own_profile = is_user_logged_in() && get_current_user_id() == $user->ID;
 
                     <?php if (!empty($profile['interests'])) : ?>
                         <div class="detail-item">
-                            <h4><i class="icon-heart"></i> Interessi</h4>
+                            <h4><i class="icon-heart"></i> Interests</h4>
                             <div class="tags">
                                 <?php
                                 $interests = is_array($profile['interests']) ? $profile['interests'] : array($profile['interests']);
@@ -140,10 +140,10 @@ $is_own_profile = is_user_logged_in() && get_current_user_id() == $user->ID;
                     <?php endif; ?>
                 </div>
 
-                <!-- Contatti (se pubblici) -->
+                <!-- Contact info (if public) -->
                 <?php if (!empty($profile['email']) || !empty($profile['phone']) || !empty($profile['instagram']) || !empty($profile['facebook'])) : ?>
                     <div class="contact-section">
-                        <h3>Contatti</h3>
+                        <h3>Contact</h3>
                         <div class="contact-links">
                             <?php if (!empty($profile['email'])) : ?>
                                 <a href="mailto:<?php echo esc_attr($profile['email']); ?>" class="contact-link">
@@ -174,7 +174,7 @@ $is_own_profile = is_user_logged_in() && get_current_user_id() == $user->ID;
             </div>
         </div>
 
-        <!-- Tab: Viaggi -->
+        <!-- Tab: Journeys -->
         <div class="tab-content" id="tab-travels">
             <?php if ($travels->have_posts()) : ?>
                 <div class="travels-grid">
@@ -184,11 +184,11 @@ $is_own_profile = is_user_logged_in() && get_current_user_id() == $user->ID;
                     <?php wp_reset_postdata(); ?>
                 </div>
             <?php else : ?>
-                <p class="no-content">Nessun viaggio organizzato ancora.</p>
+                <p class="no-content">No journeys organized yet.</p>
             <?php endif; ?>
         </div>
 
-        <!-- Tab: Badge -->
+        <!-- Tab: Badges -->
         <div class="tab-content" id="tab-badges">
             <?php if (!empty($profile['badges']) && count($profile['badges']) > 0) : ?>
                 <div class="badges-grid">
@@ -204,11 +204,11 @@ $is_own_profile = is_user_logged_in() && get_current_user_id() == $user->ID;
                     <?php endforeach; ?>
                 </div>
             <?php else : ?>
-                <p class="no-content">Nessun badge guadagnato ancora.</p>
+                <p class="no-content">No badges earned yet.</p>
             <?php endif; ?>
         </div>
 
-        <!-- Tab: Recensioni -->
+        <!-- Tab: Reviews -->
         <div class="tab-content" id="tab-reviews">
             <?php
             global $wpdb;
@@ -250,7 +250,7 @@ $is_own_profile = is_user_logged_in() && get_current_user_id() == $user->ID;
                     <?php endforeach; ?>
                 </div>
             <?php else : ?>
-                <p class="no-content">Nessuna recensione ricevuta ancora.</p>
+                <p class="no-content">No reviews received yet.</p>
             <?php endif; ?>
         </div>
     </div>

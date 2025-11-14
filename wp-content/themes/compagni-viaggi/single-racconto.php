@@ -80,10 +80,10 @@ while (have_posts()) : the_post();
                     </a>
 
                     <div class="story-stats" style="display: flex; gap: calc(var(--spacing-unit) * 3); color: var(--text-light);">
-                        <span title="Visualizzazioni">
+                        <span title="Views">
                             👁 <?php echo number_format_i18n($stats['views']); ?>
                         </span>
-                        <span title="Commenti">
+                        <span title="Comments">
                             💬 <?php echo number_format_i18n($stats['comments']); ?>
                         </span>
                     </div>
@@ -94,7 +94,7 @@ while (have_posts()) : the_post();
                     <div class="trip-details" style="display: flex; gap: calc(var(--spacing-unit) * 4); padding: calc(var(--spacing-unit) * 3) 0; background: #f8f9fa; border-radius: 8px; margin: calc(var(--spacing-unit) * 4) 0; padding: calc(var(--spacing-unit) * 3);">
                         <?php if ($travel_date) : ?>
                             <div>
-                                <div style="color: var(--text-light); font-size: 0.9rem; margin-bottom: calc(var(--spacing-unit) * 0.5);">Quando</div>
+                                <div style="color: var(--text-light); font-size: 0.9rem; margin-bottom: calc(var(--spacing-unit) * 0.5);">When</div>
                                 <div style="font-weight: 600; font-size: 1.1rem;">
                                     📅 <?php
                                     $date = DateTime::createFromFormat('Y-m', $travel_date);
@@ -105,7 +105,7 @@ while (have_posts()) : the_post();
                         <?php endif; ?>
                         <?php if ($duration) : ?>
                             <div>
-                                <div style="color: var(--text-light); font-size: 0.9rem; margin-bottom: calc(var(--spacing-unit) * 0.5);">Durata</div>
+                                <div style="color: var(--text-light); font-size: 0.9rem; margin-bottom: calc(var(--spacing-unit) * 0.5);">Duration</div>
                                 <div style="font-weight: 600; font-size: 1.1rem;">
                                     ⏱ <?php echo esc_html($duration); ?>
                                 </div>
@@ -122,7 +122,7 @@ while (have_posts()) : the_post();
                 <!-- Tags -->
                 <?php if (!empty($tags)) : ?>
                     <div class="story-tags" style="padding: calc(var(--spacing-unit) * 3) 0; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
-                        <strong style="margin-right: calc(var(--spacing-unit) * 2);">Tag:</strong>
+                        <strong style="margin-right: calc(var(--spacing-unit) * 2);">Tags:</strong>
                         <?php foreach ($tags as $tag) : ?>
                             <a href="<?php echo esc_url(get_term_link($tag)); ?>" class="tag-badge" style="display: inline-block; background: #f0f0f0; color: var(--text-dark); padding: calc(var(--spacing-unit) * 0.75) calc(var(--spacing-unit) * 1.5); border-radius: 20px; text-decoration: none; margin: calc(var(--spacing-unit) * 0.5); font-size: 0.9rem;">
                                 #<?php echo esc_html($tag->name); ?>
@@ -135,10 +135,10 @@ while (have_posts()) : the_post();
                 <?php if (get_current_user_id() == $author_id || current_user_can('edit_others_posts')) : ?>
                     <div class="story-actions" style="margin: calc(var(--spacing-unit) * 4) 0; padding: calc(var(--spacing-unit) * 3); background: #f8f9fa; border-radius: 8px; display: flex; gap: calc(var(--spacing-unit) * 2);">
                         <a href="<?php echo esc_url(add_query_arg('story_id', get_the_ID(), home_url('/racconta-viaggio'))); ?>" class="btn-secondary">
-                            ✏️ Modifica Racconto
+                            ✏️ Edit Story
                         </a>
                         <button type="button" id="delete-story-btn" class="btn-danger" data-story-id="<?php echo esc_attr(get_the_ID()); ?>">
-                            🗑️ Elimina Racconto
+                            🗑️ Delete Story
                         </button>
                     </div>
                 <?php endif; ?>
@@ -174,7 +174,7 @@ while (have_posts()) : the_post();
                 if ($related_stories->have_posts()) :
                 ?>
                     <div class="related-stories" style="margin-top: calc(var(--spacing-unit) * 8); padding-top: calc(var(--spacing-unit) * 4); border-top: 2px solid var(--border-color);">
-                        <h2 style="margin-bottom: calc(var(--spacing-unit) * 4);">Altri Racconti che Potrebbero Piacerti</h2>
+                        <h2 style="margin-bottom: calc(var(--spacing-unit) * 4);">Other Stories You Might Like</h2>
                         <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: calc(var(--spacing-unit) * 3);">
                             <?php
                             while ($related_stories->have_posts()) : $related_stories->the_post();
@@ -192,14 +192,14 @@ while (have_posts()) : the_post();
     <script>
     jQuery(document).ready(function($) {
         $('#delete-story-btn').on('click', function() {
-            if (!confirm('Sei sicuro di voler eliminare questo racconto? Questa azione non può essere annullata.')) {
+            if (!confirm('Are you sure you want to delete this story? This action cannot be undone.')) {
                 return;
             }
 
             const storyId = $(this).data('story-id');
             const btn = $(this);
 
-            btn.prop('disabled', true).text('Eliminazione...');
+            btn.prop('disabled', true).text('Deleting...');
 
             $.ajax({
                 url: '<?php echo admin_url('admin-ajax.php'); ?>',
@@ -215,12 +215,12 @@ while (have_posts()) : the_post();
                         window.location.href = '<?php echo esc_url(home_url('/dashboard')); ?>';
                     } else {
                         alert(response.data.message);
-                        btn.prop('disabled', false).text('🗑️ Elimina Racconto');
+                        btn.prop('disabled', false).text('🗑️ Delete Story');
                     }
                 },
                 error: function() {
-                    alert('Errore di connessione. Riprova.');
-                    btn.prop('disabled', false).text('🗑️ Elimina Racconto');
+                    alert('Connection error. Please try again.');
+                    btn.prop('disabled', false).text('🗑️ Delete Story');
                 }
             });
         });

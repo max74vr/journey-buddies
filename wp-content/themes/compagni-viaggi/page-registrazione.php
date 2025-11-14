@@ -24,8 +24,8 @@ get_header();
     <div class="container">
         <div class="registration-wrapper">
             <div class="registration-header">
-                <h1>Unisciti a Compagni di Viaggi</h1>
-                <p>Crea il tuo account e inizia a trovare compagni di viaggio</p>
+                <h1>Join Journey Buddies</h1>
+                <p>Create your account and start finding travel companions</p>
             </div>
 
             <!-- Progress Steps -->
@@ -37,33 +37,33 @@ get_header();
                 <div class="step-connector"></div>
                 <div class="step" data-step="2">
                     <div class="step-number">2</div>
-                    <div class="step-label">Profilo</div>
+                    <div class="step-label">Profile</div>
                 </div>
                 <div class="step-connector"></div>
                 <div class="step" data-step="3">
                     <div class="step-number">3</div>
-                    <div class="step-label">Foto</div>
+                    <div class="step-label">Photo</div>
                 </div>
                 <div class="step-connector"></div>
                 <div class="step" data-step="4">
                     <div class="step-number">4</div>
-                    <div class="step-label">Viaggio (Opzionale)</div>
+                    <div class="step-label">Journey (Optional)</div>
                 </div>
             </div>
 
             <div class="registration-form-container">
                 <!-- Step 1: Account Creation -->
                 <form id="registration-step-1" class="registration-step active">
-                    <h2>Crea il tuo Account</h2>
+                    <h2>Create Your Account</h2>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="first_name">Nome <span class="required">*</span></label>
+                            <label for="first_name">First Name <span class="required">*</span></label>
                             <input type="text" id="first_name" name="first_name" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="last_name">Cognome <span class="required">*</span></label>
+                            <label for="last_name">Last Name <span class="required">*</span></label>
                             <input type="text" id="last_name" name="last_name" required>
                         </div>
                     </div>
@@ -72,7 +72,7 @@ get_header();
                         <div class="form-group">
                             <label for="username">Username <span class="required">*</span></label>
                             <input type="text" id="username" name="username" required>
-                            <small>Solo lettere, numeri e underscore</small>
+                            <small>Only letters, numbers and underscore</small>
                         </div>
 
                         <div class="form-group">
@@ -88,304 +88,304 @@ get_header();
                             <div class="password-strength-meter">
                                 <div class="password-strength-bar"></div>
                             </div>
-                            <small id="password-strength-text">La password deve contenere almeno 8 caratteri, lettere maiuscole, minuscole, numeri e simboli</small>
+                            <small id="password-strength-text">Password must contain at least 8 characters, uppercase letters, lowercase letters, numbers and symbols</small>
                         </div>
 
                         <div class="form-group">
-                            <label for="password_confirm">Conferma Password <span class="required">*</span></label>
+                            <label for="password_confirm">Confirm Password <span class="required">*</span></label>
                             <input type="password" id="password_confirm" name="password_confirm" required>
                         </div>
                     </div>
 
                     <div class="disclaimer-box">
-                        <h4>⚠️ Informativa Importante</h4>
+                        <h4>⚠️ Important Notice</h4>
                         <p>
-                            Registrandoti, comprendi e accetti che:
+                            By registering, you understand and accept that:
                         </p>
                         <ul>
-                            <li>La piattaforma <strong>facilita l'incontro tra viaggiatori</strong> ma non organizza materialmente i viaggi</li>
-                            <li>Sei <strong>l'unico responsabile</strong> per i contenuti che pubblichi (testi, foto, recensioni)</li>
-                            <li>Sei <strong>responsabile</strong> per le informazioni fornite nel tuo profilo e per i tuoi comportamenti</li>
-                            <li>La piattaforma <strong>non verifica l'identità</strong> degli utenti oltre l'email e <strong>non garantisce</strong> la veridicità dei profili</li>
-                            <li>Ogni <strong>accordo di viaggio</strong> avviene direttamente tra te e gli altri viaggiatori, <strong>senza intermediazione</strong> della piattaforma</li>
-                            <li>La piattaforma <strong>non è responsabile</strong> per comportamenti, danni o disservizi derivanti da incontri o viaggi organizzati tramite il servizio</li>
+                            <li>The platform <strong>facilitates meetings between travelers</strong> but does not materially organize journeys</li>
+                            <li>You are <strong>solely responsible</strong> for the content you publish (texts, photos, reviews)</li>
+                            <li>You are <strong>responsible</strong> for the information provided in your profile and for your behavior</li>
+                            <li>The platform <strong>does not verify the identity</strong> of users beyond email and <strong>does not guarantee</strong> the authenticity of profiles</li>
+                            <li>Every <strong>journey agreement</strong> occurs directly between you and other travelers, <strong>without intermediation</strong> from the platform</li>
+                            <li>The platform <strong>is not responsible</strong> for behavior, damages or issues arising from meetings or journeys organized through the service</li>
                         </ul>
                         <p>
-                            <strong>Ti invitiamo a usare prudenza, buonsenso e a incontrare sempre altre persone in luoghi pubblici prima di partire.</strong>
+                            <strong>We encourage you to use caution, common sense and to always meet other people in public places before departing.</strong>
                         </p>
                     </div>
 
                     <div class="form-group checkbox-group">
                         <label>
                             <input type="checkbox" name="terms" required>
-                            <strong>Accetto</strong> i <a href="<?php echo home_url('/termini'); ?>" target="_blank">Termini e Condizioni</a> e la <a href="<?php echo home_url('/privacy'); ?>" target="_blank">Privacy Policy</a> e <strong>dichiaro di aver letto e compreso</strong> l'informativa sopra riportata.
+                            <strong>I accept</strong> the <a href="<?php echo home_url('/termini'); ?>" target="_blank">Terms and Conditions</a> and the <a href="<?php echo home_url('/privacy'); ?>" target="_blank">Privacy Policy</a> and <strong>declare that I have read and understood</strong> the notice above.
                         </label>
                     </div>
 
                     <div class="form-group checkbox-group">
                         <label>
                             <input type="checkbox" name="disclaimer_understood" required>
-                            <strong>Comprendo</strong> che la piattaforma declina ogni responsabilità per contenuti pubblicati dagli utenti, comportamenti al di fuori della piattaforma e per l'organizzazione dei viaggi che avviene esclusivamente tra viaggiatori.
+                            <strong>I understand</strong> that the platform disclaims all responsibility for content published by users, behavior outside the platform and for the organization of journeys that occurs exclusively between travelers.
                         </label>
                     </div>
 
                     <div class="form-actions">
-                        <button type="submit" class="btn-primary btn-large">Continua →</button>
+                        <button type="submit" class="btn-primary btn-large">Continue →</button>
                     </div>
 
                     <div class="form-footer">
-                        Hai già un account? <a href="<?php echo wp_login_url(); ?>">Accedi</a>
+                        Already have an account? <a href="<?php echo wp_login_url(); ?>">Login</a>
                     </div>
                 </form>
 
                 <!-- Step 2: Profile Information -->
                 <form id="registration-step-2" class="registration-step">
-                    <h2>Completa il tuo Profilo</h2>
+                    <h2>Complete Your Profile</h2>
 
                     <div class="form-section">
-                        <h3>Informazioni Personali</h3>
+                        <h3>Personal Information</h3>
 
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="birth_date">Data di Nascita <span class="required">*</span></label>
+                                <label for="birth_date">Date of Birth <span class="required">*</span></label>
                                 <input type="date" id="birth_date" name="birth_date" required max="<?php echo date('Y-m-d', strtotime('-18 years')); ?>">
-                                <small>Devi avere almeno 18 anni</small>
+                                <small>You must be at least 18 years old</small>
                             </div>
 
                             <div class="form-group">
-                                <label for="gender">Genere</label>
+                                <label for="gender">Gender</label>
                                 <select id="gender" name="gender">
-                                    <option value="">Preferisco non dire</option>
-                                    <option value="male">Uomo</option>
-                                    <option value="female">Donna</option>
-                                    <option value="other">Altro</option>
+                                    <option value="">Prefer not to say</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
                                 </select>
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="city">Città <span class="required">*</span></label>
-                                <input type="text" id="city" name="city" required placeholder="Es: Milano">
+                                <label for="city">City <span class="required">*</span></label>
+                                <input type="text" id="city" name="city" required placeholder="e.g., Milan">
                             </div>
 
                             <div class="form-group">
-                                <label for="country">Paese <span class="required">*</span></label>
-                                <input type="text" id="country" name="country" required value="Italia">
+                                <label for="country">Country <span class="required">*</span></label>
+                                <input type="text" id="country" name="country" required value="Italy">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="phone">Telefono (opzionale)</label>
+                            <label for="phone">Phone (optional)</label>
                             <input type="tel" id="phone" name="phone" placeholder="+39 123 456 7890">
                         </div>
                     </div>
 
                     <div class="form-section">
-                        <h3>Parlami di Te</h3>
+                        <h3>Tell Me About Yourself</h3>
 
                         <div class="form-group">
                             <label for="bio">Bio <span class="required">*</span></label>
-                            <textarea id="bio" name="bio" rows="5" required placeholder="Raccontaci chi sei, cosa ami dei viaggi, le tue esperienze..."></textarea>
-                            <small id="bio-count">0/500 caratteri</small>
+                            <textarea id="bio" name="bio" rows="5" required placeholder="Tell us who you are, what you love about travel, your experiences..."></textarea>
+                            <small id="bio-count">0/500 characters</small>
                         </div>
 
                         <div class="form-group">
-                            <label for="languages">Lingue Parlate <span class="required">*</span></label>
-                            <input type="text" id="languages" name="languages" required placeholder="Es: Italiano, Inglese, Spagnolo">
+                            <label for="languages">Languages Spoken <span class="required">*</span></label>
+                            <input type="text" id="languages" name="languages" required placeholder="e.g., Italian, English, Spanish">
                         </div>
                     </div>
 
                     <div class="form-section">
-                        <h3>Stili di Viaggio</h3>
-                        <p>Seleziona i tuoi stili preferiti:</p>
+                        <h3>Travel Styles</h3>
+                        <p>Select your favorite styles:</p>
 
                         <div class="checkbox-grid">
-                            <label><input type="checkbox" name="travel_styles[]" value="Avventura"> Avventura</label>
-                            <label><input type="checkbox" name="travel_styles[]" value="Mare"> Mare</label>
-                            <label><input type="checkbox" name="travel_styles[]" value="Montagna"> Montagna</label>
-                            <label><input type="checkbox" name="travel_styles[]" value="Città d'Arte"> Città d'Arte</label>
-                            <label><input type="checkbox" name="travel_styles[]" value="Cultura"> Cultura</label>
+                            <label><input type="checkbox" name="travel_styles[]" value="Adventure"> Adventure</label>
+                            <label><input type="checkbox" name="travel_styles[]" value="Beach"> Beach</label>
+                            <label><input type="checkbox" name="travel_styles[]" value="Mountains"> Mountains</label>
+                            <label><input type="checkbox" name="travel_styles[]" value="Art Cities"> Art Cities</label>
+                            <label><input type="checkbox" name="travel_styles[]" value="Culture"> Culture</label>
                             <label><input type="checkbox" name="travel_styles[]" value="Relax"> Relax</label>
                             <label><input type="checkbox" name="travel_styles[]" value="Food & Wine"> Food & Wine</label>
                             <label><input type="checkbox" name="travel_styles[]" value="Sport"> Sport</label>
-                            <label><input type="checkbox" name="travel_styles[]" value="Zaino in Spalla"> Zaino in Spalla</label>
+                            <label><input type="checkbox" name="travel_styles[]" value="Backpacking"> Backpacking</label>
                         </div>
                     </div>
 
                     <div class="form-section">
-                        <h3>Interessi</h3>
-                        <p>Cosa ti piace fare in viaggio?</p>
+                        <h3>Interests</h3>
+                        <p>What do you like to do while traveling?</p>
 
                         <div class="checkbox-grid">
-                            <label><input type="checkbox" name="interests[]" value="Fotografia"> Fotografia</label>
+                            <label><input type="checkbox" name="interests[]" value="Photography"> Photography</label>
                             <label><input type="checkbox" name="interests[]" value="Trekking"> Trekking</label>
                             <label><input type="checkbox" name="interests[]" value="Yoga"> Yoga</label>
-                            <label><input type="checkbox" name="interests[]" value="Immersioni"> Immersioni</label>
-                            <label><input type="checkbox" name="interests[]" value="Storia"> Storia</label>
-                            <label><input type="checkbox" name="interests[]" value="Arte"> Arte</label>
-                            <label><input type="checkbox" name="interests[]" value="Cucina Locale"> Cucina Locale</label>
-                            <label><input type="checkbox" name="interests[]" value="Vita Notturna"> Vita Notturna</label>
-                            <label><input type="checkbox" name="interests[]" value="Volontariato"> Volontariato</label>
+                            <label><input type="checkbox" name="interests[]" value="Diving"> Diving</label>
+                            <label><input type="checkbox" name="interests[]" value="History"> History</label>
+                            <label><input type="checkbox" name="interests[]" value="Art"> Art</label>
+                            <label><input type="checkbox" name="interests[]" value="Local Cuisine"> Local Cuisine</label>
+                            <label><input type="checkbox" name="interests[]" value="Nightlife"> Nightlife</label>
+                            <label><input type="checkbox" name="interests[]" value="Volunteering"> Volunteering</label>
                             <label><input type="checkbox" name="interests[]" value="Wildlife"> Wildlife</label>
                         </div>
                     </div>
 
                     <div class="form-section">
-                        <h3>Preferenze di Viaggio</h3>
+                        <h3>Travel Preferences</h3>
 
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="budget_range">Range di Budget</label>
+                                <label for="budget_range">Budget Range</label>
                                 <select id="budget_range" name="budget_range">
-                                    <option value="economico">Economico (< 500€)</option>
-                                    <option value="medio">Medio (500-1500€)</option>
-                                    <option value="comfort">Comfort (1500-3000€)</option>
-                                    <option value="lusso">Lusso (> 3000€)</option>
+                                    <option value="economico">Budget (< €500)</option>
+                                    <option value="medio">Medium (€500-1500)</option>
+                                    <option value="comfort">Comfort (€1500-3000)</option>
+                                    <option value="lusso">Luxury (> €3000)</option>
                                 </select>
                             </div>
 
                             <div class="form-group">
-                                <label for="travel_frequency">Quanto viaggi?</label>
+                                <label for="travel_frequency">How often do you travel?</label>
                                 <select id="travel_frequency" name="travel_frequency">
-                                    <option value="raro">Raramente (1-2 volte/anno)</option>
-                                    <option value="occasionale">Occasionalmente (3-4 volte/anno)</option>
-                                    <option value="frequente">Frequentemente (5+ volte/anno)</option>
+                                    <option value="raro">Rarely (1-2 times/year)</option>
+                                    <option value="occasionale">Occasionally (3-4 times/year)</option>
+                                    <option value="frequente">Frequently (5+ times/year)</option>
                                 </select>
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="accommodation_preference">Preferenza Alloggio</label>
+                                <label for="accommodation_preference">Accommodation Preference</label>
                                 <select id="accommodation_preference" name="accommodation_preference">
-                                    <option value="hostel">Ostelli</option>
+                                    <option value="hostel">Hostels</option>
                                     <option value="hotel">Hotel</option>
                                     <option value="bnb">B&B / Airbnb</option>
                                     <option value="camping">Camping</option>
-                                    <option value="misto">Misto</option>
+                                    <option value="misto">Mixed</option>
                                 </select>
                             </div>
 
                             <div class="form-group">
-                                <label for="travel_pace">Ritmo di Viaggio</label>
+                                <label for="travel_pace">Travel Pace</label>
                                 <select id="travel_pace" name="travel_pace">
-                                    <option value="rilassato">Rilassato</option>
-                                    <option value="moderato">Moderato</option>
-                                    <option value="intenso">Intenso</option>
+                                    <option value="rilassato">Relaxed</option>
+                                    <option value="moderato">Moderate</option>
+                                    <option value="intenso">Intense</option>
                                 </select>
                             </div>
                         </div>
                     </div>
 
                     <div class="form-section">
-                        <h3>Social (Opzionale)</h3>
+                        <h3>Social (Optional)</h3>
 
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="instagram">Instagram</label>
-                                <input type="text" id="instagram" name="instagram" placeholder="@tuousername">
+                                <input type="text" id="instagram" name="instagram" placeholder="@yourusername">
                             </div>
 
                             <div class="form-group">
                                 <label for="facebook">Facebook</label>
-                                <input type="text" id="facebook" name="facebook" placeholder="URL profilo">
+                                <input type="text" id="facebook" name="facebook" placeholder="Profile URL">
                             </div>
                         </div>
                     </div>
 
                     <div class="form-section">
                         <h3>Privacy</h3>
-                        <p>Scegli cosa mostrare nel tuo profilo pubblico:</p>
+                        <p>Choose what to show in your public profile:</p>
 
                         <div class="checkbox-list">
-                            <label><input type="checkbox" name="show_age" checked> Mostra la mia età</label>
-                            <label><input type="checkbox" name="show_phone"> Mostra il mio telefono</label>
-                            <label><input type="checkbox" name="show_email"> Mostra la mia email</label>
-                            <label><input type="checkbox" name="show_social" checked> Mostra i miei social</label>
+                            <label><input type="checkbox" name="show_age" checked> Show my age</label>
+                            <label><input type="checkbox" name="show_phone"> Show my phone</label>
+                            <label><input type="checkbox" name="show_email"> Show my email</label>
+                            <label><input type="checkbox" name="show_social" checked> Show my social media</label>
                         </div>
                     </div>
 
                     <div class="form-actions">
-                        <button type="button" class="btn-secondary btn-prev">← Indietro</button>
-                        <button type="submit" class="btn-primary btn-large">Continua →</button>
+                        <button type="button" class="btn-secondary btn-prev">← Back</button>
+                        <button type="submit" class="btn-primary btn-large">Continue →</button>
                     </div>
                 </form>
 
                 <!-- Step 3: Profile Image -->
                 <form id="registration-step-3" class="registration-step">
-                    <h2>Aggiungi la tua Foto Profilo</h2>
+                    <h2>Add Your Profile Photo</h2>
 
                     <div class="profile-image-section">
                         <div class="image-preview">
-                            <img id="profile-preview" src="" alt="Anteprima" style="display: none;">
+                            <img id="profile-preview" src="" alt="Preview" style="display: none;">
                             <div class="placeholder-avatar">
                                 <span class="icon">📷</span>
-                                <p>Carica una tua foto</p>
+                                <p>Upload your photo</p>
                             </div>
                         </div>
 
                         <div class="image-upload-controls">
                             <input type="file" id="profile_image" name="profile_image" accept="image/jpeg,image/png,image/jpg" style="display: none;">
-                            <button type="button" class="btn-secondary" id="upload-btn">Scegli Foto</button>
-                            <small>JPG o PNG, max 5MB</small>
+                            <button type="button" class="btn-secondary" id="upload-btn">Choose Photo</button>
+                            <small>JPG or PNG, max 5MB</small>
                         </div>
                     </div>
 
                     <div class="form-actions">
-                        <button type="button" class="btn-secondary btn-prev">← Indietro</button>
-                        <button type="button" class="btn-secondary" id="skip-photo">Salta per ora</button>
-                        <button type="button" class="btn-primary btn-large" id="continue-to-travel">Continua →</button>
+                        <button type="button" class="btn-secondary btn-prev">← Back</button>
+                        <button type="button" class="btn-secondary" id="skip-photo">Skip for now</button>
+                        <button type="button" class="btn-primary btn-large" id="continue-to-travel">Continue →</button>
                     </div>
                 </form>
 
                 <!-- Step 4: Create First Travel (Optional) -->
                 <form id="registration-step-4" class="registration-step">
-                    <h2>Vuoi inserire la tua prima proposta di viaggio e cercare compagni con cui viaggiare?</h2>
-                    <p class="step-intro">Questo passaggio è completamente <strong>opzionale</strong>. Puoi saltare e aggiungere viaggi in seguito dalla tua dashboard.</p>
+                    <h2>Would you like to post your first journey proposal and find travel companions?</h2>
+                    <p class="step-intro">This step is completely <strong>optional</strong>. You can skip and add journeys later from your dashboard.</p>
 
                     <div class="optional-choice" style="text-align: center; margin: 30px 0; padding: 20px; background: #f8f9fa; border-radius: 8px;">
-                        <p style="font-size: 1.1rem; margin-bottom: 20px;">Cosa vuoi fare?</p>
+                        <p style="font-size: 1.1rem; margin-bottom: 20px;">What would you like to do?</p>
                         <div style="display: flex; gap: 15px; justify-content: center;">
-                            <button type="button" class="btn-primary" id="show-travel-form">Sì, voglio creare un viaggio</button>
-                            <button type="button" class="btn-secondary" id="skip-travel-direct">No, completa la registrazione</button>
+                            <button type="button" class="btn-primary" id="show-travel-form">Yes, I want to create a journey</button>
+                            <button type="button" class="btn-secondary" id="skip-travel-direct">No, complete registration</button>
                         </div>
                     </div>
 
                     <div id="travel-form-fields" style="display: none;">
 
                     <div class="form-group">
-                        <label for="travel_title">Titolo del Viaggio <span class="required">*</span></label>
-                        <input type="text" id="travel_title" name="travel_title" placeholder="Es: Weekend a Venezia, Road Trip in Toscana">
+                        <label for="travel_title">Journey Title <span class="required">*</span></label>
+                        <input type="text" id="travel_title" name="travel_title" placeholder="e.g., Weekend in Venice, Road Trip in Tuscany">
                     </div>
 
                     <div class="form-group">
-                        <label for="travel_description">Descrizione <span class="required">*</span></label>
-                        <textarea id="travel_description" name="travel_description" rows="5" placeholder="Descrivi il tuo viaggio: destinazioni, attività previste, cosa rende speciale questa esperienza..."></textarea>
+                        <label for="travel_description">Description <span class="required">*</span></label>
+                        <textarea id="travel_description" name="travel_description" rows="5" placeholder="Describe your journey: destinations, planned activities, what makes this experience special..."></textarea>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="travel_destination">Destinazione <span class="required">*</span></label>
-                            <input type="text" id="travel_destination" name="travel_destination" placeholder="Es: Venezia, Toscana">
+                            <label for="travel_destination">Destination <span class="required">*</span></label>
+                            <input type="text" id="travel_destination" name="travel_destination" placeholder="e.g., Venice, Tuscany">
                         </div>
 
                         <div class="form-group">
-                            <label for="travel_country">Paese <span class="required">*</span></label>
-                            <input type="text" id="travel_country" name="travel_country" placeholder="Es: Italia, Francia">
+                            <label for="travel_country">Country <span class="required">*</span></label>
+                            <input type="text" id="travel_country" name="travel_country" placeholder="e.g., Italy, France">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label>Tipo di Data <span class="required">*</span></label>
+                        <label>Date Type <span class="required">*</span></label>
                         <div class="radio-group" style="display: flex; gap: 20px; margin-bottom: 15px;">
                             <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
                                 <input type="radio" name="travel_date_type" value="precise" checked>
-                                <span>Date precise</span>
+                                <span>Precise dates</span>
                             </label>
                             <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
                                 <input type="radio" name="travel_date_type" value="month">
-                                <span>Solo mese</span>
+                                <span>Month only</span>
                             </label>
                         </div>
                     </div>
@@ -393,12 +393,12 @@ get_header();
                     <div id="precise-dates-container-reg">
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="travel_start_date">Data Inizio <span class="required">*</span></label>
+                                <label for="travel_start_date">Start Date <span class="required">*</span></label>
                                 <input type="date" id="travel_start_date" name="travel_start_date" min="<?php echo date('Y-m-d'); ?>">
                             </div>
 
                             <div class="form-group">
-                                <label for="travel_end_date">Data Fine <span class="required">*</span></label>
+                                <label for="travel_end_date">End Date <span class="required">*</span></label>
                                 <input type="date" id="travel_end_date" name="travel_end_date" min="<?php echo date('Y-m-d'); ?>">
                             </div>
                         </div>
@@ -406,15 +406,15 @@ get_header();
 
                     <div id="month-container-reg" style="display: none;">
                         <div class="form-group">
-                            <label for="travel_month">Mese di Partenza <span class="required">*</span></label>
+                            <label for="travel_month">Departure Month <span class="required">*</span></label>
                             <select id="travel_month" name="travel_month">
-                                <option value="">Seleziona il mese</option>
+                                <option value="">Select month</option>
                                 <?php
                                 $months = array(
-                                    '01' => 'Gennaio', '02' => 'Febbraio', '03' => 'Marzo',
-                                    '04' => 'Aprile', '05' => 'Maggio', '06' => 'Giugno',
-                                    '07' => 'Luglio', '08' => 'Agosto', '09' => 'Settembre',
-                                    '10' => 'Ottobre', '11' => 'Novembre', '12' => 'Dicembre'
+                                    '01' => 'January', '02' => 'February', '03' => 'March',
+                                    '04' => 'April', '05' => 'May', '06' => 'June',
+                                    '07' => 'July', '08' => 'August', '09' => 'September',
+                                    '10' => 'October', '11' => 'November', '12' => 'December'
                                 );
                                 $current_month = (int)date('n');
                                 $current_year = (int)date('Y');
@@ -432,24 +432,24 @@ get_header();
                                 }
                                 ?>
                             </select>
-                            <small>Il viaggio sarà disponibile per tutto il mese selezionato</small>
+                            <small>The journey will be available for the entire selected month</small>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="travel_budget">Budget per Persona (€) <span class="required">*</span></label>
+                            <label for="travel_budget">Budget per Person (€) <span class="required">*</span></label>
                             <input type="number" id="travel_budget" name="travel_budget" min="0" placeholder="500">
                         </div>
 
                         <div class="form-group">
-                            <label for="travel_max_participants">Max Partecipanti <span class="required">*</span></label>
+                            <label for="travel_max_participants">Max Participants <span class="required">*</span></label>
                             <input type="number" id="travel_max_participants" name="travel_max_participants" min="2" max="50" value="5">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label>Tipo di Viaggio</label>
+                        <label>Journey Type</label>
                         <div class="checkbox-group">
                             <?php
                             $travel_types = get_terms(array(
@@ -471,23 +471,23 @@ get_header();
                     </div>
 
                     <div class="disclaimer-box" style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 20px; border-radius: 8px; margin: 30px 0;">
-                        <h4 style="margin-top: 0; color: #856404;">⚠️ Informativa Importante</h4>
-                        <p style="margin-bottom: 15px;">Pubblicando questo viaggio, dichiari di comprendere e accettare che:</p>
+                        <h4 style="margin-top: 0; color: #856404;">⚠️ Important Notice</h4>
+                        <p style="margin-bottom: 15px;">By publishing this journey, you declare that you understand and accept that:</p>
                         <ul style="margin: 0 0 15px 0; padding-left: 20px;">
-                            <li style="margin-bottom: 8px;">La piattaforma facilita l'incontro tra viaggiatori ma <strong>non organizza</strong> materialmente i viaggi</li>
-                            <li style="margin-bottom: 8px;">Sei <strong>l'unico responsabile</strong> per organizzazione, sicurezza e gestione del viaggio</li>
-                            <li style="margin-bottom: 8px;">La piattaforma <strong>non è responsabile</strong> per comportamenti, danni o disservizi</li>
+                            <li style="margin-bottom: 8px;">The platform facilitates meetings between travelers but <strong>does not organize</strong> journeys materially</li>
+                            <li style="margin-bottom: 8px;">You are <strong>solely responsible</strong> for organization, safety and management of the journey</li>
+                            <li style="margin-bottom: 8px;">The platform <strong>is not responsible</strong> for behavior, damages or issues</li>
                         </ul>
                         <label style="display: flex; align-items: start; gap: 10px; cursor: pointer;">
                             <input type="checkbox" id="accept_travel_disclaimer_reg" name="accept_travel_disclaimer" style="margin-top: 4px;">
-                            <span>Accetto e comprendo di essere l'unico responsabile per questo viaggio</span>
+                            <span>I accept and understand that I am solely responsible for this journey</span>
                         </label>
                     </div>
 
                     <div class="form-actions">
-                        <button type="button" class="btn-secondary btn-prev-travel">← Indietro</button>
-                        <button type="button" class="btn-secondary" id="skip-travel-from-form">Salta e Completa</button>
-                        <button type="submit" class="btn-primary btn-large">Crea Annuncio e Completa ✓</button>
+                        <button type="button" class="btn-secondary btn-prev-travel">← Back</button>
+                        <button type="button" class="btn-secondary" id="skip-travel-from-form">Skip and Complete</button>
+                        <button type="submit" class="btn-primary btn-large">Create Post and Complete ✓</button>
                     </div>
 
                     </div><!-- End travel-form-fields -->
@@ -854,7 +854,7 @@ jQuery(document).ready(function($) {
     // Bio character count
     $('#bio').on('input', function() {
         const count = $(this).val().length;
-        $('#bio-count').text(count + '/500 caratteri');
+        $('#bio-count').text(count + '/500 characters');
 
         if (count > 500) {
             $(this).val($(this).val().substring(0, 500));
@@ -867,18 +867,18 @@ jQuery(document).ready(function($) {
         const feedback = [];
 
         if (password.length >= 8) strength++;
-        else feedback.push('almeno 8 caratteri');
+        else feedback.push('at least 8 characters');
 
         if (password.length >= 12) strength++;
 
         if (/[a-z]/.test(password) && /[A-Z]/.test(password)) strength++;
-        else feedback.push('lettere maiuscole e minuscole');
+        else feedback.push('uppercase and lowercase letters');
 
         if (/[0-9]/.test(password)) strength++;
-        else feedback.push('numeri');
+        else feedback.push('numbers');
 
         if (/[^a-zA-Z0-9]/.test(password)) strength++;
-        else feedback.push('simboli speciali');
+        else feedback.push('special symbols');
 
         return { strength, feedback };
     }
@@ -895,19 +895,19 @@ jQuery(document).ready(function($) {
 
         if (password.length === 0) {
             $bar.css('width', '0%');
-            $text.text('La password deve contenere almeno 8 caratteri, lettere maiuscole, minuscole, numeri e simboli');
+            $text.text('Password must contain at least 8 characters, uppercase letters, lowercase letters, numbers and symbols');
             return;
         }
 
         if (result.strength <= 2) {
             $bar.addClass('weak');
-            $text.addClass('weak').text('Password debole. Manca: ' + result.feedback.join(', '));
+            $text.addClass('weak').text('Weak password. Missing: ' + result.feedback.join(', '));
         } else if (result.strength <= 3) {
             $bar.addClass('medium');
-            $text.addClass('medium').text('Password media. Manca: ' + result.feedback.join(', '));
+            $text.addClass('medium').text('Medium password. Missing: ' + result.feedback.join(', '));
         } else {
             $bar.addClass('strong');
-            $text.addClass('strong').text('Password forte!');
+            $text.addClass('strong').text('Strong password!');
         }
     });
 
@@ -919,14 +919,14 @@ jQuery(document).ready(function($) {
         const confirm = $('#password_confirm').val();
 
         if (password !== confirm) {
-            alert('Le password non coincidono');
+            alert('Passwords do not match');
             return;
         }
 
         // Check password strength
         const result = checkPasswordStrength(password);
         if (result.strength < 3) {
-            if (!confirm('La password è debole. Vuoi continuare comunque?')) {
+            if (!confirm('Password is weak. Do you want to continue anyway?')) {
                 return;
             }
         }
@@ -961,11 +961,11 @@ jQuery(document).ready(function($) {
 
                     nextStep();
                 } else {
-                    alert(response.data.message || 'Errore durante la registrazione');
+                    alert(response.data.message || 'Error during registration');
                 }
             },
             error: function() {
-                alert('Errore di connessione');
+                alert('Connection error');
             },
             complete: function() {
                 $('#registration-step-1').removeClass('loading');
@@ -979,7 +979,7 @@ jQuery(document).ready(function($) {
 
         // Check at least one travel style selected
         if ($('input[name="travel_styles[]"]:checked').length === 0) {
-            alert('Seleziona almeno uno stile di viaggio');
+            alert('Select at least one travel style');
             return;
         }
 
@@ -1003,7 +1003,7 @@ jQuery(document).ready(function($) {
                 if (response.success) {
                     nextStep();
                 } else {
-                    alert(response.data.message || 'Errore durante il salvataggio');
+                    alert(response.data.message || 'Error while saving');
                 }
             },
             error: function(jqXHR, textStatus, errorThrown) {
@@ -1015,15 +1015,15 @@ jQuery(document).ready(function($) {
                     responseText: jqXHR.responseText
                 });
 
-                let errorMsg = 'Errore di connessione';
+                let errorMsg = 'Connection error';
                 if (jqXHR.status === 500) {
-                    errorMsg = 'Errore del server (500). Controlla i log PHP.';
+                    errorMsg = 'Server error (500). Check PHP logs.';
                 } else if (jqXHR.status === 403) {
-                    errorMsg = 'Accesso negato (403). Problema con il nonce.';
+                    errorMsg = 'Access denied (403). Nonce issue.';
                 } else if (jqXHR.status === 404) {
-                    errorMsg = 'Endpoint non trovato (404).';
+                    errorMsg = 'Endpoint not found (404).';
                 } else if (jqXHR.responseText) {
-                    errorMsg = 'Errore: ' + jqXHR.responseText.substring(0, 100);
+                    errorMsg = 'Error: ' + jqXHR.responseText.substring(0, 100);
                 }
 
                 alert(errorMsg);
@@ -1080,7 +1080,7 @@ jQuery(document).ready(function($) {
                         console.log('Step 3 - Image uploaded successfully');
                         nextStep(); // Go to step 4
                     } else {
-                        alert(response.data.message || 'Errore durante l\'upload');
+                        alert(response.data.message || 'Upload error');
                     }
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
@@ -1090,15 +1090,15 @@ jQuery(document).ready(function($) {
                         responseText: jqXHR.responseText
                     });
 
-                    let errorMsg = 'Errore di connessione';
+                    let errorMsg = 'Connection error';
                     if (jqXHR.status === 500) {
-                        errorMsg = 'Errore del server (500). Controlla i log PHP.';
+                        errorMsg = 'Server error (500). Check PHP logs.';
                     } else if (jqXHR.status === 403) {
-                        errorMsg = 'Accesso negato (403). Problema con il nonce.';
+                        errorMsg = 'Access denied (403). Nonce issue.';
                     } else if (jqXHR.status === 413) {
-                        errorMsg = 'File troppo grande (413). Riduci le dimensioni dell\'immagine.';
+                        errorMsg = 'File too large (413). Reduce image size.';
                     } else if (jqXHR.responseText) {
-                        errorMsg = 'Errore: ' + jqXHR.responseText.substring(0, 100);
+                        errorMsg = 'Error: ' + jqXHR.responseText.substring(0, 100);
                     }
 
                     alert(errorMsg);
@@ -1190,7 +1190,7 @@ jQuery(document).ready(function($) {
                     console.log('Step 4 - Travel created successfully');
                     window.location.href = '<?php echo home_url('/dashboard'); ?>';
                 } else {
-                    alert(response.data.message || 'Errore durante la creazione del viaggio');
+                    alert(response.data.message || 'Error creating journey');
                 }
             },
             error: function(jqXHR, textStatus, errorThrown) {
@@ -1200,13 +1200,13 @@ jQuery(document).ready(function($) {
                     responseText: jqXHR.responseText
                 });
 
-                let errorMsg = 'Errore di connessione';
+                let errorMsg = 'Connection error';
                 if (jqXHR.status === 500) {
-                    errorMsg = 'Errore del server (500). Controlla i log PHP.';
+                    errorMsg = 'Server error (500). Check PHP logs.';
                 } else if (jqXHR.status === 403) {
-                    errorMsg = 'Accesso negato (403). Problema con il nonce.';
+                    errorMsg = 'Access denied (403). Nonce issue.';
                 } else if (jqXHR.responseText) {
-                    errorMsg = 'Errore: ' + jqXHR.responseText.substring(0, 100);
+                    errorMsg = 'Error: ' + jqXHR.responseText.substring(0, 100);
                 }
 
                 alert(errorMsg);

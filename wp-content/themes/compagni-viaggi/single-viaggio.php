@@ -54,7 +54,7 @@ while (have_posts()) : the_post();
 
                     <!-- Travel Details Box - Prominent placement -->
                     <div class="travel-details-box-top">
-                        <h3>📋 Dettagli Viaggio</h3>
+                        <h3>📋 Journey Details</h3>
                         <div class="travel-details-grid">
                             <?php
                             // Core fields
@@ -77,66 +77,66 @@ while (have_posts()) : the_post();
 
                             // Transport labels with emoji
                             $transport_labels = array(
-                                'aereo' => '✈️ Aereo',
-                                'treno' => '🚂 Treno',
+                                'aereo' => '✈️ Plane',
+                                'treno' => '🚂 Train',
                                 'bus' => '🚌 Bus',
-                                'auto_propria' => '🚗 Auto propria',
-                                'auto_noleggio' => '🚙 Auto a noleggio',
-                                'nave' => '🚢 Nave/Traghetto'
+                                'auto_propria' => '🚗 Own Car',
+                                'auto_noleggio' => '🚙 Rental Car',
+                                'nave' => '🚢 Ship/Ferry'
                             );
 
                             // Accommodation labels
                             $accommodation_labels = array(
                                 'hotel' => 'Hotel',
-                                'ostello' => 'Ostello',
+                                'ostello' => 'Hostel',
                                 'bb' => 'B&B',
-                                'airbnb' => 'Airbnb/Casa vacanze',
-                                'camping' => 'Camping/Tenda',
-                                'rifugio' => 'Rifugio',
-                                'misto' => 'Misto',
-                                'altro' => 'Altro'
+                                'airbnb' => 'Airbnb/Vacation Home',
+                                'camping' => 'Camping/Tent',
+                                'rifugio' => 'Lodge',
+                                'misto' => 'Mixed',
+                                'altro' => 'Other'
                             );
 
                             // Difficulty labels
                             $difficulty_labels = array(
-                                'facile' => 'Facile - Per tutti',
-                                'moderato' => 'Moderato',
-                                'impegnativo' => 'Impegnativo',
-                                'molto_impegnativo' => 'Molto impegnativo'
+                                'facile' => 'Easy - For Everyone',
+                                'moderato' => 'Moderate',
+                                'impegnativo' => 'Challenging',
+                                'molto_impegnativo' => 'Very Challenging'
                             );
 
                             // Meals labels
                             $meals_labels = array(
-                                'non_inclusi' => 'Non inclusi',
-                                'colazione' => 'Solo colazione',
-                                'mezza_pensione' => 'Mezza pensione',
-                                'pensione_completa' => 'Pensione completa'
+                                'non_inclusi' => 'Not Included',
+                                'colazione' => 'Breakfast Only',
+                                'mezza_pensione' => 'Half Board',
+                                'pensione_completa' => 'Full Board'
                             );
 
                             // Guide type labels
                             $guide_labels = array(
-                                'autonomo' => 'Viaggio autonomo',
-                                'guida_locale' => 'Con guida locale',
-                                'tour_organizzato' => 'Tour organizzato'
+                                'autonomo' => 'Independent Journey',
+                                'guida_locale' => 'With Local Guide',
+                                'tour_organizzato' => 'Organized Tour'
                             );
                             ?>
 
                             <?php if ($date_type === 'month' && $travel_month) : ?>
                                 <div class="detail-item">
-                                    <strong>📅 Periodo:</strong>
-                                    <span><?php echo date_i18n('F Y', strtotime($travel_month . '-01')); ?> (flessibile)</span>
+                                    <strong>📅 Period:</strong>
+                                    <span><?php echo date_i18n('F Y', strtotime($travel_month . '-01')); ?> (flexible)</span>
                                 </div>
                             <?php else : ?>
                                 <?php if ($start_date) : ?>
                                     <div class="detail-item">
-                                        <strong>📅 Inizio:</strong>
+                                        <strong>📅 Start Date:</strong>
                                         <span><?php echo date_i18n('d M Y', strtotime($start_date)); ?></span>
                                     </div>
                                 <?php endif; ?>
 
                                 <?php if ($end_date) : ?>
                                     <div class="detail-item">
-                                        <strong>📅 Fine:</strong>
+                                        <strong>📅 Return Date:</strong>
                                         <span><?php echo date_i18n('d M Y', strtotime($end_date)); ?></span>
                                     </div>
                                 <?php endif; ?>
@@ -144,35 +144,35 @@ while (have_posts()) : the_post();
 
                             <?php if ($destination) : ?>
                                 <div class="detail-item">
-                                    <strong>📍 Destinazione:</strong>
+                                    <strong>📍 Destination:</strong>
                                     <span><?php echo esc_html($destination); ?></span>
                                 </div>
                             <?php endif; ?>
 
                             <?php if ($country) : ?>
                                 <div class="detail-item">
-                                    <strong>🌍 Paese:</strong>
+                                    <strong>🌍 Country:</strong>
                                     <span><?php echo esc_html($country); ?></span>
                                 </div>
                             <?php endif; ?>
 
                             <?php if ($budget) : ?>
                                 <div class="detail-item">
-                                    <strong>💰 Budget indicativo:</strong>
+                                    <strong>💰 Budget:</strong>
                                     <span>€<?php echo number_format($budget, 0, ',', '.'); ?></span>
                                 </div>
                             <?php endif; ?>
 
                             <?php if ($max_participants) : ?>
                                 <div class="detail-item">
-                                    <strong>👥 Partecipanti:</strong>
+                                    <strong>👥 Participants:</strong>
                                     <span><?php echo count($participants); ?>/<?php echo $max_participants; ?></span>
                                 </div>
                             <?php endif; ?>
 
                             <?php if (!empty($transport) && is_array($transport)) : ?>
                                 <div class="detail-item detail-item-full">
-                                    <strong>🚗 Trasporti:</strong>
+                                    <strong>🚗 Transportation:</strong>
                                     <span><?php
                                         $transport_texts = array();
                                         foreach ($transport as $t) {
@@ -187,35 +187,35 @@ while (have_posts()) : the_post();
 
                             <?php if ($accommodation) : ?>
                                 <div class="detail-item">
-                                    <strong>🏨 Alloggio:</strong>
+                                    <strong>🏨 Accommodation:</strong>
                                     <span><?php echo isset($accommodation_labels[$accommodation]) ? esc_html($accommodation_labels[$accommodation]) : esc_html($accommodation); ?></span>
                                 </div>
                             <?php endif; ?>
 
                             <?php if ($difficulty) : ?>
                                 <div class="detail-item">
-                                    <strong>📈 Difficoltà:</strong>
+                                    <strong>📈 Difficulty:</strong>
                                     <span><?php echo isset($difficulty_labels[$difficulty]) ? esc_html($difficulty_labels[$difficulty]) : esc_html($difficulty); ?></span>
                                 </div>
                             <?php endif; ?>
 
                             <?php if ($meals) : ?>
                                 <div class="detail-item">
-                                    <strong>🍽️ Pasti:</strong>
+                                    <strong>🍽️ Meals:</strong>
                                     <span><?php echo isset($meals_labels[$meals]) ? esc_html($meals_labels[$meals]) : esc_html($meals); ?></span>
                                 </div>
                             <?php endif; ?>
 
                             <?php if ($guide_type) : ?>
                                 <div class="detail-item">
-                                    <strong>👥 Organizzazione:</strong>
+                                    <strong>👥 Organization:</strong>
                                     <span><?php echo isset($guide_labels[$guide_type]) ? esc_html($guide_labels[$guide_type]) : esc_html($guide_type); ?></span>
                                 </div>
                             <?php endif; ?>
 
                             <?php if ($requirements) : ?>
                                 <div class="detail-item detail-item-full detail-item-requirements">
-                                    <strong>📝 Requisiti e Note:</strong>
+                                    <strong>📝 Requirements & Notes:</strong>
                                     <span><?php echo nl2br(esc_html($requirements)); ?></span>
                                 </div>
                             <?php endif; ?>
@@ -229,7 +229,7 @@ while (have_posts()) : the_post();
                     <!-- Featured Image caricata dall'utente - Mostrata dopo la descrizione -->
                     <?php if (has_post_thumbnail() && $taxonomy_hero_url) : ?>
                         <div class="travel-user-image">
-                            <h3>📸 Immagine del Viaggio</h3>
+                            <h3>📸 Journey Image</h3>
                             <div class="user-image-wrapper">
                                 <?php the_post_thumbnail('large'); ?>
                             </div>
@@ -238,7 +238,7 @@ while (have_posts()) : the_post();
 
                     <!-- Social Sharing -->
                     <div class="travel-share-section">
-                        <h3>💬 Condividi questo viaggio</h3>
+                        <h3>💬 Share</h3>
                         <?php
                         if (class_exists('CDV_Social_Sharing')) {
                             echo CDV_Social_Sharing::render_share_buttons($travel_id);
@@ -252,16 +252,16 @@ while (have_posts()) : the_post();
                     if (!empty($gallery_images)) :
                     ?>
                         <div class="travel-gallery-section">
-                            <h3>📸 Galleria Fotografica (<?php echo count($gallery_images); ?> foto)</h3>
+                            <h3>📸 Photo Gallery (<?php echo count($gallery_images); ?> photos)</h3>
                             <div class="travel-gallery-grid">
                                 <?php foreach ($gallery_images as $image) : ?>
                                     <div class="gallery-item" data-image-id="<?php echo $image['id']; ?>">
                                         <img src="<?php echo esc_url($image['medium']); ?>"
-                                             alt="<?php echo esc_attr($image['alt'] ?: 'Foto di viaggio'); ?>"
+                                             alt="<?php echo esc_attr($image['alt'] ?: 'Travel photo'); ?>"
                                              data-full="<?php echo esc_url($image['full']); ?>">
                                         <div class="gallery-item-overlay">
                                             <button class="gallery-view-btn" data-full-url="<?php echo esc_url($image['full']); ?>">
-                                                <span>🔍</span> Visualizza
+                                                <span>🔍</span> View
                                             </button>
                                         </div>
                                     </div>
@@ -271,7 +271,7 @@ while (have_posts()) : the_post();
                             <?php if ($is_organizer) : ?>
                                 <div class="gallery-manage-link">
                                     <a href="#" id="manage-gallery-btn" class="btn btn-secondary">
-                                        <span>📷</span> Gestisci Galleria
+                                        <span>📷</span> Manage Gallery
                                     </a>
                                 </div>
                             <?php endif; ?>
@@ -279,9 +279,9 @@ while (have_posts()) : the_post();
                     <?php elseif ($is_organizer) : ?>
                         <div class="travel-gallery-section empty">
                             <div class="gallery-empty-state">
-                                <p>📷 Nessuna foto ancora. Aggiungi foto per far vedere la bellezza di questo viaggio!</p>
+                                <p>📷 No photos yet. Add photos to showcase the beauty of this journey!</p>
                                 <a href="#" id="add-first-photo-btn" class="btn btn-primary">
-                                    Aggiungi Prime Foto
+                                    Add First Photos
                                 </a>
                             </div>
                         </div>
@@ -294,7 +294,7 @@ while (have_posts()) : the_post();
                     if ($map_coords && isset($map_coords['lat']) && isset($map_coords['lon'])) :
                     ?>
                         <div class="travel-map-section">
-                            <h3>📍 Posizione</h3>
+                            <h3>📍 Location</h3>
                             <?php echo CDV_Travel_Maps::get_map_html($travel_id, '450px'); ?>
                             <?php
                             $destination = get_post_meta($travel_id, 'cdv_destination', true);
@@ -302,7 +302,7 @@ while (have_posts()) : the_post();
                             if ($destination || $country) :
                             ?>
                                 <p class="map-location-text">
-                                    <strong>Destinazione:</strong> <?php echo esc_html($destination); ?><?php echo $country ? ', ' . esc_html($country) : ''; ?>
+                                    <strong>Destination:</strong> <?php echo esc_html($destination); ?><?php echo $country ? ', ' . esc_html($country) : ''; ?>
                                 </p>
                             <?php endif; ?>
                         </div>
@@ -311,7 +311,7 @@ while (have_posts()) : the_post();
                     <!-- Participants Section -->
                     <?php if (!empty($participants)) : ?>
                         <div class="participants-section">
-                            <h3>Partecipanti (<?php echo count($participants); ?>)</h3>
+                            <h3>Participants (<?php echo count($participants); ?>)</h3>
                             <div class="participants-grid">
                                 <!-- Organizer First -->
                                 <div class="participant-card-wrapper">
@@ -320,7 +320,7 @@ while (have_posts()) : the_post();
                                         <div class="participant-info">
                                             <div class="participant-name">
                                                 <?php echo esc_html(get_the_author_meta('user_login', $author_id)); ?>
-                                                <span class="organizer-badge">Organizzatore</span>
+                                                <span class="organizer-badge">Organizer</span>
                                             </div>
                                             <?php
                                             $reputation = get_user_meta($author_id, 'cdv_reputation_score', true);
@@ -332,7 +332,7 @@ while (have_posts()) : the_post();
                                     </a>
                                     <?php if (is_user_logged_in() && get_current_user_id() != $author_id && ($is_participant || $is_organizer)) : ?>
                                         <a href="<?php echo home_url('/dashboard?tab=messages&user_id=' . $author_id . '&travel_id=' . $travel_id); ?>" class="btn btn-sm btn-primary participant-message-btn">
-                                            Invia Messaggio
+                                            Send Message
                                         </a>
                                     <?php endif; ?>
                                 </div>
@@ -355,7 +355,7 @@ while (have_posts()) : the_post();
                                         <div class="participant-actions">
                                             <?php if (is_user_logged_in() && get_current_user_id() != $user->ID && ($is_participant || $is_organizer)) : ?>
                                                 <a href="<?php echo home_url('/dashboard?tab=messages&user_id=' . $user->ID . '&travel_id=' . $travel_id); ?>" class="btn btn-sm btn-primary participant-message-btn">
-                                                    Invia Messaggio
+                                                    Send Message
                                                 </a>
                                             <?php endif; ?>
 
@@ -364,7 +364,7 @@ while (have_posts()) : the_post();
                                                         data-travel-id="<?php echo $travel_id; ?>"
                                                         data-user-id="<?php echo $user->ID; ?>"
                                                         data-user-name="<?php echo esc_attr($user->user_login); ?>">
-                                                    Rimuovi
+                                                    Remove
                                                 </button>
                                             <?php endif; ?>
                                         </div>
@@ -378,25 +378,25 @@ while (have_posts()) : the_post();
                     <?php if (is_user_logged_in() && ($is_participant || $is_organizer)) : ?>
                         <div class="group-chat-section">
                             <div class="group-chat-header">
-                                <h3>Chat di Gruppo</h3>
+                                <h3>Group Chat</h3>
                                 <span class="participants-count" id="chat-participants-count">
-                                    <?php echo count($participants) + 1; ?> partecipanti
+                                    <?php echo count($participants) + 1; ?> participants
                                 </span>
                             </div>
 
                             <div class="group-chat-container">
                                 <div class="group-chat-messages" id="group-chat-messages">
-                                    <div class="loading-indicator">Caricamento messaggi...</div>
+                                    <div class="loading-indicator">Loading messages...</div>
                                 </div>
 
                                 <div class="group-chat-input">
                                     <textarea
                                         id="group-message-input"
-                                        placeholder="Scrivi un messaggio al gruppo..."
+                                        placeholder="Write a message to the group..."
                                         rows="2"
                                     ></textarea>
                                     <button id="send-group-message" class="btn btn-primary">
-                                        <span class="button-text">Invia</span>
+                                        <span class="button-text">Send</span>
                                         <span class="button-loading" style="display: none;">...</span>
                                     </button>
                                 </div>
@@ -407,7 +407,7 @@ while (have_posts()) : the_post();
                     <!-- Pending Requests (only for organizer) -->
                     <?php if ($is_organizer && !empty($pending_requests)) : ?>
                         <div class="pending-requests-section">
-                            <h3>Richieste in Attesa (<?php echo count($pending_requests); ?>)</h3>
+                            <h3>Pending Requests (<?php echo count($pending_requests); ?>)</h3>
                             <div class="requests-list">
                                 <?php foreach ($pending_requests as $request) :
                                     $user = get_user_by('id', $request->user_id);
@@ -422,10 +422,10 @@ while (have_posts()) : the_post();
                                         </div>
                                         <div class="request-actions">
                                             <button class="btn-success btn-accept" data-travel-id="<?php echo $travel_id; ?>" data-user-id="<?php echo $user->ID; ?>">
-                                                Accetta
+                                                Accept
                                             </button>
                                             <button class="btn-danger btn-reject" data-travel-id="<?php echo $travel_id; ?>" data-user-id="<?php echo $user->ID; ?>">
-                                                Rifiuta
+                                                Reject
                                             </button>
                                         </div>
                                     </div>
@@ -439,7 +439,7 @@ while (have_posts()) : the_post();
                 <aside class="travel-sidebar">
                     <!-- Organizer Card -->
                     <div class="sidebar-card organizer-card">
-                        <h3>Organizzatore</h3>
+                        <h3>Organizer</h3>
                         <?php
                         $verified = get_user_meta($author_id, 'cdv_verified', true);
                         $reputation = get_user_meta($author_id, 'cdv_reputation_score', true);
@@ -450,7 +450,7 @@ while (have_posts()) : the_post();
                             <div class="organizer-name">
                                 <?php echo esc_html(get_the_author_meta('user_login', $author_id)); ?>
                                 <?php if ($verified === '1') : ?>
-                                    <span class="verified-badge" title="Verificato">✓</span>
+                                    <span class="verified-badge" title="Verified">✓</span>
                                 <?php endif; ?>
                             </div>
                             <?php if ($reputation) {
@@ -465,42 +465,42 @@ while (have_posts()) : the_post();
                     <!-- Wishlist Card -->
                     <div class="sidebar-card wishlist-card">
                         <?php echo CDV_Wishlist::get_wishlist_button_html($travel_id, 'btn btn-secondary wishlist-toggle-btn'); ?>
-                        <p class="wishlist-help-text">Salva questo viaggio per dopo</p>
+                        <p class="wishlist-help-text">Save this journey for later</p>
                     </div>
 
                     <!-- Join Card -->
                     <?php if (is_user_logged_in()) : ?>
                         <?php if ($is_organizer) : ?>
                             <div class="sidebar-card">
-                                <p><strong>Questo è il tuo viaggio!</strong></p>
+                                <p><strong>This is your journey!</strong></p>
                                 <a href="<?php echo home_url('/modifica-viaggio/?travel_id=' . $travel_id); ?>" class="btn-primary" style="width: 100%; text-align: center;">
-                                    Modifica Viaggio
+                                    Edit Journey
                                 </a>
                             </div>
                         <?php elseif ($is_participant) : ?>
                             <div class="sidebar-card success-card">
-                                <p><strong>✓ Sei un partecipante</strong></p>
-                                <p>Hai accesso alla chat di gruppo</p>
+                                <p><strong>✓ You're a participant</strong></p>
+                                <p>You have access to the group chat</p>
                                 <button id="leave-travel-btn" class="btn-danger" style="width: 100%; margin-top: 1rem;"
                                         data-travel-id="<?php echo $travel_id; ?>">
-                                    Lascia il Viaggio
+                                    Leave Journey
                                 </button>
                             </div>
                         <?php elseif ($has_requested) : ?>
                             <div class="sidebar-card warning-card">
-                                <p><strong>⏳ Richiesta in attesa</strong></p>
-                                <p>La tua richiesta è in attesa di approvazione</p>
+                                <p><strong>⏳ Request Pending</strong></p>
+                                <p>Your request is awaiting approval</p>
                             </div>
                         <?php else : ?>
                             <div class="sidebar-card join-card">
-                                <h3>Partecipa al Viaggio</h3>
+                                <h3>Join</h3>
                                 <form id="join-travel-form">
                                     <div class="form-group">
-                                        <label for="join-message">Messaggio per l'organizzatore</label>
-                                        <textarea id="join-message" rows="4" placeholder="Presentati e spiega perché vuoi unirti..."></textarea>
+                                        <label for="join-message">Message for organizer</label>
+                                        <textarea id="join-message" rows="4" placeholder="Introduce yourself and explain why you want to join..."></textarea>
                                     </div>
                                     <button type="submit" class="btn-primary" style="width: 100%;">
-                                        Richiedi di Partecipare
+                                        Request to Join
                                     </button>
                                 </form>
                             </div>
@@ -509,28 +509,28 @@ while (have_posts()) : the_post();
                         <!-- Contact Organizer Form - Available to all logged users -->
                         <?php if (is_user_logged_in() && !$is_organizer) : ?>
                             <div class="sidebar-card contact-card">
-                                <h3>💬 Chiedi Informazioni</h3>
-                                <p style="font-size: 0.9rem; color: #666; margin-bottom: 1rem;">Hai domande? Contatta l'organizzatore</p>
+                                <h3>💬 Ask for Information</h3>
+                                <p style="font-size: 0.9rem; color: #666; margin-bottom: 1rem;">Have questions? Contact the organizer</p>
                                 <form id="contact-organizer-form">
                                     <div class="form-group">
-                                        <label for="contact-message">Il tuo messaggio</label>
-                                        <textarea id="contact-message" rows="4" placeholder="Scrivi la tua domanda o richiesta di informazioni..." required></textarea>
+                                        <label for="contact-message">Your message</label>
+                                        <textarea id="contact-message" rows="4" placeholder="Write your question or information request..." required></textarea>
                                     </div>
                                     <button type="submit" class="btn-secondary" style="width: 100%;">
-                                        Invia Messaggio
+                                        Send Message
                                     </button>
                                 </form>
                             </div>
                         <?php endif; ?>
                     <?php else : ?>
                         <div class="sidebar-card">
-                            <h3>Vuoi partecipare?</h3>
-                            <p>Accedi o registrati per unirti a questo viaggio</p>
+                            <h3>Want to join?</h3>
+                            <p>Log in or register to join this journey</p>
                             <a href="<?php echo wp_login_url(get_permalink()); ?>" class="btn-primary" style="width: 100%; text-align: center; margin-bottom: 10px;">
-                                Accedi
+                                Log In
                             </a>
                             <a href="<?php echo wp_registration_url(); ?>" class="btn-secondary" style="width: 100%; text-align: center;">
-                                Registrati
+                                Register
                             </a>
                         </div>
                     <?php endif; ?>
@@ -1189,14 +1189,14 @@ while (have_posts()) : the_post();
                 },
                 success: function(response) {
                     if (response.success) {
-                        alert('Richiesta inviata con successo!');
+                        alert('Request sent successfully!');
                         location.reload();
                     } else {
-                        alert(response.data.message || 'Errore durante l\'invio della richiesta');
+                        alert(response.data.message || 'Error sending request');
                     }
                 },
                 error: function() {
-                    alert('Errore di connessione');
+                    alert('Connection error');
                 }
             });
         });
@@ -1208,7 +1208,7 @@ while (have_posts()) : the_post();
             // Check if cdvAjax is defined
             if (typeof cdvAjax === 'undefined') {
                 console.error('cdvAjax is not defined');
-                showNotification('Errore di configurazione. Ricarica la pagina e riprova.', 'error');
+                showNotification('Configuration error. Reload the page and try again.', 'error');
                 return;
             }
 
@@ -1217,7 +1217,7 @@ while (have_posts()) : the_post();
             var message = $('#contact-message').val();
 
             if (!message.trim()) {
-                showNotification('Inserisci un messaggio', 'error');
+                showNotification('Please enter a message', 'error');
                 return;
             }
 
@@ -1239,15 +1239,15 @@ while (have_posts()) : the_post();
                 },
                 timeout: 30000, // 30 second timeout
                 beforeSend: function() {
-                    $btn.prop('disabled', true).text('Invio in corso...');
+                    $btn.prop('disabled', true).text('Sending...');
                 },
                 success: function(response) {
                     console.log('Response received:', response);
                     if (response.success) {
-                        showNotification('Messaggio inviato con successo! L\'organizzatore ti risponderà presto.', 'success');
+                        showNotification('Message sent successfully! The organizer will reply soon.', 'success');
                         $('#contact-message').val('');
                     } else {
-                        showNotification(response.data.message || 'Errore durante l\'invio del messaggio', 'error');
+                        showNotification(response.data.message || 'Error sending message', 'error');
                     }
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
@@ -1258,15 +1258,15 @@ while (have_posts()) : the_post();
                         textStatus: textStatus,
                         errorThrown: errorThrown
                     });
-                    var errorMsg = 'Errore di connessione';
+                    var errorMsg = 'Connection error';
                     if (jqXHR.status === 0) {
-                        errorMsg = 'Nessuna connessione. Verifica la connessione internet.';
+                        errorMsg = 'No connection. Check your internet connection.';
                     } else if (jqXHR.status === 404) {
-                        errorMsg = 'Pagina non trovata [404]';
+                        errorMsg = 'Page not found [404]';
                     } else if (jqXHR.status === 500) {
-                        errorMsg = 'Errore interno del server [500]. Riprova tra qualche istante.';
+                        errorMsg = 'Internal server error [500]. Try again in a moment.';
                     } else if (textStatus === 'timeout') {
-                        errorMsg = 'La richiesta ha impiegato troppo tempo. Il messaggio potrebbe essere stato inviato.';
+                        errorMsg = 'Request timed out. The message may have been sent.';
                     }
                     showNotification(errorMsg, 'error');
                 },

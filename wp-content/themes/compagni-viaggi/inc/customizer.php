@@ -2,7 +2,7 @@
 /**
  * Theme Customizer
  *
- * Gestisce tutte le personalizzazioni del tema
+ * Manages all theme customizations
  */
 
 if (!defined('ABSPATH')) {
@@ -15,10 +15,10 @@ if (!defined('ABSPATH')) {
 function cdv_customize_register($wp_customize) {
 
     // ========================================
-    // SECTION: Colori
+    // SECTION: Colors
     // ========================================
     $wp_customize->add_section('cdv_colors', array(
-        'title'    => 'Colori del Sito',
+        'title'    => 'Site Colors',
         'priority' => 30,
     ));
 
@@ -30,7 +30,7 @@ function cdv_customize_register($wp_customize) {
     ));
 
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'cdv_primary_color', array(
-        'label'    => 'Colore Primario',
+        'label'    => 'Primary Color',
         'section'  => 'cdv_colors',
         'settings' => 'cdv_primary_color',
     )));
@@ -43,7 +43,7 @@ function cdv_customize_register($wp_customize) {
     ));
 
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'cdv_secondary_color', array(
-        'label'    => 'Colore Secondario',
+        'label'    => 'Secondary Color',
         'section'  => 'cdv_colors',
         'settings' => 'cdv_secondary_color',
     )));
@@ -56,7 +56,7 @@ function cdv_customize_register($wp_customize) {
     ));
 
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'cdv_text_color', array(
-        'label'    => 'Colore Testo',
+        'label'    => 'Text Color',
         'section'  => 'cdv_colors',
         'settings' => 'cdv_text_color',
     )));
@@ -69,17 +69,17 @@ function cdv_customize_register($wp_customize) {
     ));
 
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'cdv_link_color', array(
-        'label'    => 'Colore Link',
+        'label'    => 'Link Color',
         'section'  => 'cdv_colors',
         'settings' => 'cdv_link_color',
     )));
 
     // ========================================
-    // SECTION: Tipografia / Font
+    // SECTION: Typography / Fonts
     // ========================================
     $wp_customize->add_section('cdv_typography', array(
-        'title'       => 'Tipografia e Font',
-        'description' => 'Personalizza i font del sito scegliendo da Google Fonts',
+        'title'       => 'Typography and Fonts',
+        'description' => 'Customize site fonts by choosing from Google Fonts',
         'priority'    => 32,
     ));
 
@@ -115,8 +115,8 @@ function cdv_customize_register($wp_customize) {
     ));
 
     $wp_customize->add_control('cdv_body_font', array(
-        'label'       => 'Font Corpo Testo',
-        'description' => 'Font principale per il contenuto del sito',
+        'label'       => 'Body Font',
+        'description' => 'Main font for site content',
         'section'     => 'cdv_typography',
         'settings'    => 'cdv_body_font',
         'type'        => 'select',
@@ -131,8 +131,8 @@ function cdv_customize_register($wp_customize) {
     ));
 
     $wp_customize->add_control('cdv_heading_font', array(
-        'label'       => 'Font Titoli (H1-H6)',
-        'description' => 'Font per tutti i titoli del sito',
+        'label'       => 'Heading Font (H1-H6)',
+        'description' => 'Font for all site headings',
         'section'     => 'cdv_typography',
         'settings'    => 'cdv_heading_font',
         'type'        => 'select',
@@ -147,8 +147,8 @@ function cdv_customize_register($wp_customize) {
     ));
 
     $wp_customize->add_control('cdv_menu_font', array(
-        'label'       => 'Font Menu',
-        'description' => 'Font per il menu di navigazione',
+        'label'       => 'Menu Font',
+        'description' => 'Font for navigation menu',
         'section'     => 'cdv_typography',
         'settings'    => 'cdv_menu_font',
         'type'        => 'select',
@@ -163,8 +163,8 @@ function cdv_customize_register($wp_customize) {
     ));
 
     $wp_customize->add_control('cdv_button_font', array(
-        'label'       => 'Font Pulsanti',
-        'description' => 'Font per tutti i pulsanti',
+        'label'       => 'Button Font',
+        'description' => 'Font for all buttons',
         'section'     => 'cdv_typography',
         'settings'    => 'cdv_button_font',
         'type'        => 'select',
@@ -179,8 +179,8 @@ function cdv_customize_register($wp_customize) {
     ));
 
     $wp_customize->add_control('cdv_body_font_size', array(
-        'label'       => 'Dimensione Font Corpo (px)',
-        'description' => 'Dimensione base del testo (consigliato 14-18px)',
+        'label'       => 'Body Font Size (px)',
+        'description' => 'Base text size (recommended 14-18px)',
         'section'     => 'cdv_typography',
         'settings'    => 'cdv_body_font_size',
         'type'        => 'number',
@@ -199,17 +199,17 @@ function cdv_customize_register($wp_customize) {
     ));
 
     $wp_customize->add_control('cdv_heading_font_weight', array(
-        'label'    => 'Peso Font Titoli',
+        'label'    => 'Heading Font Weight',
         'section'  => 'cdv_typography',
         'settings' => 'cdv_heading_font_weight',
         'type'     => 'select',
         'choices'  => array(
-            '300' => 'Leggero (300)',
-            '400' => 'Normale (400)',
-            '500' => 'Medio (500)',
-            '600' => 'Semi-grassetto (600)',
-            '700' => 'Grassetto (700)',
-            '800' => 'Extra-grassetto (800)',
+            '300' => 'Light (300)',
+            '400' => 'Normal (400)',
+            '500' => 'Medium (500)',
+            '600' => 'Semi-bold (600)',
+            '700' => 'Bold (700)',
+            '800' => 'Extra-bold (800)',
         ),
     ));
 
@@ -217,7 +217,7 @@ function cdv_customize_register($wp_customize) {
     // SECTION: Logo & Header
     // ========================================
     $wp_customize->add_section('cdv_header', array(
-        'title'    => 'Logo & Intestazione',
+        'title'    => 'Logo & Header',
         'priority' => 35,
     ));
 
@@ -229,8 +229,8 @@ function cdv_customize_register($wp_customize) {
     ));
 
     $wp_customize->add_control('cdv_logo_height', array(
-        'label'       => 'Altezza Logo (px)',
-        'description' => 'Imposta l\'altezza del logo in pixel',
+        'label'       => 'Logo Height (px)',
+        'description' => 'Set logo height in pixels',
         'section'     => 'cdv_header',
         'settings'    => 'cdv_logo_height',
         'type'        => 'number',
@@ -249,7 +249,7 @@ function cdv_customize_register($wp_customize) {
     ));
 
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'cdv_header_bg_color', array(
-        'label'    => 'Colore Sfondo Header',
+        'label'    => 'Header Background Color',
         'section'  => 'cdv_header',
         'settings' => 'cdv_header_bg_color',
     )));
@@ -258,20 +258,20 @@ function cdv_customize_register($wp_customize) {
     // SECTION: Hero Homepage
     // ========================================
     $wp_customize->add_section('cdv_hero', array(
-        'title'       => 'Sezione Hero (Homepage)',
-        'description' => 'Personalizza la sezione principale della homepage',
+        'title'       => 'Hero Section (Homepage)',
+        'description' => 'Customize the main homepage section',
         'priority'    => 40,
     ));
 
     // Hero Title
     $wp_customize->add_setting('cdv_hero_title', array(
-        'default'           => 'Trova i Tuoi Compagni di Viaggio',
+        'default'           => 'Find Your Travel Buddies',
         'sanitize_callback' => 'sanitize_text_field',
         'transport'         => 'refresh',
     ));
 
     $wp_customize->add_control('cdv_hero_title', array(
-        'label'    => 'Titolo Hero',
+        'label'    => 'Hero Title',
         'section'  => 'cdv_hero',
         'settings' => 'cdv_hero_title',
         'type'     => 'text',
@@ -279,13 +279,13 @@ function cdv_customize_register($wp_customize) {
 
     // Hero Subtitle
     $wp_customize->add_setting('cdv_hero_subtitle', array(
-        'default'           => 'Connettiti con viaggiatori che condividono le tue passioni. Organizza avventure indimenticabili insieme.',
+        'default'           => 'Connect with travelers who share your passions. Organize unforgettable adventures together.',
         'sanitize_callback' => 'sanitize_textarea_field',
         'transport'         => 'refresh',
     ));
 
     $wp_customize->add_control('cdv_hero_subtitle', array(
-        'label'    => 'Sottotitolo Hero',
+        'label'    => 'Hero Subtitle',
         'section'  => 'cdv_hero',
         'settings' => 'cdv_hero_subtitle',
         'type'     => 'textarea',
@@ -293,13 +293,13 @@ function cdv_customize_register($wp_customize) {
 
     // Hero Button Text
     $wp_customize->add_setting('cdv_hero_button_text', array(
-        'default'           => 'Inserisci il Tuo Annuncio',
+        'default'           => 'Post Your Listing',
         'sanitize_callback' => 'sanitize_text_field',
         'transport'         => 'refresh',
     ));
 
     $wp_customize->add_control('cdv_hero_button_text', array(
-        'label'    => 'Testo Pulsante Hero',
+        'label'    => 'Hero Button Text',
         'section'  => 'cdv_hero',
         'settings' => 'cdv_hero_button_text',
         'type'     => 'text',
@@ -307,13 +307,13 @@ function cdv_customize_register($wp_customize) {
 
     // Hero Button URL
     $wp_customize->add_setting('cdv_hero_button_url', array(
-        'default'           => '/crea-viaggio',
+        'default'           => '/create-journey',
         'sanitize_callback' => 'esc_url_raw',
         'transport'         => 'refresh',
     ));
 
     $wp_customize->add_control('cdv_hero_button_url', array(
-        'label'    => 'URL Pulsante Hero',
+        'label'    => 'Hero Button URL',
         'section'  => 'cdv_hero',
         'settings' => 'cdv_hero_button_url',
         'type'     => 'url',
@@ -327,8 +327,8 @@ function cdv_customize_register($wp_customize) {
     ));
 
     $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, 'cdv_hero_bg_image', array(
-        'label'       => 'Immagine di Sfondo Hero',
-        'description' => 'Carica un\'immagine di sfondo per la sezione hero',
+        'label'       => 'Hero Background Image',
+        'description' => 'Upload a background image for the hero section',
         'section'     => 'cdv_hero',
         'settings'    => 'cdv_hero_bg_image',
         'mime_type'   => 'image',
@@ -342,8 +342,8 @@ function cdv_customize_register($wp_customize) {
     ));
 
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'cdv_hero_overlay_color', array(
-        'label'       => 'Colore Overlay Hero',
-        'description' => 'Colore della sovrapposizione sull\'immagine',
+        'label'       => 'Hero Overlay Color',
+        'description' => 'Overlay color on the image',
         'section'     => 'cdv_hero',
         'settings'    => 'cdv_hero_overlay_color',
     )));
@@ -356,8 +356,8 @@ function cdv_customize_register($wp_customize) {
     ));
 
     $wp_customize->add_control('cdv_hero_overlay_opacity', array(
-        'label'       => 'Opacità Overlay Hero (0-1)',
-        'description' => '0 = trasparente, 1 = completamente scuro',
+        'label'       => 'Hero Overlay Opacity (0-1)',
+        'description' => '0 = transparent, 1 = completely dark',
         'section'     => 'cdv_hero',
         'settings'    => 'cdv_hero_overlay_opacity',
         'type'        => 'number',
@@ -369,23 +369,23 @@ function cdv_customize_register($wp_customize) {
     ));
 
     // ========================================
-    // SECTION: Sezione Viaggi
+    // SECTION: Journeys Section
     // ========================================
     $wp_customize->add_section('cdv_travels_section', array(
-        'title'       => 'Sezione Viaggi (Homepage)',
-        'description' => 'Personalizza la sezione viaggi in evidenza',
+        'title'       => 'Journeys Section (Homepage)',
+        'description' => 'Customize the featured journeys section',
         'priority'    => 45,
     ));
 
     // Travels Section Title
     $wp_customize->add_setting('cdv_travels_title', array(
-        'default'           => 'Proposte di Viaggi',
+        'default'           => 'Journey Proposals',
         'sanitize_callback' => 'sanitize_text_field',
         'transport'         => 'refresh',
     ));
 
     $wp_customize->add_control('cdv_travels_title', array(
-        'label'    => 'Titolo Sezione',
+        'label'    => 'Section Title',
         'section'  => 'cdv_travels_section',
         'settings' => 'cdv_travels_title',
         'type'     => 'text',
@@ -393,13 +393,13 @@ function cdv_customize_register($wp_customize) {
 
     // Travels Section Subtitle
     $wp_customize->add_setting('cdv_travels_subtitle', array(
-        'default'           => 'Scopri le prossime avventure e unisciti ai viaggiatori',
+        'default'           => 'Discover upcoming adventures and join travelers',
         'sanitize_callback' => 'sanitize_text_field',
         'transport'         => 'refresh',
     ));
 
     $wp_customize->add_control('cdv_travels_subtitle', array(
-        'label'    => 'Sottotitolo Sezione',
+        'label'    => 'Section Subtitle',
         'section'  => 'cdv_travels_section',
         'settings' => 'cdv_travels_subtitle',
         'type'     => 'text',
@@ -407,24 +407,24 @@ function cdv_customize_register($wp_customize) {
 
     // Travels Button Text
     $wp_customize->add_setting('cdv_travels_button_text', array(
-        'default'           => 'Vedi Tutti i Viaggi',
+        'default'           => 'See All Journeys',
         'sanitize_callback' => 'sanitize_text_field',
         'transport'         => 'refresh',
     ));
 
     $wp_customize->add_control('cdv_travels_button_text', array(
-        'label'    => 'Testo Pulsante',
+        'label'    => 'Button Text',
         'section'  => 'cdv_travels_section',
         'settings' => 'cdv_travels_button_text',
         'type'     => 'text',
     ));
 
     // ========================================
-    // SECTION: Come Funziona
+    // SECTION: How It Works
     // ========================================
     $wp_customize->add_section('cdv_how_it_works', array(
-        'title'       => 'Sezione "Come Funziona"',
-        'description' => 'Personalizza la sezione come funziona',
+        'title'       => 'How It Works Section',
+        'description' => 'Customize the how it works section',
         'priority'    => 50,
     ));
 
@@ -436,21 +436,21 @@ function cdv_customize_register($wp_customize) {
     ));
 
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'cdv_how_bg_color', array(
-        'label'       => 'Colore Sfondo Sezione',
-        'description' => 'Sfondo colorato con testi in bianco',
+        'label'       => 'Section Background Color',
+        'description' => 'Colored background with white text',
         'section'     => 'cdv_how_it_works',
         'settings'    => 'cdv_how_bg_color',
     )));
 
     // How it Works Title
     $wp_customize->add_setting('cdv_how_title', array(
-        'default'           => 'Come Funziona',
+        'default'           => 'How It Works',
         'sanitize_callback' => 'sanitize_text_field',
         'transport'         => 'refresh',
     ));
 
     $wp_customize->add_control('cdv_how_title', array(
-        'label'    => 'Titolo Sezione',
+        'label'    => 'Section Title',
         'section'  => 'cdv_how_it_works',
         'settings' => 'cdv_how_title',
         'type'     => 'text',
@@ -458,13 +458,13 @@ function cdv_customize_register($wp_customize) {
 
     // How it Works Subtitle
     $wp_customize->add_setting('cdv_how_subtitle', array(
-        'default'           => 'In pochi semplici passi puoi trovare i tuoi compagni di viaggio',
+        'default'           => 'In a few simple steps you can find your travel buddies',
         'sanitize_callback' => 'sanitize_text_field',
         'transport'         => 'refresh',
     ));
 
     $wp_customize->add_control('cdv_how_subtitle', array(
-        'label'    => 'Sottotitolo Sezione',
+        'label'    => 'Section Subtitle',
         'section'  => 'cdv_how_it_works',
         'settings' => 'cdv_how_subtitle',
         'type'     => 'text',
@@ -472,26 +472,26 @@ function cdv_customize_register($wp_customize) {
 
     // Step 1
     $wp_customize->add_setting('cdv_step1_title', array(
-        'default'           => '1. Crea il Tuo Profilo',
+        'default'           => '1. Create Your Profile',
         'sanitize_callback' => 'sanitize_text_field',
         'transport'         => 'refresh',
     ));
 
     $wp_customize->add_control('cdv_step1_title', array(
-        'label'    => 'Titolo Step 1',
+        'label'    => 'Step 1 Title',
         'section'  => 'cdv_how_it_works',
         'settings' => 'cdv_step1_title',
         'type'     => 'text',
     ));
 
     $wp_customize->add_setting('cdv_step1_text', array(
-        'default'           => 'Registrati e completa il tuo profilo con interessi, lingue parlate e stili di viaggio preferiti.',
+        'default'           => 'Register and complete your profile with interests, languages spoken and preferred travel styles.',
         'sanitize_callback' => 'sanitize_textarea_field',
         'transport'         => 'refresh',
     ));
 
     $wp_customize->add_control('cdv_step1_text', array(
-        'label'    => 'Testo Step 1',
+        'label'    => 'Step 1 Text',
         'section'  => 'cdv_how_it_works',
         'settings' => 'cdv_step1_text',
         'type'     => 'textarea',
@@ -499,26 +499,26 @@ function cdv_customize_register($wp_customize) {
 
     // Step 2
     $wp_customize->add_setting('cdv_step2_title', array(
-        'default'           => '2. Cerca o Crea un Viaggio',
+        'default'           => '2. Search or Create a Journey',
         'sanitize_callback' => 'sanitize_text_field',
         'transport'         => 'refresh',
     ));
 
     $wp_customize->add_control('cdv_step2_title', array(
-        'label'    => 'Titolo Step 2',
+        'label'    => 'Step 2 Title',
         'section'  => 'cdv_how_it_works',
         'settings' => 'cdv_step2_title',
         'type'     => 'text',
     ));
 
     $wp_customize->add_setting('cdv_step2_text', array(
-        'default'           => 'Cerca tra i viaggi disponibili o crea il tuo e aspetta che altri viaggiatori si uniscano.',
+        'default'           => 'Search among available journeys or create your own and wait for other travelers to join.',
         'sanitize_callback' => 'sanitize_textarea_field',
         'transport'         => 'refresh',
     ));
 
     $wp_customize->add_control('cdv_step2_text', array(
-        'label'    => 'Testo Step 2',
+        'label'    => 'Step 2 Text',
         'section'  => 'cdv_how_it_works',
         'settings' => 'cdv_step2_text',
         'type'     => 'textarea',
@@ -526,49 +526,49 @@ function cdv_customize_register($wp_customize) {
 
     // Step 3
     $wp_customize->add_setting('cdv_step3_title', array(
-        'default'           => '3. Connettiti e Organizza',
+        'default'           => '3. Connect and Organize',
         'sanitize_callback' => 'sanitize_text_field',
         'transport'         => 'refresh',
     ));
 
     $wp_customize->add_control('cdv_step3_title', array(
-        'label'    => 'Titolo Step 3',
+        'label'    => 'Step 3 Title',
         'section'  => 'cdv_how_it_works',
         'settings' => 'cdv_step3_title',
         'type'     => 'text',
     ));
 
     $wp_customize->add_setting('cdv_step3_text', array(
-        'default'           => 'Usa la chat di gruppo per conoscere i compagni di viaggio e organizzare i dettagli insieme.',
+        'default'           => 'Use group chat to get to know travel buddies and organize details together.',
         'sanitize_callback' => 'sanitize_textarea_field',
         'transport'         => 'refresh',
     ));
 
     $wp_customize->add_control('cdv_step3_text', array(
-        'label'    => 'Testo Step 3',
+        'label'    => 'Step 3 Text',
         'section'  => 'cdv_how_it_works',
         'settings' => 'cdv_step3_text',
         'type'     => 'textarea',
     ));
 
     // ========================================
-    // SECTION: Sezione Racconti
+    // SECTION: Stories Section
     // ========================================
     $wp_customize->add_section('cdv_stories_section', array(
-        'title'       => 'Sezione Racconti (Homepage)',
-        'description' => 'Personalizza la sezione racconti di viaggio',
+        'title'       => 'Stories Section (Homepage)',
+        'description' => 'Customize the travel stories section',
         'priority'    => 55,
     ));
 
     // Stories Section Title
     $wp_customize->add_setting('cdv_stories_title', array(
-        'default'           => 'Racconti di Viaggio',
+        'default'           => 'Travel Stories',
         'sanitize_callback' => 'sanitize_text_field',
         'transport'         => 'refresh',
     ));
 
     $wp_customize->add_control('cdv_stories_title', array(
-        'label'    => 'Titolo Sezione',
+        'label'    => 'Section Title',
         'section'  => 'cdv_stories_section',
         'settings' => 'cdv_stories_title',
         'type'     => 'text',
@@ -576,13 +576,13 @@ function cdv_customize_register($wp_customize) {
 
     // Stories Section Subtitle
     $wp_customize->add_setting('cdv_stories_subtitle', array(
-        'default'           => 'Lasciati ispirare dalle esperienze dei nostri viaggiatori',
+        'default'           => 'Be inspired by the experiences of our travelers',
         'sanitize_callback' => 'sanitize_text_field',
         'transport'         => 'refresh',
     ));
 
     $wp_customize->add_control('cdv_stories_subtitle', array(
-        'label'    => 'Sottotitolo Sezione',
+        'label'    => 'Section Subtitle',
         'section'  => 'cdv_stories_section',
         'settings' => 'cdv_stories_subtitle',
         'type'     => 'text',
@@ -590,13 +590,13 @@ function cdv_customize_register($wp_customize) {
 
     // Stories Button Text
     $wp_customize->add_setting('cdv_stories_button_text', array(
-        'default'           => 'Vedi Tutti i Racconti',
+        'default'           => 'See All Stories',
         'sanitize_callback' => 'sanitize_text_field',
         'transport'         => 'refresh',
     ));
 
     $wp_customize->add_control('cdv_stories_button_text', array(
-        'label'    => 'Testo Pulsante',
+        'label'    => 'Button Text',
         'section'  => 'cdv_stories_section',
         'settings' => 'cdv_stories_button_text',
         'type'     => 'text',
@@ -607,7 +607,7 @@ function cdv_customize_register($wp_customize) {
     // ========================================
     $wp_customize->add_section('cdv_footer', array(
         'title'       => 'Footer',
-        'description' => 'Personalizza il footer del sito',
+        'description' => 'Customize the site footer',
         'priority'    => 60,
     ));
 
@@ -619,8 +619,8 @@ function cdv_customize_register($wp_customize) {
     ));
 
     $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, 'cdv_footer_logo', array(
-        'label'       => 'Logo Footer',
-        'description' => 'Carica un logo per il footer (sostituisce il titolo del sito)',
+        'label'       => 'Footer Logo',
+        'description' => 'Upload a logo for the footer (replaces site title)',
         'section'     => 'cdv_footer',
         'settings'    => 'cdv_footer_logo',
         'mime_type'   => 'image',
@@ -634,8 +634,8 @@ function cdv_customize_register($wp_customize) {
     ));
 
     $wp_customize->add_control('cdv_footer_logo_height', array(
-        'label'       => 'Altezza Logo Footer (px)',
-        'description' => 'Imposta l\'altezza del logo in pixel',
+        'label'       => 'Footer Logo Height (px)',
+        'description' => 'Set logo height in pixels',
         'section'     => 'cdv_footer',
         'settings'    => 'cdv_footer_logo_height',
         'type'        => 'number',
@@ -648,14 +648,14 @@ function cdv_customize_register($wp_customize) {
 
     // Footer Copyright Text
     $wp_customize->add_setting('cdv_footer_copyright', array(
-        'default'           => '© ' . date('Y') . ' Compagni di viaggi. Tutti i diritti riservati.',
+        'default'           => '© ' . date('Y') . ' Journey Buddies. All rights reserved.',
         'sanitize_callback' => 'wp_kses_post',
         'transport'         => 'refresh',
     ));
 
     $wp_customize->add_control('cdv_footer_copyright', array(
-        'label'       => 'Testo Copyright',
-        'description' => 'Testo del copyright nel footer. Puoi usare HTML.',
+        'label'       => 'Copyright Text',
+        'description' => 'Copyright text in footer. You can use HTML.',
         'section'     => 'cdv_footer',
         'settings'    => 'cdv_footer_copyright',
         'type'        => 'textarea',

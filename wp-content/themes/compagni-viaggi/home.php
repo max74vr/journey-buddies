@@ -12,7 +12,7 @@ get_header();
         <header class="blog-header">
             <h1 class="blog-title">Blog</h1>
             <p class="blog-description">
-                Consigli, storie e ispirazioni per i tuoi prossimi viaggi
+                Tips, stories and inspiration for your next journeys
             </p>
         </header>
 
@@ -63,7 +63,7 @@ get_header();
                                         <?php echo get_the_date('d F Y'); ?>
                                     </span>
                                     <span class="post-reading-time">
-                                        <?php echo cdv_reading_time(); ?> min di lettura
+                                        <?php echo cdv_reading_time(); ?> min read
                                     </span>
                                 </div>
 
@@ -72,14 +72,14 @@ get_header();
                                 </div>
 
                                 <a href="<?php the_permalink(); ?>" class="btn btn-primary">
-                                    Leggi l'articolo completo →
+                                    Read the full article →
                                 </a>
                             </div>
                         </div>
                     </article>
 
                     <div class="section-divider">
-                        <h3>Ultimi Articoli</h3>
+                        <h3>Latest Articles</h3>
                     </div>
 
                     <div class="posts-grid">
@@ -132,7 +132,7 @@ get_header();
                             </div>
 
                             <a href="<?php the_permalink(); ?>" class="read-more">
-                                Leggi di più →
+                                Read more →
                             </a>
                         </div>
                     </article>
@@ -146,8 +146,8 @@ get_header();
             // Pagination
             the_posts_pagination(array(
                 'mid_size' => 2,
-                'prev_text' => '← Articoli più recenti',
-                'next_text' => 'Articoli più vecchi →',
+                'prev_text' => '← Newer articles',
+                'next_text' => 'Older articles →',
                 'class' => 'blog-pagination',
             ));
             ?>
@@ -155,19 +155,19 @@ get_header();
         <?php else : ?>
             <div class="no-posts">
                 <div class="no-posts-icon">✍️</div>
-                <h2>Il blog è in arrivo!</h2>
-                <p>Stiamo preparando contenuti interessanti per te. Torna presto!</p>
+                <h2>The blog is coming soon!</h2>
+                <p>We're preparing interesting content for you. Come back soon!</p>
                 <a href="<?php echo home_url(); ?>" class="btn btn-primary">
-                    Torna alla Home
+                    Back to Home
                 </a>
             </div>
         <?php endif; ?>
     </div>
 
-    <!-- Categories Sidebar -->
+    <!-- Categoriess Sidebar -->
     <aside class="blog-sidebar">
         <div class="sidebar-widget">
-            <h3 class="widget-title">Categorie</h3>
+            <h3 class="widget-title">Categories</h3>
             <ul class="category-list">
                 <?php
                 $categories = get_categories(array(
@@ -190,7 +190,7 @@ get_header();
         </div>
 
         <div class="sidebar-widget">
-            <h3 class="widget-title">Tag Popolari</h3>
+            <h3 class="widget-title">Popular Tags</h3>
             <div class="tag-cloud">
                 <?php
                 $tags = get_tags(array(

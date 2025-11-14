@@ -54,7 +54,7 @@ get_header();
 
                     <?php
                     wp_link_pages(array(
-                        'before' => '<div class="page-links">' . __('Pagine:', 'compagni-di-viaggi'),
+                        'before' => '<div class="page-links">' . __('Pages:', 'compagni-di-viaggi'),
                         'after'  => '</div>',
                     ));
                     ?>
@@ -69,7 +69,7 @@ get_header();
                     <?php endif; ?>
 
                     <div class="post-share">
-                        <span>Condividi:</span>
+                        <span>Share:</span>
                         <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode(get_permalink()); ?>" target="_blank" class="share-link facebook">
                             Facebook
                         </a>
@@ -103,7 +103,7 @@ get_header();
                             </h3>
                             <p class="author-bio"><?php echo esc_html($author_description); ?></p>
                             <a href="<?php echo esc_url(get_author_posts_url($author_id)); ?>" class="author-link">
-                                Altri articoli di <?php echo get_the_author(); ?>
+                                Other articles by <?php echo get_the_author(); ?>
                             </a>
                         </div>
                     </div>
@@ -127,7 +127,7 @@ get_header();
                 if ($related_posts->have_posts()) :
                 ?>
                     <div class="related-posts">
-                        <h3>Potrebbe Interessarti Anche</h3>
+                        <h3>You Might Also Like</h3>
                         <div class="related-posts-grid">
                             <?php while ($related_posts->have_posts()) : $related_posts->the_post(); ?>
                                 <article class="related-post-card">

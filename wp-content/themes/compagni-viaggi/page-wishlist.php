@@ -20,8 +20,8 @@ $wishlist_travels = CDV_Wishlist::get_wishlist_travels($user_id);
 <main class="site-main wishlist-page">
     <div class="page-header">
         <div class="container">
-            <h1>💝 La Mia Wishlist</h1>
-            <p>I viaggi che hai salvato per dopo</p>
+            <h1>💝 My Wishlist</h1>
+            <p>Journeys you saved for later</p>
         </div>
     </div>
 
@@ -31,7 +31,7 @@ $wishlist_travels = CDV_Wishlist::get_wishlist_travels($user_id);
             <?php if ($wishlist_travels->have_posts()) : ?>
 
                 <div class="wishlist-count">
-                    <p><?php echo $wishlist_travels->post_count; ?> <?php echo $wishlist_travels->post_count === 1 ? 'viaggio salvato' : 'viaggi salvati'; ?></p>
+                    <p><?php echo $wishlist_travels->post_count; ?> <?php echo $wishlist_travels->post_count === 1 ? 'saved journey' : 'saved journeys'; ?></p>
                 </div>
 
                 <div class="travels-grid">
@@ -54,7 +54,7 @@ $wishlist_travels = CDV_Wishlist::get_wishlist_travels($user_id);
                                     <a href="<?php the_permalink(); ?>">
                                         <?php the_post_thumbnail('medium'); ?>
                                     </a>
-                                    <button class="wishlist-btn active" data-travel-id="<?php echo $travel_id; ?>" title="Rimuovi dalla wishlist">
+                                    <button class="wishlist-btn active" data-travel-id="<?php echo $travel_id; ?>" title="Remove from wishlist">
                                         <span class="wishlist-icon">❤️</span>
                                     </button>
                                 </div>
@@ -107,7 +107,7 @@ $wishlist_travels = CDV_Wishlist::get_wishlist_travels($user_id);
                                     </div>
 
                                     <a href="<?php the_permalink(); ?>" class="btn-primary btn-small">
-                                        Vedi Dettagli
+                                        View Details
                                     </a>
                                 </div>
                             </div>
@@ -121,11 +121,11 @@ $wishlist_travels = CDV_Wishlist::get_wishlist_travels($user_id);
                 <div class="wishlist-empty">
                     <div class="empty-state">
                         <span class="empty-icon">💝</span>
-                        <h2>La tua wishlist è vuota</h2>
-                        <p>Non hai ancora salvato nessun viaggio nella tua wishlist.</p>
-                        <p>Esplora i viaggi disponibili e salva quelli che ti interessano per trovarli facilmente!</p>
+                        <h2>Your wishlist is empty</h2>
+                        <p>You havent saved any journeys to your wishlist yet.</p>
+                        <p>Explore available journeys and save the ones that interest you to find them easily!</p>
                         <a href="<?php echo get_post_type_archive_link('viaggio'); ?>" class="btn-primary">
-                            Esplora Viaggi
+                            Explore Journeys
                         </a>
                     </div>
                 </div>
@@ -289,13 +289,13 @@ jQuery(document).ready(function($) {
                         } else {
                             // Update count
                             const remaining = $('.travel-card').length;
-                            $('.wishlist-count p').text(remaining + (remaining === 1 ? ' viaggio salvato' : ' viaggi salvati'));
+                            $('.wishlist-count p').text(remaining + (remaining === 1 ? ' saved journey' : ' saved journeys'));
                         }
                     });
                 }
             },
             error: function() {
-                alert('Errore durante la rimozione dalla wishlist');
+                alert('Error removing from wishlist');
                 $btn.prop('disabled', false);
             }
         });

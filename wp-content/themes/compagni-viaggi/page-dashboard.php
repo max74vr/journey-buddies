@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Name: Dashboard
- * Template Gestione Dashboard Viaggiatore
+ * Traveler Dashboard Management Template
  */
 
 if (!is_user_logged_in()) {
@@ -51,7 +51,7 @@ if (!empty($participated_ids)) {
     ));
 }
 
-// Conta richieste pendenti RICEVUTE (per organizzatori)
+// Conta requests pendenti RICEVUTE (per organizzatori)
 $pending_requests = $wpdb->get_results($wpdb->prepare(
     "SELECT p.*, t.post_title, u.display_name, u.user_login
     FROM $participants_table p
@@ -98,21 +98,21 @@ $received_reviews = CDV_Reviews::get_user_reviews($current_user->ID, 20);
     <div class="container">
         <div class="dashboard-header">
             <div>
-                <h1>Benvenuto, <?php echo esc_html($current_user->user_login); ?>!</h1>
-                <p>Gestisci i tuoi viaggi e le richieste di partecipazione</p>
+                <h1>Welcome, <?php echo esc_html($current_user->user_login); ?>!</h1>
+                <p>Manage your journeys and participation requests</p>
             </div>
             <a href="<?php echo CDV_User_Profiles::get_profile_url($current_user->ID); ?>" class="btn btn-secondary">
-                Vedi Profilo Pubblico
+                View Public Profile
             </a>
         </div>
 
         <!-- Tab Navigation -->
         <div class="dashboard-tabs">
             <button class="tab-button active" data-tab="my-travels">
-                I Miei Viaggi (<?php echo $my_travels->post_count; ?>)
+                My Journeys (<?php echo $my_travels->post_count; ?>)
             </button>
             <button class="tab-button" data-tab="requests">
-                Richieste di Partecipazione
+                Participation Requests
                 <?php
                 $total_requests = count($pending_requests) + count($my_pending_requests);
                 if ($total_requests > 0) : ?>
@@ -120,28 +120,28 @@ $received_reviews = CDV_Reviews::get_user_reviews($current_user->ID, 20);
                 <?php endif; ?>
             </button>
             <button class="tab-button" data-tab="participating">
-                Viaggi a cui Partecipo
+                Journeys I'm Joining
                 <?php if ($participated_travels) : ?>
                     (<?php echo $participated_travels->post_count; ?>)
                 <?php endif; ?>
             </button>
             <button class="tab-button" data-tab="my-stories">
-                I Miei Racconti (<?php echo $my_stories->post_count; ?>)
+                My Stories (<?php echo $my_stories->post_count; ?>)
             </button>
             <button class="tab-button" data-tab="messages">
-                Messaggi
+                Messages
                 <?php if ($unread_messages_count > 0) : ?>
                     <span class="badge-count"><?php echo $unread_messages_count; ?></span>
                 <?php endif; ?>
             </button>
             <button class="tab-button" data-tab="reviews">
-                Recensioni
+                Reviews
                 <?php if ($pending_reviews_count > 0) : ?>
                     <span class="badge-count"><?php echo $pending_reviews_count; ?></span>
                 <?php endif; ?>
             </button>
             <button class="tab-button" data-tab="notifications">
-                🔔 Notifiche
+                🔔 Notifications
                 <?php
                 if (class_exists('CDV_Notifications')) {
                     $notifications_count = CDV_Notifications::get_unread_count(get_current_user_id());
@@ -160,22 +160,22 @@ $received_reviews = CDV_Reviews::get_user_reviews($current_user->ID, 20);
                 <?php endif; ?>
             </button>
             <button class="tab-button" data-tab="referral">
-                🎁 Invita Amici
+                🎁 Invite Friends
             </button>
             <?php if ($user_travels_count > 0) : ?>
                 <button class="tab-button" data-tab="statistics">
-                    📊 Statistiche
+                    📊 Statistics
                 </button>
             <?php endif; ?>
-            <button class="tab-button" data-tab="settings">Impostazioni</button>
+            <button class="tab-button" data-tab="settings">Settings</button>
         </div>
 
-        <!-- Tab: I Miei Viaggi -->
+        <!-- Tab: My Journeys -->
         <div class="tab-content active" id="tab-my-travels">
             <div class="section-header">
-                <h2>I Miei Viaggi</h2>
+                <h2>My Journeys</h2>
                 <a href="<?php echo esc_url(home_url('/crea-viaggio')); ?>" class="btn btn-primary" id="btn-new-travel">
-                    <i class="icon-plus"></i> Nuovo Viaggio
+                    <i class="icon-plus"></i> New Journey
                 </a>
             </div>
 
@@ -207,8 +207,8 @@ $received_reviews = CDV_Reviews::get_user_reviews($current_user->ID, 20);
                                     <p class="travel-meta">
                                         <span class="status-badge status-<?php echo $post_status; ?>">
                                             <?php
-                                            echo $post_status === 'publish' ? 'Pubblicato' :
-                                                ($post_status === 'pending' ? 'In Attesa di Approvazione' : 'Bozza');
+                                            echo $post_status === 'publish' ? 'Published' :
+                                                ($post_status === 'pending' ? 'Pending Approvel' : 'Draft');
                                             ?>
                                         </span>
                                         <?php if ($post_status === 'publish') : ?>
@@ -216,10 +216,10 @@ $received_reviews = CDV_Reviews::get_user_reviews($current_user->ID, 20);
                                                 <?php echo ucfirst($travel_status); ?>
                                             </span>
                                         <?php endif; ?>
-                                        <span><i class="icon-users"></i> <?php echo count($participants); ?>/<?php echo $max_participants; ?> partecipanti</span>
+                                        <span><i class="icon-users"></i> <?php echo count($participants); ?>/<?php echo $max_participants; ?> participants</span>
                                         <?php if (count($pending) > 0) : ?>
                                             <span class="pending-requests">
-                                                <i class="icon-alert"></i> <?php echo count($pending); ?> richieste
+                                                <i class="icon-alert"></i> <?php echo count($pending); ?> requests
                                             </span>
                                         <?php endif; ?>
                                     </p>
@@ -228,20 +228,20 @@ $received_reviews = CDV_Reviews::get_user_reviews($current_user->ID, 20);
 
                             <div class="travel-item-actions">
                                 <a href="<?php the_permalink(); ?>" class="btn btn-sm btn-secondary" target="_blank">
-                                    <i class="icon-eye"></i> Visualizza
+                                    <i class="icon-eye"></i> View
                                 </a>
 
                                 <?php if ($post_status === 'publish') : ?>
                                     <select class="travel-status-select" data-travel-id="<?php echo $travel_id; ?>">
                                         <option value="open" <?php selected($travel_status, 'open'); ?>>Aperto</option>
                                         <option value="full" <?php selected($travel_status, 'full'); ?>>Completo</option>
-                                        <option value="closed" <?php selected($travel_status, 'closed'); ?>>Chiuso</option>
-                                        <option value="completed" <?php selected($travel_status, 'completed'); ?>>Completato</option>
+                                        <option value="closed" <?php selected($travel_status, 'closed'); ?>>Closed</option>
+                                        <option value="completed" <?php selected($travel_status, 'completed'); ?>>Completed</option>
                                     </select>
                                 <?php endif; ?>
 
                                 <button class="btn btn-sm btn-danger delete-travel" data-travel-id="<?php echo $travel_id; ?>">
-                                    <i class="icon-trash"></i> Elimina
+                                    <i class="icon-trash"></i> Delete
                                 </button>
                             </div>
                         </div>
@@ -249,18 +249,18 @@ $received_reviews = CDV_Reviews::get_user_reviews($current_user->ID, 20);
                     <?php wp_reset_postdata(); ?>
                 </div>
             <?php else : ?>
-                <p class="no-content">Non hai ancora creato nessun viaggio. <a href="<?php echo esc_url(home_url('/crea-viaggio')); ?>" id="link-new-travel">Crea il tuo primo viaggio!</a></p>
+                <p class="no-content">You haven't created any journeys yet. <a href="<?php echo esc_url(home_url('/crea-viaggio')); ?>" id="link-new-travel">Create your first journey!</a></p>
             <?php endif; ?>
         </div>
 
-        <!-- Tab: Richieste di Partecipazione -->
+        <!-- Tab: Participation Requests -->
         <div class="tab-content" id="tab-requests">
-            <h2>Richieste di Partecipazione</h2>
+            <h2>Participation Requests</h2>
 
-            <!-- Richieste Inviate (viaggiatore) -->
+            <!-- Richieste Sendte (viaggiatore) -->
             <?php if (!empty($my_pending_requests)) : ?>
                 <div class="requests-section">
-                    <h3>Le Mie Richieste Inviate</h3>
+                    <h3>My Sent Requests</h3>
                     <div class="requests-list">
                         <?php foreach ($my_pending_requests as $request) : ?>
                             <div class="request-item sent-request" data-request-id="<?php echo $request->id; ?>">
@@ -268,28 +268,28 @@ $received_reviews = CDV_Reviews::get_user_reviews($current_user->ID, 20);
                                     <?php echo get_avatar($request->post_author, 60); ?>
                                     <div class="request-user-info">
                                         <h4>
-                                            <span class="request-label">Organizzatore:</span>
+                                            <span class="request-label">Organizer:</span>
                                             <a href="<?php echo CDV_User_Profiles::get_profile_url($request->post_author); ?>" target="_blank">
                                                 <?php echo esc_html($request->organizer_name); ?>
                                             </a>
                                         </h4>
-                                        <p class="request-travel">Viaggio: <strong><?php echo esc_html($request->post_title); ?></strong></p>
+                                        <p class="request-travel">Journey: <strong><?php echo esc_html($request->post_title); ?></strong></p>
                                         <p class="request-date">
                                             <i class="icon-clock"></i>
-                                            Inviata <?php echo human_time_diff(strtotime($request->requested_at), current_time('timestamp')); ?> fa
+                                            Sent <?php echo human_time_diff(strtotime($request->requested_at), current_time('timestamp')); ?> ago
                                         </p>
                                         <?php if (!empty($request->message)) : ?>
                                             <p class="request-message">"<?php echo esc_html($request->message); ?>"</p>
                                         <?php endif; ?>
                                         <p class="request-status">
-                                            <i class="icon-info"></i> In attesa di approvazione
+                                            <i class="icon-info"></i> Awaiting approval
                                         </p>
                                     </div>
                                 </div>
 
                                 <div class="request-actions">
                                     <a href="<?php echo home_url('/dashboard?tab=messages&user_id=' . $request->post_author . '&travel_id=' . $request->travel_id); ?>" class="btn btn-secondary">
-                                        <i class="icon-message"></i> Messaggia
+                                        <i class="icon-message"></i> Messagesa
                                     </a>
                                 </div>
                             </div>
@@ -298,10 +298,10 @@ $received_reviews = CDV_Reviews::get_user_reviews($current_user->ID, 20);
                 </div>
             <?php endif; ?>
 
-            <!-- Richieste Ricevute (organizzatore) -->
+            <!-- Received Requests (organizzatore) -->
             <?php if (!empty($pending_requests)) : ?>
                 <div class="requests-section">
-                    <h3>Richieste Ricevute</h3>
+                    <h3>Received Requests</h3>
                     <div class="requests-list">
                         <?php foreach ($pending_requests as $request) : ?>
                             <div class="request-item" data-request-id="<?php echo $request->id; ?>">
@@ -313,10 +313,10 @@ $received_reviews = CDV_Reviews::get_user_reviews($current_user->ID, 20);
                                                 <?php echo esc_html($request->user_login); ?>
                                             </a>
                                         </h4>
-                                        <p class="request-travel">Viaggio: <strong><?php echo esc_html($request->post_title); ?></strong></p>
+                                        <p class="request-travel">Journey: <strong><?php echo esc_html($request->post_title); ?></strong></p>
                                         <p class="request-date">
                                             <i class="icon-clock"></i>
-                                            <?php echo human_time_diff(strtotime($request->requested_at), current_time('timestamp')); ?> fa
+                                            <?php echo human_time_diff(strtotime($request->requested_at), current_time('timestamp')); ?> ago
                                         </p>
                                         <?php if (!empty($request->message)) : ?>
                                             <p class="request-message">"<?php echo esc_html($request->message); ?>"</p>
@@ -326,13 +326,13 @@ $received_reviews = CDV_Reviews::get_user_reviews($current_user->ID, 20);
 
                                 <div class="request-actions">
                                     <a href="<?php echo home_url('/dashboard?tab=messages&user_id=' . $request->user_id . '&travel_id=' . $request->travel_id); ?>" class="btn btn-sm btn-secondary">
-                                        <i class="icon-message"></i> Rispondi
+                                        <i class="icon-message"></i> Reply
                                     </a>
                                     <button class="btn btn-success approve-request" data-request-id="<?php echo $request->id; ?>" data-travel-id="<?php echo $request->travel_id; ?>" data-user-id="<?php echo $request->user_id; ?>">
-                                        <i class="icon-check"></i> Approva
+                                        <i class="icon-check"></i> Approve
                                     </button>
                                     <button class="btn btn-danger reject-request" data-request-id="<?php echo $request->id; ?>" data-travel-id="<?php echo $request->travel_id; ?>" data-user-id="<?php echo $request->user_id; ?>">
-                                        <i class="icon-x"></i> Rifiuta
+                                        <i class="icon-x"></i> Reject
                                     </button>
                                 </div>
                             </div>
@@ -341,15 +341,15 @@ $received_reviews = CDV_Reviews::get_user_reviews($current_user->ID, 20);
                 </div>
             <?php endif; ?>
 
-            <!-- Messaggio se non ci sono richieste -->
+            <!-- Messageso se non ci sono requests -->
             <?php if (empty($pending_requests) && empty($my_pending_requests)) : ?>
-                <p class="no-content">Nessuna richiesta di partecipazione in attesa.</p>
+                <p class="no-content">No pending participation requests.</p>
             <?php endif; ?>
         </div>
 
-        <!-- Tab: Viaggi a cui Partecipo -->
+        <!-- Tab: Journeys I'm Joining -->
         <div class="tab-content" id="tab-participating">
-            <h2>Viaggi a cui Partecipo</h2>
+            <h2>Journeys I'm Joining</h2>
 
             <?php if ($participated_travels && $participated_travels->have_posts()) : ?>
                 <div class="travels-grid">
@@ -359,16 +359,16 @@ $received_reviews = CDV_Reviews::get_user_reviews($current_user->ID, 20);
                     <?php wp_reset_postdata(); ?>
                 </div>
             <?php else : ?>
-                <p class="no-content">Non stai partecipando a nessun viaggio. <a href="<?php echo get_post_type_archive_link('viaggio'); ?>">Cerca un viaggio!</a></p>
+                <p class="no-content">You are not participating in any journeys. <a href="<?php echo get_post_type_archive_link('viaggio'); ?>">Search for a journey!</a></p>
             <?php endif; ?>
         </div>
 
-        <!-- Tab: I Miei Racconti -->
+        <!-- Tab: My Stories -->
         <div class="tab-content" id="tab-my-stories">
             <div class="section-header">
-                <h2>I Miei Racconti</h2>
+                <h2>My Stories</h2>
                 <a href="<?php echo esc_url(home_url('/racconta-viaggio')); ?>" class="btn btn-primary">
-                    <i class="icon-plus"></i> Nuovo Racconto
+                    <i class="icon-plus"></i> New Story
                 </a>
             </div>
 
@@ -393,8 +393,8 @@ $received_reviews = CDV_Reviews::get_user_reviews($current_user->ID, 20);
                                 </h3>
 
                                 <div class="story-meta" style="display: flex; gap: 1rem; margin-bottom: 1rem; font-size: 0.875rem; color: #666;">
-                                    <span>👁 <?php echo number_format_i18n($story_stats['views']); ?> visualizzazioni</span>
-                                    <span>💬 <?php echo number_format_i18n($story_stats['comments']); ?> commenti</span>
+                                    <span>👁 <?php echo number_format_i18n($story_stats['views']); ?> views</span>
+                                    <span>💬 <?php echo number_format_i18n($story_stats['comments']); ?> comments</span>
                                 </div>
 
                                 <div class="story-excerpt" style="color: #666; font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem;">
@@ -403,10 +403,10 @@ $received_reviews = CDV_Reviews::get_user_reviews($current_user->ID, 20);
 
                                 <div class="story-actions" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
                                     <a href="<?php echo esc_url(add_query_arg('story_id', get_the_ID(), home_url('/racconta-viaggio'))); ?>" class="btn btn-secondary btn-sm">
-                                        Modifica
+                                        Edit
                                     </a>
                                     <a href="<?php the_permalink(); ?>" class="btn btn-secondary btn-sm" target="_blank">
-                                        Visualizza
+                                        View
                                     </a>
                                 </div>
                             </div>
@@ -416,29 +416,29 @@ $received_reviews = CDV_Reviews::get_user_reviews($current_user->ID, 20);
                 </div>
             <?php else : ?>
                 <div class="no-content">
-                    <p>Non hai ancora pubblicato nessun racconto.</p>
+                    <p>You haven't published any stories yet.</p>
                     <a href="<?php echo esc_url(home_url('/racconta-viaggio')); ?>" class="btn btn-primary" style="margin-top: 1rem;">
-                        Racconta il Tuo Primo Viaggio
+                        Tell Your First Journey Story
                     </a>
                 </div>
             <?php endif; ?>
         </div>
 
-        <!-- Tab: Messaggi -->
+        <!-- Tab: Messages -->
         <div class="tab-content" id="tab-messages">
-            <h2>Messaggi</h2>
+            <h2>Messages</h2>
 
             <div class="messages-container">
                 <div class="conversations-list">
-                    <h3>Conversazioni</h3>
+                    <h3>Conversations</h3>
                     <div id="conversations-list-content">
-                        <p class="loading-message">Caricamento conversazioni...</p>
+                        <p class="loading-message">Loading conversations...</p>
                     </div>
                 </div>
 
                 <div class="message-thread">
                     <div class="no-conversation-selected">
-                        <p>Seleziona una conversazione per visualizzare i messaggi</p>
+                        <p>Select a conversation to view messages</p>
                     </div>
 
                     <div class="conversation-view" style="display: none;">
@@ -449,7 +449,7 @@ $received_reviews = CDV_Reviews::get_user_reviews($current_user->ID, 20);
                             </div>
                             <div class="conversation-actions">
                                 <button class="btn btn-sm btn-danger" id="block-conversation-btn">
-                                    Blocca Conversazione
+                                    Block Conversation
                                 </button>
                             </div>
                         </div>
@@ -459,24 +459,24 @@ $received_reviews = CDV_Reviews::get_user_reviews($current_user->ID, 20);
                         </div>
 
                         <div class="message-compose">
-                            <textarea id="message-input" placeholder="Scrivi un messaggio..." rows="3"></textarea>
-                            <button class="btn btn-primary" id="send-message-btn">Invia</button>
+                            <textarea id="message-input" placeholder="Write a message..." rows="3"></textarea>
+                            <button class="btn btn-primary" id="send-message-btn">Send</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Tab: Recensioni -->
+        <!-- Tab: Reviews -->
         <div class="tab-content" id="tab-reviews">
-            <h2>Recensioni</h2>
+            <h2>Reviews</h2>
 
             <!-- Pending Reviews Section -->
             <?php if (!empty($pending_reviews)) : ?>
                 <div class="reviews-section">
                     <div class="section-header">
-                        <h3>Recensioni da Lasciare (<?php echo $pending_reviews_count; ?>)</h3>
-                        <p style="color: #6c757d; margin: 10px 0;">Lascia una recensione per i compagni di viaggio dei tuoi viaggi completati.</p>
+                        <h3>Reviews da Lasciare (<?php echo $pending_reviews_count; ?>)</h3>
+                        <p style="color: #6c757d; margin: 10px 0;">Leave a review for your travel companions from completed journeys.</p>
                     </div>
 
                     <div class="pending-reviews-list">
@@ -532,7 +532,7 @@ $received_reviews = CDV_Reviews::get_user_reviews($current_user->ID, 20);
             <!-- Received Reviews Section -->
             <div class="reviews-section" style="margin-top: 40px;">
                 <div class="section-header">
-                    <h3>Recensioni Ricevute (<?php echo count($received_reviews); ?>)</h3>
+                    <h3>Reviews Ricevute (<?php echo count($received_reviews); ?>)</h3>
                 </div>
 
                 <?php if (!empty($received_reviews)) : ?>
@@ -582,19 +582,19 @@ $received_reviews = CDV_Reviews::get_user_reviews($current_user->ID, 20);
 
                                 <div class="review-scores-detail">
                                     <div class="score-item">
-                                        <span class="score-label">Puntualità:</span>
+                                        <span class="score-label">Punctuality:</span>
                                         <span class="score-value"><?php echo $review->punctuality; ?>/5</span>
                                     </div>
                                     <div class="score-item">
-                                        <span class="score-label">Spirito di Gruppo:</span>
+                                        <span class="score-label">Group Spirit:</span>
                                         <span class="score-value"><?php echo $review->group_spirit; ?>/5</span>
                                     </div>
                                     <div class="score-item">
-                                        <span class="score-label">Rispetto:</span>
+                                        <span class="score-label">Respect:</span>
                                         <span class="score-value"><?php echo $review->respect; ?>/5</span>
                                     </div>
                                     <div class="score-item">
-                                        <span class="score-label">Adattabilità:</span>
+                                        <span class="score-label">Adaptability:</span>
                                         <span class="score-value"><?php echo $review->adaptability; ?>/5</span>
                                     </div>
                                 </div>
@@ -615,10 +615,10 @@ $received_reviews = CDV_Reviews::get_user_reviews($current_user->ID, 20);
             </div>
         </div>
 
-        <!-- Tab: Notifiche -->
+        <!-- Tab: Notifications -->
         <div class="tab-content" id="tab-notifications">
             <div class="section-header">
-                <h2>🔔 Notifiche</h2>
+                <h2>🔔 Notifications</h2>
                 <button class="btn btn-sm btn-secondary" id="mark-all-read-btn">
                     Segna Tutte Come Lette
                 </button>
@@ -723,10 +723,10 @@ $received_reviews = CDV_Reviews::get_user_reviews($current_user->ID, 20);
             <?php endif; ?>
         </div>
 
-        <!-- Tab: Invita Amici (Referral) -->
+        <!-- Tab: Invite Friends (Referral) -->
         <div class="tab-content" id="tab-referral">
             <div class="section-header">
-                <h2>🎁 Invita Amici e Guadagna Punti</h2>
+                <h2>🎁 Invite Friends e Guadagna Punti</h2>
                 <p>Condividi il tuo codice referral con gli amici e guadagna punti quando si iscrivono!</p>
             </div>
 
@@ -808,11 +808,11 @@ $received_reviews = CDV_Reviews::get_user_reviews($current_user->ID, 20);
             </div>
         </div>
 
-        <!-- Tab: Statistiche (Statistics for Organizers) -->
+        <!-- Tab: Statistics (Statistics for Organizers) -->
         <?php if ($user_travels_count > 0) : ?>
         <div class="tab-content" id="tab-statistics">
             <div class="section-header">
-                <h2>📊 Le Tue Statistiche</h2>
+                <h2>📊 Le Tue Statistics</h2>
                 <p>Analisi dettagliata delle performance dei tuoi viaggi</p>
             </div>
 
@@ -837,9 +837,9 @@ $received_reviews = CDV_Reviews::get_user_reviews($current_user->ID, 20);
         </div>
         <?php endif; ?>
 
-        <!-- Tab: Impostazioni -->
+        <!-- Tab: Settings -->
         <div class="tab-content" id="tab-settings">
-            <h2>Impostazioni Profilo</h2>
+            <h2>Settings Profilo</h2>
 
             <!-- Profile Image Upload -->
             <div class="settings-section">
@@ -897,7 +897,7 @@ $received_reviews = CDV_Reviews::get_user_reviews($current_user->ID, 20);
                         <textarea id="edit_bio" name="bio" rows="4"><?php echo esc_textarea(get_user_meta($current_user->ID, 'cdv_bio', true)); ?></textarea>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Salva Modifiche</button>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
                 </form>
             </div>
 
@@ -924,8 +924,8 @@ $received_reviews = CDV_Reviews::get_user_reviews($current_user->ID, 20);
             <!-- Delete Account -->
             <div class="settings-section danger-zone">
                 <h3>Zona Pericolosa</h3>
-                <p><strong>Elimina Account</strong> - Questa azione è irreversibile. Tutti i tuoi dati, viaggi e messaggi saranno eliminati permanentemente.</p>
-                <button type="button" class="btn btn-danger" id="delete-account-btn">Elimina Account</button>
+                <p><strong>Delete Account</strong> - Questa azione è irreversibile. Tutti i tuoi dati, viaggi e messaggi saranno eliminati permanentemente.</p>
+                <button type="button" class="btn btn-danger" id="delete-account-btn">Delete Account</button>
             </div>
         </div>
     </div>
@@ -942,11 +942,11 @@ $received_reviews = CDV_Reviews::get_user_reviews($current_user->ID, 20);
                 <input type="hidden" id="review-user-id" name="reviewed_id">
 
                 <div class="disclaimer-box" style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin-bottom: 25px; border-radius: 4px;">
-                    <p style="margin: 0; font-size: 14px;"><strong>⚠️ Importante:</strong> Le recensioni devono essere oneste, rispettose e basate sulla tua esperienza reale. Recensioni offensive o false possono portare alla rimozione del tuo account.</p>
+                    <p style="margin: 0; font-size: 14px;"><strong>⚠️ Importante:</strong> Le recensioni devono essere oneste, rispettose e basate sulla tua esperienza reale. Reviews offensive o false possono portare alremoval del tuo account.</p>
                 </div>
 
                 <div class="form-group">
-                    <label>Valuta il Compagno di Viaggio</label>
+                    <label>Rate Your Travel Companion</label>
                     <p style="font-size: 14px; color: #6c757d; margin-bottom: 15px;">Assegna un punteggio da 1 a 5 per ciascuna categoria</p>
 
                     <div class="rating-group">
@@ -999,13 +999,13 @@ $received_reviews = CDV_Reviews::get_user_reviews($current_user->ID, 20);
                 </div>
 
                 <div class="form-group">
-                    <label for="review-comment">Commento (opzionale)</label>
+                    <label for="review-comment">Comment (optional)</label>
                     <textarea id="review-comment" name="comment" rows="4" placeholder="Condividi la tua esperienza con questo compagno di viaggio..."></textarea>
                 </div>
 
                 <div class="form-actions" style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px;">
                     <button type="button" class="btn btn-secondary modal-close">Annulla</button>
-                    <button type="submit" class="btn btn-primary">Invia Recensione</button>
+                    <button type="submit" class="btn btn-primary">Send Recensione</button>
                 </div>
             </form>
         </div>
@@ -2564,7 +2564,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         alert('Stato del viaggio aggiornato con successo!');
                         location.reload();
                     } else {
-                        alert('Errore: ' + response.data);
+                        alert('Error: ' + response.data);
                     }
                 }
             });
@@ -2593,7 +2593,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         alert('Viaggio eliminato con successo!');
                         location.reload();
                     } else {
-                        alert('Errore: ' + response.data);
+                        alert('Error: ' + response.data);
                     }
                 }
             });
@@ -2621,7 +2621,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         alert('Richiesta approvata!');
                         location.reload();
                     } else {
-                        alert('Errore: ' + response.data);
+                        alert('Error: ' + response.data);
                     }
                 }
             });
@@ -2653,7 +2653,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         alert('Richiesta rifiutata.');
                         location.reload();
                     } else {
-                        alert('Errore: ' + response.data);
+                        alert('Error: ' + response.data);
                     }
                 }
             });
@@ -2703,11 +2703,11 @@ document.addEventListener('DOMContentLoaded', function() {
                         location.reload();
                     }, 1000);
                 } else {
-                    document.getElementById('upload-status').innerHTML = '<div class="error-message">' + (response.data.message || 'Errore durante il caricamento') + '</div>';
+                    document.getElementById('upload-status').innerHTML = '<div class="error-message">' + (response.data.message || 'Error during uploading') + '</div>';
                 }
             },
             error: function() {
-                document.getElementById('upload-status').innerHTML = '<div class="error-message">Errore di connessione</div>';
+                document.getElementById('upload-status').innerHTML = '<div class="error-message">Connection error</div>';
             }
         });
     });
@@ -2738,12 +2738,12 @@ document.addEventListener('DOMContentLoaded', function() {
                         location.reload();
                     }, 1000);
                 } else {
-                    document.getElementById('upload-status').innerHTML = '<div class="error-message">' + (response.data.message || 'Errore durante la rimozione') + '</div>';
+                    document.getElementById('upload-status').innerHTML = '<div class="error-message">' + (response.data.message || 'Error during removal') + '</div>';
                     $btn.prop('disabled', false).text(originalText);
                 }
             },
             error: function() {
-                document.getElementById('upload-status').innerHTML = '<div class="error-message">Errore di connessione</div>';
+                document.getElementById('upload-status').innerHTML = '<div class="error-message">Connection error</div>';
                 $btn.prop('disabled', false).text(originalText);
             }
         });
@@ -2768,11 +2768,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     alert('Profilo aggiornato con successo!');
                     location.reload();
                 } else {
-                    alert(response.data.message || 'Errore durante l\'aggiornamento');
+                    alert(response.data.message || 'Error during l\'aggiornamento');
                 }
             },
             error: function() {
-                alert('Errore di connessione');
+                alert('Connection error');
             }
         });
     });
@@ -2804,11 +2804,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     alert('Password cambiata con successo!');
                     document.getElementById('change-password-form').reset();
                 } else {
-                    alert(response.data.message || 'Errore durante il cambio password');
+                    alert(response.data.message || 'Error during password change');
                 }
             },
             error: function() {
-                alert('Errore di connessione');
+                alert('Connection error');
             }
         });
     });
@@ -2822,7 +2822,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const doubleConfirm = prompt('Scrivi "ELIMINA" per confermare:');
 
         if (doubleConfirm !== 'ELIMINA') {
-            alert('Eliminazione annullata');
+            alert('Deletezione annullata');
             return;
         }
 
@@ -2838,11 +2838,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     alert('Account eliminato. Arrivederci!');
                     window.location.href = '<?php echo home_url(); ?>';
                 } else {
-                    alert(response.data.message || 'Errore durante l\'eliminazione');
+                    alert(response.data.message || 'Error during l\'eliminazione');
                 }
             },
             error: function() {
-                alert('Errore di connessione');
+                alert('Connection error');
             }
         });
     });
@@ -2896,7 +2896,7 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             error: function() {
                 document.getElementById('conversations-list-content').innerHTML =
-                    '<p class="loading-message">Errore nel caricamento delle conversazioni</p>';
+                    '<p class="loading-message">Error loading delle conversazioni</p>';
             }
         });
     }
@@ -2973,11 +2973,11 @@ document.addEventListener('DOMContentLoaded', function() {
                         refreshMessages(otherUserId, travelId);
                     }, 10000);
                 } else {
-                    alert('Errore nel caricamento della conversazione: ' + (response.data?.message || 'Sconosciuto'));
+                    alert('Error loading della conversazione: ' + (response.data?.message || 'Sconosciuto'));
                 }
             },
             error: function() {
-                alert('Errore di connessione');
+                alert('Connection error');
             }
         });
     }
@@ -2989,7 +2989,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Update header
         document.getElementById('conversation-user-name').textContent = data.other_user_name;
-        document.getElementById('conversation-travel-title').textContent = 'Viaggio: ' + data.travel_title;
+        document.getElementById('conversation-travel-title').textContent = 'Journey: ' + data.travel_title;
 
         // Update block button
         const blockBtn = document.getElementById('block-conversation-btn');
@@ -2998,7 +2998,7 @@ document.addEventListener('DOMContentLoaded', function() {
             blockBtn.classList.remove('btn-danger');
             blockBtn.classList.add('btn-secondary');
         } else {
-            blockBtn.textContent = 'Blocca Conversazione';
+            blockBtn.textContent = 'Block Conversation';
             blockBtn.classList.remove('btn-secondary');
             blockBtn.classList.add('btn-danger');
         }
@@ -3072,7 +3072,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const message = messageInput.value.trim();
 
         if (!message) {
-            alert('Scrivi un messaggio prima di inviare');
+            alert('Write a message...ima di inviare');
             return;
         }
 
@@ -3095,7 +3095,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             },
             error: function() {
-                alert('Errore di connessione');
+                alert('Connection error');
             }
         });
     }
@@ -3126,11 +3126,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     loadConversation(currentConversation.user_id, currentConversation.travel_id);
                     loadConversations(); // Refresh conversation list
                 } else {
-                    alert('Errore: ' + (response.data?.message || 'Sconosciuto'));
+                    alert('Error: ' + (response.data?.message || 'Sconosciuto'));
                 }
             },
             error: function() {
-                alert('Errore di connessione');
+                alert('Connection error');
             }
         });
     });
@@ -3238,12 +3238,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Validate all ratings are set
         if (!punctuality || !groupSpirit || !respect || !adaptability) {
-            alert('Per favore, assegna un punteggio per tutte e 4 le categorie');
+            alert('Please assign a score for all 4 categories');
             return;
         }
 
         if (punctuality < 1 || groupSpirit < 1 || respect < 1 || adaptability < 1) {
-            alert('Per favore, assegna un punteggio per tutte e 4 le categorie');
+            alert('Please assign a score for all 4 categories');
             return;
         }
 
@@ -3272,15 +3272,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Reload page to update reviews list
                     location.reload();
                 } else {
-                    alert('Errore: ' + (response.data?.message || 'Si è verificato un errore'));
+                    alert('Error: ' + (response.data?.message || 'An error occurred'));
                     submitButton.disabled = false;
-                    submitButton.textContent = 'Invia Recensione';
+                    submitButton.textContent = 'Send Recensione';
                 }
             },
             error: function() {
-                alert('Errore di connessione. Riprova più tardi.');
+                alert('Connection error. Try again later.');
                 submitButton.disabled = false;
-                submitButton.textContent = 'Invia Recensione';
+                submitButton.textContent = 'Send Recensione';
             }
         });
     });
@@ -3362,7 +3362,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 },
                 error: function() {
-                    alert('Errore durante la rimozione dalla wishlist');
+                    alert('Error during removal dalla wishlist');
                     btn.disabled = false;
                 }
             });
@@ -3414,11 +3414,11 @@ document.addEventListener('DOMContentLoaded', function() {
                         container.innerHTML = html;
                     }
                 } else {
-                    container.innerHTML = '<div class="error-message">Errore nel caricamento delle notifiche</div>';
+                    container.innerHTML = '<div class="error-message">Error loading delle notifiche</div>';
                 }
             },
             error: function() {
-                container.innerHTML = '<div class="error-message">Errore di connessione</div>';
+                container.innerHTML = '<div class="error-message">Connection error</div>';
             }
         });
     }
@@ -3575,7 +3575,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         stats.recent.forEach(ref => {
                             const statusClass = ref.status === 'completed' ? 'success' : 'pending';
                             const statusIcon = ref.status === 'completed' ? '✅' : '⏳';
-                            const statusText = ref.status === 'completed' ? 'Completato' : 'In Attesa';
+                            const statusText = ref.status === 'completed' ? 'Completed' : 'In Attesa';
                             const date = new Date(ref.created_at).toLocaleDateString('it-IT');
 
                             historyHTML += `
@@ -3715,12 +3715,12 @@ document.addEventListener('DOMContentLoaded', function() {
                             <div class="stat-overview-card">
                                 <div class="stat-icon">⭐</div>
                                 <div class="stat-number">${stats.overview.average_rating.toFixed(1)}</div>
-                                <div class="stat-label">Valutazione Media</div>
+                                <div class="stat-label">Average Rating</div>
                             </div>
                             <div class="stat-overview-card">
                                 <div class="stat-icon">💬</div>
                                 <div class="stat-number">${stats.overview.total_reviews}</div>
-                                <div class="stat-label">Recensioni Ricevute</div>
+                                <div class="stat-label">Reviews Ricevute</div>
                             </div>
                             <div class="stat-overview-card">
                                 <div class="stat-icon">💰</div>
@@ -3766,7 +3766,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <div class="dest-stats">
                                         <span>${dest.travel_count} viagg${dest.travel_count === 1 ? 'io' : 'i'}</span>
                                         <span>•</span>
-                                        <span>${dest.total_participants} partecipanti</span>
+                                        <span>${dest.total_participants} participants</span>
                                     </div>
                                 </div>
                             `;
@@ -3790,7 +3790,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             },
             error: function() {
-                document.querySelector('.stats-loading-container').innerHTML = '<p>Errore nel caricamento delle statistiche.</p>';
+                document.querySelector('.stats-loading-container').innerHTML = '<p>Error loading delle statistiche.</p>';
             }
         });
     }

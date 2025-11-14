@@ -11,41 +11,41 @@ get_header();
         <div class="error-404-content">
             <div class="error-icon">🧭</div>
 
-            <h1 class="error-title">404 - Pagina Non Trovata</h1>
+            <h1 class="error-title">404 - Page Not Found</h1>
 
             <p class="error-message">
-                Ops! La pagina che stai cercando sembra essere scomparsa come un viaggiatore in esplorazione.
+                Oops! The page you're looking for seems to have disappeared like a traveler on an expedition.
             </p>
 
             <div class="error-suggestions">
-                <h2>Cosa puoi fare:</h2>
+                <h2>What you can do:</h2>
 
                 <div class="suggestions-grid">
                     <div class="suggestion-card">
                         <div class="suggestion-icon">🏠</div>
-                        <h3>Torna alla Home</h3>
-                        <p>Ricomincia dalla homepage e scopri i nostri viaggi</p>
+                        <h3>Go to Homepage</h3>
+                        <p>Start from the homepage and discover our journeys</p>
                         <a href="<?php echo home_url(); ?>" class="btn btn-primary">
-                            Vai alla Home
+                            Go to Home
                         </a>
                     </div>
 
                     <div class="suggestion-card">
                         <div class="suggestion-icon">🌍</div>
-                        <h3>Esplora i Viaggi</h3>
-                        <p>Trova compagni per la tua prossima avventura</p>
+                        <h3>Explore Journeys</h3>
+                        <p>Find companions for your next adventure</p>
                         <a href="<?php echo get_post_type_archive_link('viaggio'); ?>" class="btn btn-secondary">
-                            Scopri i Viaggi
+                            Discover Journeys
                         </a>
                     </div>
 
                     <div class="suggestion-card">
                         <div class="suggestion-icon">🔍</div>
-                        <h3>Cerca nel Sito</h3>
-                        <p>Usa la ricerca per trovare quello che cerchi</p>
+                        <h3>Search</h3>
+                        <p>Use search to find what you're looking for</p>
                         <form role="search" method="get" class="search-form" action="<?php echo home_url('/'); ?>">
-                            <input type="search" class="search-field" placeholder="Cerca..." name="s">
-                            <button type="submit" class="search-submit">Cerca</button>
+                            <input type="search" class="search-field" placeholder="Search..." name="s">
+                            <button type="submit" class="search-submit">Search</button>
                         </form>
                     </div>
                 </div>
@@ -53,32 +53,32 @@ get_header();
 
             <?php if (is_user_logged_in()) : ?>
                 <div class="user-actions">
-                    <p>Oppure vai alla tua dashboard:</p>
+                    <p>Or go to your dashboard:</p>
                     <a href="<?php echo home_url('/dashboard/'); ?>" class="btn btn-outline">
-                        Vai alla Dashboard
+                        Go to Dashboard
                     </a>
                 </div>
             <?php else : ?>
                 <div class="user-actions">
-                    <p>Non hai ancora un account?</p>
+                    <p>Don't have an account yet?</p>
                     <a href="<?php echo home_url('/registrazione/'); ?>" class="btn btn-outline">
-                        Registrati Gratis
+                        Register for Free
                     </a>
                 </div>
             <?php endif; ?>
 
             <!-- Popular Links -->
             <div class="popular-links">
-                <h3>Link Popolari</h3>
+                <h3>Popular Links</h3>
                 <ul>
                     <li><a href="<?php echo home_url(); ?>">Homepage</a></li>
-                    <li><a href="<?php echo get_post_type_archive_link('viaggio'); ?>">Tutti i Viaggi</a></li>
+                    <li><a href="<?php echo get_post_type_archive_link('viaggio'); ?>">All Journeys</a></li>
                     <?php if (!is_user_logged_in()) : ?>
-                        <li><a href="<?php echo home_url('/registrazione/'); ?>">Registrazione</a></li>
-                        <li><a href="<?php echo wp_login_url(); ?>">Accedi</a></li>
+                        <li><a href="<?php echo home_url('/registrazione/'); ?>">Registration</a></li>
+                        <li><a href="<?php echo wp_login_url(); ?>">Log In</a></li>
                     <?php endif; ?>
-                    <li><a href="<?php echo home_url('/chi-siamo/'); ?>">Chi Siamo</a></li>
-                    <li><a href="<?php echo home_url('/contatti/'); ?>">Contatti</a></li>
+                    <li><a href="<?php echo home_url('/chi-siamo/'); ?>">About Us</a></li>
+                    <li><a href="<?php echo home_url('/contatti/'); ?>">Contact</a></li>
                 </ul>
             </div>
         </div>

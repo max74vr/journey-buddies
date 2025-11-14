@@ -28,9 +28,9 @@ function cdv_theme_setup() {
 
     // Register navigation menus
     register_nav_menus(array(
-        'primary' => __('Menu Principale', 'compagni-viaggi'),
-        'mobile' => __('Menu Mobile', 'compagni-viaggi'),
-        'footer' => __('Menu Footer', 'compagni-viaggi'),
+        'primary' => __('Primary Menu', 'compagni-viaggi'),
+        'mobile' => __('Mobile Menu', 'compagni-viaggi'),
+        'footer' => __('Footer Menu', 'compagni-viaggi'),
     ));
 
     // Switch default core markup to output valid HTML5
@@ -93,7 +93,7 @@ function cdv_widgets_init() {
     register_sidebar(array(
         'name'          => __('Sidebar', 'compagni-viaggi'),
         'id'            => 'sidebar-1',
-        'description'   => __('Aggiungi widget qui per apparire nella sidebar.', 'compagni-viaggi'),
+        'description'   => __('Add widgets here to appear in the sidebar.', 'compagni-viaggi'),
         'before_widget' => '<section id="%1$s" class="widget %2$s">',
         'after_widget'  => '</section>',
         'before_title'  => '<h3 class="widget-title">',
@@ -103,7 +103,7 @@ function cdv_widgets_init() {
     register_sidebar(array(
         'name'          => __('Footer 1', 'compagni-viaggi'),
         'id'            => 'footer-1',
-        'description'   => __('Prima colonna del footer.', 'compagni-viaggi'),
+        'description'   => __('First footer column.', 'compagni-viaggi'),
         'before_widget' => '<div class="footer-widget">',
         'after_widget'  => '</div>',
         'before_title'  => '<h3>',
@@ -113,7 +113,7 @@ function cdv_widgets_init() {
     register_sidebar(array(
         'name'          => __('Footer 2', 'compagni-viaggi'),
         'id'            => 'footer-2',
-        'description'   => __('Seconda colonna del footer.', 'compagni-viaggi'),
+        'description'   => __('Second footer column.', 'compagni-viaggi'),
         'before_widget' => '<div class="footer-widget">',
         'after_widget'  => '</div>',
         'before_title'  => '<h3>',
@@ -123,7 +123,7 @@ function cdv_widgets_init() {
     register_sidebar(array(
         'name'          => __('Footer 3', 'compagni-viaggi'),
         'id'            => 'footer-3',
-        'description'   => __('Terza colonna del footer.', 'compagni-viaggi'),
+        'description'   => __('Third footer column.', 'compagni-viaggi'),
         'before_widget' => '<div class="footer-widget">',
         'after_widget'  => '</div>',
         'before_title'  => '<h3>',
@@ -167,10 +167,10 @@ function cdv_travel_meta($post_id = null) {
                 <span class="icon">📅</span>
                 <?php
                 if ($date_type === 'month') {
-                    // Mostra solo il mese
+                    // Show only the month
                     echo date_i18n('F Y', strtotime($start_date));
                 } else {
-                    // Mostra date precise
+                    // Show precise dates
                     echo date_i18n('d/m/Y', strtotime($start_date));
                     if ($end_date) echo ' - ' . date_i18n('d/m/Y', strtotime($end_date));
                 }
@@ -188,7 +188,7 @@ function cdv_travel_meta($post_id = null) {
         <?php if ($max_participants) : ?>
             <span class="meta-item">
                 <span class="icon">👥</span>
-                <?php echo $current_participants; ?>/<?php echo $max_participants; ?> partecipanti
+                <?php echo $current_participants; ?>/<?php echo $max_participants; ?> participants
             </span>
         <?php endif; ?>
     </div>
@@ -215,7 +215,7 @@ function cdv_organizer_info($author_id = null) {
             <div class="organizer-name">
                 <?php echo esc_html($author->user_login); ?>
                 <?php if ($verified === '1') : ?>
-                    <span class="verified-badge" title="Verificato">✓</span>
+                    <span class="verified-badge" title="Verified">✓</span>
                 <?php endif; ?>
             </div>
             <?php if ($reputation) : ?>
@@ -287,11 +287,11 @@ function cdv_get_travel_status_label($post_id = null) {
     $status = get_post_meta($post_id, 'cdv_travel_status', true);
 
     $labels = array(
-        'open' => array('label' => 'Aperto', 'class' => 'success'),
-        'full' => array('label' => 'Completo', 'class' => 'warning'),
-        'in_progress' => array('label' => 'In Corso', 'class' => 'info'),
-        'completed' => array('label' => 'Completato', 'class' => 'secondary'),
-        'cancelled' => array('label' => 'Annullato', 'class' => 'error'),
+        'open' => array('label' => 'Open', 'class' => 'success'),
+        'full' => array('label' => 'Full', 'class' => 'warning'),
+        'in_progress' => array('label' => 'In Progress', 'class' => 'info'),
+        'completed' => array('label' => 'Completed', 'class' => 'secondary'),
+        'cancelled' => array('label' => 'Cancelled', 'class' => 'error'),
     );
 
     if (empty($status)) {
@@ -311,9 +311,9 @@ function cdv_get_travel_status_label($post_id = null) {
 function cdv_pagination() {
     the_posts_pagination(array(
         'mid_size' => 2,
-        'prev_text' => '<span class="pagination-arrow">←</span> <span class="pagination-text">Precedente</span>',
-        'next_text' => '<span class="pagination-text">Successivo</span> <span class="pagination-arrow">→</span>',
-        'before_page_number' => '<span class="screen-reader-text">Pagina </span>',
+        'prev_text' => '<span class="pagination-arrow">←</span> <span class="pagination-text">Previous</span>',
+        'next_text' => '<span class="pagination-text">Next</span> <span class="pagination-arrow">→</span>',
+        'before_page_number' => '<span class="screen-reader-text">Page </span>',
         'class' => 'cdv-pagination',
     ));
 }
@@ -378,7 +378,7 @@ require_once get_template_directory() . '/inc/customizer.php';
 function cdv_add_custom_css_meta_box() {
     add_meta_box(
         'cdv_custom_css',
-        'CSS Personalizzato',
+        'Custom CSS',
         'cdv_custom_css_meta_box_callback',
         array('page', 'post', 'viaggio'),
         'normal',
@@ -395,9 +395,9 @@ function cdv_custom_css_meta_box_callback($post) {
     $custom_css = get_post_meta($post->ID, '_cdv_custom_css', true);
     ?>
     <p>
-        <label for="cdv_custom_css"><strong>CSS per questa pagina:</strong></label>
+        <label for="cdv_custom_css"><strong>CSS for this page:</strong></label>
         <small style="display: block; margin-top: 5px; color: #666;">
-            Non è necessario aggiungere i tag &lt;style&gt;. Il CSS verrà applicato solo a questa pagina.
+            No need to add &lt;style&gt; tags. CSS will be applied only to this page.
         </small>
     </p>
     <textarea id="cdv_custom_css" name="cdv_custom_css" rows="10" style="width: 100%; font-family: monospace; font-size: 13px;"><?php echo esc_textarea($custom_css); ?></textarea>
