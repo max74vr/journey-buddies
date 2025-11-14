@@ -1,0 +1,78 @@
+/**
+ * Admin CSS for Compagni di Viaggi
+ */
+
+/* Moderation status badges */
+.cdv-pending {
+    color: #f0ad4e;
+    font-weight: 600;
+}
+
+.cdv-approved {
+    color: #5cb85c;
+    font-weight: 600;
+}
+
+.cdv-rejected {
+    color: #d9534f;
+    font-weight: 600;
+}
+
+.cdv-user-pending {
+    color: #f0ad4e;
+    cursor: help;
+}
+
+/* Moderation buttons */
+.cdv-approve-travel,
+.cdv-reject-travel {
+    margin-top: 5px;
+}
+
+.cdv-approve-travel {
+    background: #5cb85c !important;
+    border-color: #4cae4c !important;
+    color: white !important;
+}
+
+.cdv-approve-travel:hover {
+    background: #4cae4c !important;
+    border-color: #398439 !important;
+}
+
+.cdv-reject-travel {
+    background: #d9534f !important;
+    border-color: #d43f3a !important;
+    color: white !important;
+}
+
+.cdv-reject-travel:hover {
+    background: #c9302c !important;
+    border-color: #ac2925 !important;
+}
+
+/* Performance dashboard styles */
+.cdv-performance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.cdv-performance-card {
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Admin notices improvements */
+.notice.cdv-custom-notice {
+    border-left-width: 4px;
+    padding: 12px;
+}
+
+.notice.cdv-custom-notice p {
+    margin: 0.5em 0;
+}

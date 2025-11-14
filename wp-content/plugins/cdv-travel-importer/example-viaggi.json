@@ -1,0 +1,62 @@
+[
+  {
+    "title": "Weekend a Lisbona: Tram, Pastéis e Fado",
+    "content": "Esploreremo insieme la magica Lisbona in un weekend intenso ma rilassato. Il nostro viaggio inizierà nel pittoresco quartiere di Alfama, dove ci perderemo tra le sue stradine acciottolate e scopriremo i segreti del Fado autentico. Saliremo sul famoso tram 28, che ci porterà attraverso i quartieri più caratteristici della città, e visiteremo il maestoso Castelo de São Jorge, da cui goderemo di una vista mozzafiato sulla città e sul Tago.\n\nNel secondo giorno, ci dirigeremo verso Belém per ammirare la Torre e il Monastero dos Jerónimos, capolavori dell'architettura manuelina. Naturalmente, non mancherà una sosta alla famosa Pastéis de Belém per gustare i migliori pastéis de nata della città! Nel pomeriggio, esploreremo il quartiere bohémien di Bairro Alto e il vivace Chiado, perfetti per lo shopping e per immergersi nell'atmosfera locale.\n\nLa sera, vivremo l'esperienza di una tradizionale casa de fado, dove ceneremo accompagnati da questa musica malinconica che è l'anima del Portogallo. L'ultimo giorno lo dedicheremo a una passeggiata rilassante lungo il fiume, visitando il moderno quartiere delle Nazioni e il suo straordinario Oceanário. Il viaggio include alloggio in guesthouse tipica nel centro, colazioni portoghesi e una cena con fado. Livello di attività: moderato, con molte passeggiate a piedi.",
+    "start_date": "2025-04-12",
+    "end_date": "2025-04-14",
+    "destination": "Lisbona",
+    "country": "Portogallo",
+    "budget": 450,
+    "max_participants": 8,
+    "tipo_viaggio": ["Città d'Arte", "Food & Wine"],
+    "image_search": "lisbon tram alfama portugal"
+  },
+  {
+    "title": "Trekking in Marocco: 7 giorni nel deserto del Sahara",
+    "content": "Un'avventura indimenticabile che ci porterà nel cuore del deserto del Sahara, tra le dune più spettacolari del Marocco. Partiremo da Marrakech e attraverseremo l'Alto Atlante, superando il passo del Tizi n'Tichka a 2260 metri, con panorami mozzafiato sulle montagne berbere. Visiteremo l'antica kasbah di Aït Benhaddou, patrimonio UNESCO, dove sono stati girati film famosi come Il Gladiatore e Game of Thrones.\n\nIl viaggio proseguirà attraverso la Valle delle Rose e le Gole del Todra, con le loro impressionanti pareti rocciose alte 300 metri. Raggiungeremo infine Merzouga, alle porte del deserto. Qui inizierà la parte più emozionante: un trekking di 3 giorni tra le dune di Erg Chebbi, alcune alte fino a 150 metri! Cammineremo accompagnati da guide berbere esperte e dromedari che porteranno i nostri bagagli.\n\nDormiremo in campi tendati tradizionali sotto un cielo stellato incredibile, cucineremo pane nel deserto, ascolteremo musica berbera intorno al fuoco e impareremo a leggere le stelle come facevano i nomadi. Assisteremo a albe e tramonti che sembrano dipinti, con i colori delle dune che cambiano dal dorato all'arancio intenso. Il viaggio include trasporto in 4x4, guide, pernottamenti (hotel + campo tendato), tutti i pasti e l'escursione nel deserto. Livello di attività: medio-alto, si cammina 4-6 ore al giorno nel deserto.",
+    "start_date": "2025-09-10",
+    "end_date": "2025-09-16",
+    "destination": "Merzouga",
+    "country": "Marocco",
+    "budget": 890,
+    "max_participants": 10,
+    "tipo_viaggio": ["Avventura", "Zaino in Spalla"],
+    "image_search": "morocco sahara desert dunes sunset"
+  },
+  {
+    "title": "Giappone in Fiore: Tokyo, Kyoto e Monte Fuji",
+    "content": "Un viaggio da sogno nel paese del Sol Levante durante la spettacolare fioritura dei ciliegi (Hanami). Inizieremo a Tokyo, dove la modernità incontra la tradizione: grattacieli futuristici, templi antichi, quartieri alla moda come Shibuya e Harajuku, e il mercato del pesce di Tsukiji. Passeremo una giornata nel quartiere tradizionale di Asakusa, visitando il tempio Sensoji, e un'altra a Akihabara, il paradiso degli anime e della tecnologia.\n\nCon lo Shinkansen (treno proiettile) raggiungeremo Kyoto, l'antica capitale imperiale, dove visiteremo alcuni dei 2000 templi e santuari, tra cui il Kinkaku-ji (Padiglione d'Oro), il Fushimi Inari con le sue 10.000 porte torii rosse, e il quartiere delle geishe di Gion. Parteciperemo a una cerimonia del tè tradizionale e passeremo una serata in un tipico izakaya giapponese.\n\nUna giornata sarà dedicata alla regione dei Cinque Laghi del Fuji, dove ammereremo il maestoso Monte Fuji riflesso nelle acque cristalline, circondati da ciliegi in fiore. L'esperienza include un pernottamento in un ryokan tradizionale con onsen (terme naturali) e cena kaiseki. Il viaggio include tutti i trasporti interni (JR Pass), 10 notti in hotel 3-4 stelle, alcune colazioni, e guide locali per le visite principali. Livello di attività: moderato, molto cammino a piedi esplorando le città.",
+    "start_date": "2025-03-28",
+    "end_date": "2025-04-06",
+    "destination": "Tokyo",
+    "country": "Giappone",
+    "budget": 2800,
+    "max_participants": 12,
+    "tipo_viaggio": ["Cultura", "Città d'Arte"],
+    "image_search": "japan cherry blossom tokyo mount fuji"
+  },
+  {
+    "title": "Road Trip Islanda: Aurora Boreale e Terme Naturali",
+    "content": "Un'avventura on the road lungo la Ring Road islandese, alla scoperta di paesaggi che sembrano di un altro pianeta. Voleremo a Reykjavik, ritireremo il nostro 4x4 e inizieremo il nostro viaggio circolare dell'isola. Il primo giorno esploreremo il famoso Circolo d'Oro: il Parco Nazionale di Þingvellir (dove si incontrano le placche tettoniche europea e americana), i geyser di Geysir e Strokkur, e la potente cascata di Gullfoss.\n\nProseguiremo lungo la costa sud, visitando le cascate di Seljalandsfoss (dietro cui si può camminare!) e Skógafoss, le spiagge di sabbia nera di Reynisfjara con i loro faraglioni basaltici, e i ghiacciai della regione di Vatnajökull. Faremo un'escursione sul ghiacciaio e visiteremo la laguna glaciale di Jökulsárlón, dove gli iceberg galleggiano creando uno spettacolo surreale.\n\nLa costa est ci regalerà fiordi drammatici e villaggi di pescatori isolati, mentre a nord visiteremo la 'capitale del nord' Akureyri e le spettacolari cascate di Dettifoss e Goðafoss. Concluderemo con il relax alle terme naturali della Laguna Blu. Ogni sera, se le condizioni meteo lo permetteranno, andremo a caccia dell'aurora boreale lontano dalle luci delle città. Il viaggio include noleggio 4x4, pernottamenti in guesthouse e hotel, alcune colazioni, e un'escursione sul ghiacciaio. Livello di attività: medio, con escursioni giornaliere opzionali.",
+    "start_date": "2025-11-05",
+    "end_date": "2025-11-14",
+    "destination": "Reykjavik",
+    "country": "Islanda",
+    "budget": 2200,
+    "max_participants": 6,
+    "tipo_viaggio": ["Avventura", "Relax"],
+    "image_search": "iceland northern lights aurora glacier"
+  },
+  {
+    "title": "Vela in Grecia: Isole Cicladi e Mare Cristallino",
+    "content": "Una settimana navigando tra le più belle isole delle Cicladi a bordo di una barca a vela confortevole. Partiremo da Atene (Alimos Marina) dopo aver fatto provviste al mercato locale, e salperemo verso le acque turchesi dell'Egeo. Nessuna esperienza di vela è richiesta: avremo uno skipper professionista che ci guiderà, ma tutti potranno imparare le basi della navigazione e partecipare alla conduzione della barca.\n\nIl nostro itinerario includerà alcune delle isole più belle: Kythnos con le sue terme naturali sul mare, Syros con la sua affascinante capitale Ermoupoli, Mykonos con le sue iconiche casette bianche e i mulini a vento, e Delos, l'isola sacra dove nacque Apollo. Navigheremo verso Paros e Antiparos, con le loro spiagge paradisiache e le taverne tradizionali dove mangeremo pesce freschissimo.\n\nOgni giorno sceglieremo insieme dove andare, adattando l'itinerario al vento e ai desideri del gruppo. Ci fermeremo in baie isolate accessibili solo via mare per fare snorkeling in acque cristalline, nuotare con le tartarughe, e goderci il silenzio. La sera, ormeggeremo nei porticcioli pittoreschi e cenreremo nelle taverne locali. A bordo prepareremo colazioni e pranzi semplici. La barca ha 4 cabine doppie con bagni privati, cucina attrezzata, e ampi spazi esterni. Include skipper, carburante, biancheria, e uso dell'attrezzatura snorkeling. Livello di attività: basso-medio, rilassante.",
+    "start_date": "2025-06-21",
+    "end_date": "2025-06-27",
+    "destination": "Atene",
+    "country": "Grecia",
+    "budget": 950,
+    "max_participants": 8,
+    "tipo_viaggio": ["Mare", "Relax"],
+    "image_search": "greece cyclades sailing mykonos blue sea"
+  }
+]
